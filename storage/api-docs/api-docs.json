@@ -1,0 +1,1276 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API for e-commerce ",
+        "description": "",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api",
+            "description": "localhost"
+        },
+        {
+            "url": "https://shopjozi.ir/api"
+        }
+    ],
+    "paths": {
+        "/addresses": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "List all addresses is user logged in",
+                "operationId": "2546b24a9a7aa656b01d1a689724d40a",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "update address is user logged in",
+                "operationId": "a0d96ebebbd43c9f57f19612c328e363",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "addresses": {
+                                        "description": "bla bla bla",
+                                        "type": "array",
+                                        "items": {}
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "address updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "address not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/app/version": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "APP Version",
+                "operationId": "f12ab446b18a1894e4162ba8cc0a24bf",
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/app/working-time": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "APP WORKING_TIME",
+                "operationId": "0862076bebfcc5e33d263101ade5f245",
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/app/instant-messagings": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "APP INSTANT_MESSAGINGS",
+                "operationId": "49f1f97951cde184088f42ab6ecd3846",
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/app/min-order-amount": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "APP MIN_ORDER_AMOUNT",
+                "operationId": "e6046cbeffe0d7d64d0acf01055fba5f",
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/app/slider-image": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "APP SLIDER_Image",
+                "operationId": "2c019b01ff33359cea55183ebaed58a6",
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/app/slider-vip": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "APP slider",
+                "operationId": "677a92ac3d7537b65c50cbd0b291551b",
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Login User",
+                "operationId": "99d66635c4992aeaa6aa44ff653d0563",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "the mobile",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/verify": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Verify of user by code sms",
+                "operationId": "7d04f9fc43220d426915a12494677733",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "phone number",
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "description": "code",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "access all api",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid verify",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/refresh/token": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Refresh user the token jwt",
+                "operationId": "3a676ce52276888771566a3a6c8116a0",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/profile": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Display info user logined",
+                "operationId": "1f6858ab2d3455d51ba9ba38e75d8d69",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/logout": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "logout the user",
+                "operationId": "6abf3b64a4bc7838d56346f05a5153af",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/profile/edit": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Profile edit info user logined",
+                "operationId": "5ac68a8e6e303e3f898e154b699098a4",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "name",
+                                        "type": "string"
+                                    },
+                                    "tel": {
+                                        "description": "tel",
+                                        "type": "string"
+                                    },
+                                    "zip_code": {
+                                        "description": "zip_code",
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "description": "address",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/banners/": {
+            "get": {
+                "tags": [
+                    "Banner"
+                ],
+                "summary": "all banners group status",
+                "operationId": "6a6915a48939209f31308c5d1d819d66",
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/carts/": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Store cart",
+                "operationId": "5f196d12282f472838dd49aea4433511",
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "List all Categories",
+                "operationId": "b1b247b2b491b0491c3c728dc33f23f0",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "List all Orders self user",
+                "operationId": "8f3183bfa0ecb8a2c864cbf972b8061d",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Store cart products to order",
+                "operationId": "b6490f9d9026dbe871b41207e118fffb",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "properties": {
+                                        "erp_code": {
+                                            "description": "erp_code",
+                                            "type": "string"
+                                        },
+                                        "quantity": {
+                                            "description": "quantity",
+                                            "type": "number"
+                                        },
+                                        "attr": {
+                                            "description": "attr",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/orders/save": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Store cart products to order",
+                "operationId": "8457da312b2f3c5f38390f58067e6c8e",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address": {
+                                        "description": "suggest",
+                                        "type": "string"
+                                    },
+                                    "suggest": {
+                                        "description": "suggest",
+                                        "type": "string"
+                                    },
+                                    "shipping_method": {
+                                        "description": "1or2=fast",
+                                        "type": "string"
+                                    },
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "erp_code": {
+                                                    "description": "erp_code",
+                                                    "type": "string"
+                                                },
+                                                "quantity": {
+                                                    "description": "quantity",
+                                                    "type": "number"
+                                                },
+                                                "attr": {
+                                                    "description": "attr",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/orders/{order}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Display Order by orderId self user",
+                "operationId": "3a2d78e76e9fc3f06bb879fb7d48b40d",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/orders/{order}/cancelled": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "order cancelled",
+                "operationId": "076442f0f32a99ab8814be6b4015a8d6",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/orders/courier/cost": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Display Order cost",
+                "operationId": "579e2bd0451f1212c489b80980ffd881",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pinneds/products": {
+            "get": {
+                "tags": [
+                    "Slideshow"
+                ],
+                "summary": "List product pinned slideshow",
+                "operationId": "4a4216c9db98ff4e6ca2b3cbbc7fa571",
+                "parameters": [
+                    {
+                        "name": "section",
+                        "in": "query",
+                        "description": "SLIDER1~10",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "List all Products",
+                "operationId": "080f057905dc32d2f11065d606dc4cd6",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "default": "1",
+                                "enum": [
+                                    1,
+                                    2,
+                                    3
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/available/{product:erp_code}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "check available a product return boolean",
+                "operationId": "bf9e598705177592bb12a5d533e6fa78",
+                "parameters": [
+                    {
+                        "name": "product:erp_code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/{product:erp_code}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Show a product",
+                "operationId": "1c020d2b1c61d270da36625cad3e01b9",
+                "parameters": [
+                    {
+                        "name": "product:erp_code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/category/{category:erp_code}/": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get list products by main group code",
+                "operationId": "fe9ec5503bce530bdfd9bdd48e0a6728",
+                "parameters": [
+                    {
+                        "name": "category:erp_code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/subcategory/{subcategory:erp_code}/": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get list products by side group code",
+                "operationId": "4b84b4af430023f3cd77eaff2d398130",
+                "parameters": [
+                    {
+                        "name": "subcategory:erp_code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vendors/products/{category:erp_code}": {
+            "get": {
+                "tags": [
+                    "Vendor"
+                ],
+                "summary": "List all products vendor",
+                "operationId": "9bb5278f92a9ea1e53a5c2fe8408d6cd",
+                "parameters": [
+                    {
+                        "name": "category:erp_code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sliders": {
+            "get": {
+                "tags": [
+                    "Slider"
+                ],
+                "summary": "List all Slider",
+                "operationId": "e67109b46fa926380469920b4e342319",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subcategories": {
+            "get": {
+                "tags": [
+                    "SubCategory"
+                ],
+                "summary": "List all Categories",
+                "operationId": "29cd31bebbdb5346785a3c06c0cb6e6c",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subcategories/category/{category:erp_code}": {
+            "get": {
+                "tags": [
+                    "SubCategory"
+                ],
+                "summary": "List all subCategories by category",
+                "operationId": "2840c8ecfd84101ef10a886168bca97b",
+                "parameters": [
+                    {
+                        "name": "category:erp_code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vendors": {
+            "get": {
+                "tags": [
+                    "Vendor"
+                ],
+                "summary": "List all vendors",
+                "operationId": "c03417c69027eca4e5ba37f38c438edb",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "Bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

@@ -1,0 +1,60 @@
+[15-Jul-2022 01:58:02 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2014_10_12_000000_create_users_table.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2014_10_12_000000_create_users_table.php on line 8
+[15-Jul-2022 02:07:06 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2014_10_12_100000_create_password_resets_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2014_10_12_100000_create_password_resets_table.php on line 7
+[15-Jul-2022 02:16:08 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2019_08_19_000000_create_failed_jobs_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2019_08_19_000000_create_failed_jobs_table.php on line 7
+[15-Jul-2022 02:36:28 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php on line 7
+[15-Jul-2022 03:14:43 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2021_12_17_081906_create_products_table.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2021_12_17_081906_create_products_table.php on line 8
+[15-Jul-2022 04:19:59 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2021_12_17_081935_create_main_groups_table.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2021_12_17_081935_create_main_groups_table.php on line 8
+[15-Jul-2022 09:42:42 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2021_12_17_081953_create_side_groups_table.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2021_12_17_081953_create_side_groups_table.php on line 8
+[15-Jul-2022 09:50:30 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2022_01_05_182021_create_orders_table.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2022_01_05_182021_create_orders_table.php on line 8
+[15-Jul-2022 10:06:31 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2022_01_05_182135_create_order_items_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2022_01_05_182135_create_order_items_table.php on line 7
+[15-Jul-2022 10:44:06 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2022_01_06_085241_create_sliders_table.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2022_01_06_085241_create_sliders_table.php on line 8
+[15-Jul-2022 12:02:05 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2022_01_07_132203_create_settings_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2022_01_07_132203_create_settings_table.php on line 7
+[15-Jul-2022 13:56:29 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2022_01_09_204736_create_jobs_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2022_01_09_204736_create_jobs_table.php on line 7
+[15-Jul-2022 17:09:15 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2022_02_19_145112_create_units_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2022_02_19_145112_create_units_table.php on line 7
+[15-Jul-2022 23:53:32 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2022_02_19_150154_create_shipping_methods_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2022_02_19_150154_create_shipping_methods_table.php on line 7
+[16-Jul-2022 11:50:34 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/shopjozi/public_html/database/migrations/2022_03_26_002142_add_code_expired_at_to_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/migrations/2022_03_26_002142_add_code_expired_at_to_users_table.php on line 7

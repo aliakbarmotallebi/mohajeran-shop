@@ -1,0 +1,36 @@
+[23-Jul-2022 11:54:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/broadcasting.php on line 18
+[23-Jul-2022 12:02:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/cache.php on line 18
+[23-Jul-2022 12:56:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/database.php on line 18
+[23-Jul-2022 13:31:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/filesystems.php on line 16
+[23-Jul-2022 14:44:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/app.php on line 16
+[23-Jul-2022 18:33:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/flare.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/flare.php on line 16
+[24-Jul-2022 02:49:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/hashing.php on line 32
+[24-Jul-2022 20:17:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/jwt.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/jwt.php on line 28
+[26-Jul-2022 08:21:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/shopjozi/public_html/config/l5-swagger.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/config/l5-swagger.php on line 21

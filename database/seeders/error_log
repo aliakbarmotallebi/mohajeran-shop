@@ -1,0 +1,4 @@
+[12-Jul-2022 08:36:53 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Seeder' not found in /home/shopjozi/public_html/database/seeders/DatabaseSeeder.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/seeders/DatabaseSeeder.php on line 7

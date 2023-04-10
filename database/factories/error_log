@@ -1,0 +1,4 @@
+[12-Jul-2022 07:51:41 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Factories\Factory' not found in /home/shopjozi/public_html/database/factories/UserFactory.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/shopjozi/public_html/database/factories/UserFactory.php on line 8
