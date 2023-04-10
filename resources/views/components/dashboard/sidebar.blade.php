@@ -175,7 +175,7 @@
             </li>
 
             <li class="my-px h-[50px]">
-                <a href=""
+                <a href="{{ route('dashboard.payments.index') }}"
                     class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
                     <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"

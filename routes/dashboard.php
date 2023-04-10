@@ -60,6 +60,9 @@ Route::group([
             Route::get('/orders/{order}', 'OrderController@show')
                 ->name('orders.show');
 
+            Route::get('/payments', 'PaymentController@index')
+                ->name('payments.index');
+
             Route::resource('banners', 'BannerController');
 
             Route::resource('pinned_products', 'PinnedProductController');
