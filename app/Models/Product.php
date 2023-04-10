@@ -140,7 +140,7 @@ class Product extends Model
 
     public function order_items()
     {
-        return $this->hasMany(OrderItem::class, 'product_erp_code', 'erp_code')->collate('utf8mb4_bin');
+        return $this->hasMany(OrderItem::class, 'product_erp_code', 'erp_code');
     }
 
     public function hasSellPrice(): bool
@@ -193,13 +193,13 @@ class Product extends Model
     public function unitById()
     {
         
-        return $this->hasOne(Unit::class, 'id', 'unit_erp_code')->collate('utf8mb4_bin');
+        return $this->hasOne(Unit::class, 'id', 'unit_erp_code');
     }
 
     public function unit()
     {
         
-        return $this->hasOne(Unit::class, 'erp_code', 'unit_erp_code')->collate('utf8mb4_bin');
+        return $this->hasOne(Unit::class, 'erp_code', 'unit_erp_code');
     }
     
     public function category()

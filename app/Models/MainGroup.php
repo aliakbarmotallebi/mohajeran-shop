@@ -18,7 +18,7 @@ class MainGroup extends Model
 
     public function subcategories()
     {
-        return $this->hasMany(SideGroup::class, 'main_erp_code', 'erp_code')->collate('utf8mb4_bin');
+        return $this->hasMany(SideGroup::class, 'main_erp_code', 'erp_code');
     }
     
     public function isVendor(): bool

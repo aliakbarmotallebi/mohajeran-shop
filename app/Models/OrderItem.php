@@ -20,7 +20,7 @@ class OrderItem extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_erp_code', 'erp_code')->collate('utf8mb4_bin');
+        return $this->belongsTo(Product::class, 'product_erp_code', 'erp_code');
     }
 
     public function getProductErpCode()
