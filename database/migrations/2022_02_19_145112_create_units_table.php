@@ -23,9 +23,16 @@ class CreateUnitsTable extends Migration
                 ->nullable()
                 ->default(0);
 
-            $table->string('erp_code')
+            $table->string('erp_code')->collate('utf8mb4_bin')
                 ->nullable();
 
+            $table->string('arithmetic_few')
+                ->nullable()
+                ->default(1);
+
+            $table->string('min_few')
+                ->nullable()
+                ->default(1);
             $table->timestamps();
         });
     }

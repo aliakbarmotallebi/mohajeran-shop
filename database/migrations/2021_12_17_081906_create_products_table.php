@@ -43,26 +43,27 @@ class CreateProductsTable extends Migration
                 ->nullable();
 
             $table->string('main_group_code')
+            ->collation('utf8mb4_bin')
                 ->index()
-                ->collate('utf8_bin')
+               
                 ->nullable();
 
             $table->string('side_group_code')
+            ->collation('utf8mb4_bin')
                 ->index()
-                ->collate('utf8_bin')
                 ->nullable();
 
-            $table->string('erp_code')
+            $table->string('erp_code')->collate('utf8mb4_bin')
                 ->index()
-                ->collate('utf8_bin');
+               ;
 
-            $table->longText('code') //barcode
+            $table->longText('code') 
                 ->nullable();
 
             $table->longText('image')
                 ->nullable();
 
-            $table->longText('unit_erp_code')
+            $table->longText('unit_erp_code')->collate('utf8mb4_bin')
                 ->nullable();
 
             $table->bigInteger('visit_count')
@@ -71,8 +72,28 @@ class CreateProductsTable extends Migration
             $table->boolean('available')
                 ->default(1);
 
+            $table->bigInteger('limit_order')
+                ->default(0);
+
+            $table->boolean('is_vendor')
+                ->default(0);
+
             $table->boolean('is_special')
                 ->default(0);
+
+            $table->string('other1') 
+                ->nullable();
+
+            $table->string('other2') 
+                ->nullable();
+
+            $table->string('other3') 
+                ->nullable();
+
+            $table->string('other4') 
+                ->nullable();
+            $table->string('other5') 
+                ->nullable();
 
             $table->json('attr')
                 ->nullable();

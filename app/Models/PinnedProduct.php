@@ -10,6 +10,6 @@ class PinnedProduct extends Model
     use HasFactory;
 
     public function product() {
-        return $this->belongsTo(Product::class, 'product_erp_code', 'erp_code');
+        return $this->belongsTo(Product::class, 'product_erp_code', 'erp_code')->collate('utf8mb4_bin');
     }
 }

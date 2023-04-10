@@ -20,9 +20,18 @@ class CreateMainGroupsTable extends Migration
             $table->string('name')
                 ->nullable();
 
-            $table->string('erp_code')
+            $table->boolean('is_vendor')
+                ->default(false);
+
+            $table->longText('image')
+                ->nullable();
+
+            $table->string('time')
+                ->nullable();
+
+            $table->string('erp_code')->collate('utf8mb4_bin')
                 ->index()
-                ->collate('utf8_bin');
+               ;
 
             $table->timestamps();
         });

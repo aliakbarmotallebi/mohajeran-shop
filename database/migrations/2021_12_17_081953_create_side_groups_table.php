@@ -20,15 +20,15 @@ class CreateSideGroupsTable extends Migration
             $table->string('name')
             ->nullable();
 
-            $table->string('erp_code')
-            ->collate('utf8_bin');
+            $table->string('erp_code')->collate('utf8mb4_bin')
+           ;
 
             $table->string('main_group_name')
                 ->nullable();
 
-            $table->string('main_erp_code')
+            $table->string('main_erp_code')->collate('utf8mb4_bin')
                 ->index()
-                ->collate('utf8_bin');
+               ;
 
             $table->timestamps();
         });

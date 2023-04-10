@@ -28,7 +28,7 @@ class OrderList extends Component
     {
         $this->orders = Order::latest()
         ->paginate(20);
-        // orderBy(DB::raw('erp_code IS NOT NULL, erp_code'), 'DESC')
+        // orderBy(DB::raw('erp_code IS NOT NULL, erp_code')->collate('utf8mb4_bin'), 'DESC')
     }
 
     public function exec(Order $order)

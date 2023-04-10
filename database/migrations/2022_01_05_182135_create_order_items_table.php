@@ -27,7 +27,7 @@ class CreateOrderItemsTable extends Migration
                 ->default(0)
                 ->nullable();
 
-            $table->string('product_erp_code')
+            $table->string('product_erp_code')->collate('utf8mb4_bin')
                 ->index();
 
             $table->string('price');

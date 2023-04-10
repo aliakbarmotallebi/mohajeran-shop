@@ -20,14 +20,23 @@ class CreateOrdersTable extends Migration
             
             $table->uuid('order_number');
         
-            $table->string('erp_code')
+            $table->boolean('is_suggest')
+                ->default(false);
+
+            $table->boolean('is_cancelled')
+                ->default(false);
+
+            $table->longText('customeraddress')
+                ->nullable();
+
+            $table->string('erp_code')->collate('utf8mb4_bin')
                 ->index()
                 ->nullable();
 
             $table->string('code')
                 ->nullable();
 
-            $table->string('customer_erp_code')
+            $table->string('customer_erp_code')->collate('utf8mb4_bin')
                 ->index();
 
             $table->enum('status', [

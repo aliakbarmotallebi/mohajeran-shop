@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
             $table->text('address')
                 ->nullable();
 
-            $table->string('erp_code')
+            $table->string('erp_code')->collate('utf8mb4_bin')
                 ->nullable();
 
             $table->enum('role', [
@@ -46,6 +46,9 @@ class CreateUsersTable extends Migration
             $table->string('verification_code')
                 ->nullable();
 
+            $table->longText('addresses')
+                ->nullable();
+                
             $table->boolean('is_black_list')
                 ->default(false);
 

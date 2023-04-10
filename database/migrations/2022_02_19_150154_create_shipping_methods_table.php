@@ -22,7 +22,7 @@ class CreateShippingMethodsTable extends Migration
                 ->nullable()
                 ->default(0);
 
-            $table->string('erp_code')
+            $table->string('erp_code')->collate('utf8mb4_bin')
                 ->nullable();
             $table->timestamps();
         });

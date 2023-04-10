@@ -115,7 +115,7 @@ class Temp extends Model
 
     public function order_items()
     {
-        return $this->hasMany(OrderItem::class, 'product_erp_code', 'erp_code');
+        return $this->hasMany(OrderItem::class, 'product_erp_code', 'erp_code')->collate('utf8mb4_bin');
     }
 
     public function hasSellPrice(): bool
@@ -165,7 +165,7 @@ class Temp extends Model
 
     public function unit()
     {
-        return $this->hasOne(Unit::class, 'erp_code', 'unit_erp_code');
+        return $this->hasOne(Unit::class, 'erp_code', 'unit_erp_code')->collate('utf8mb4_bin');
     }
 
     public function category()
