@@ -46,7 +46,7 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'customer_erp_code', 'erp_code')->collate('utf8mb4_bin');
+        return $this->belongsTo(User::class, 'customer_erp_code', 'erp_code');
     }
 
     /**

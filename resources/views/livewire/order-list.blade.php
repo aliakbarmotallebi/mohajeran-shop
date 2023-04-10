@@ -42,7 +42,7 @@
               @endif
           </div>
       </div>
-            <div class="px-4">
+      <div class="px-4">
           <div class="text-right space-y-1">
               @if( $order->shipping_method == "2")
               <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">

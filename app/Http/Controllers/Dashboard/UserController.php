@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $users = User::whereNull('erp_code')->collate('utf8mb4_bin')->paginate(30);
+        $users = User::whereNull('erp_code')->paginate(30);
         return view('dashboard.users.index', compact('users'));
     }
 }

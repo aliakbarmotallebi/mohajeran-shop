@@ -26,9 +26,7 @@ class OrderList extends Component
 
     public function getOrdersList()
     {
-        $this->orders = Order::latest()
-        ->paginate(20);
-        // orderBy(DB::raw('erp_code IS NOT NULL, erp_code')->collate('utf8mb4_bin'), 'DESC')
+        $this->orders = Order::latest()->paginate(20);
     }
 
     public function exec(Order $order)
