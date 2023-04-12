@@ -137,16 +137,6 @@ class User extends Authenticatable implements JWTSubject
     }
 
 
-    public function payments()
-    {
-        return $this->hasMany(Payment::class);
-    }
-
-    public function wallets()
-    {
-        return $this->hasMany(Wallet::class);
-    }
-
     public function getNameAttribute($name)
     {
         if( $name == "{$this->mobile}_" 

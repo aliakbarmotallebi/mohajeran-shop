@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return CategoryResource::collection(MainGroup::with('subcategories')->latest('id')->get());
+        return CategoryResource::collection(MainGroup::where('is_vendor', 0)->with('subcategories')->latest('id')->get());
     }
 
 }

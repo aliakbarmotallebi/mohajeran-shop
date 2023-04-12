@@ -40,7 +40,7 @@ class Payment extends Model
 
     public function isPaid(): bool
     {
-        return (bool)($this->status === self::STATUS_PAID);
+        return (bool)($this->status === self::PAID_STATUS);
     }
 
     public function getAmountAttribute($value)

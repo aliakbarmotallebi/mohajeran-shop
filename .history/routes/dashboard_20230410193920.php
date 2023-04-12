@@ -66,7 +66,5 @@ Route::group([
             Route::resource('banners', 'BannerController');
 
             Route::resource('pinned_products', 'PinnedProductController');
-
-            Route::get('wallets', 'WalletController')->name('wallets.index');
         });
     });

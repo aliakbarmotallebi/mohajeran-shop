@@ -842,6 +842,30 @@
                 }
             }
         },
+        "/payments/self": {
+            "get": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "List all Payments self user",
+                "operationId": "89535d85262e8b611274504a76089f97",
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/pinneds/products": {
             "get": {
                 "tags": [
@@ -1256,6 +1280,30 @@
                         }
                     }
                 }
+            }
+        },
+        "/wallets/self": {
+            "get": {
+                "tags": [
+                    "Wallet"
+                ],
+                "summary": "List all Wallets self user",
+                "operationId": "b10c15fbf094e9176c8d661592bcad91",
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },

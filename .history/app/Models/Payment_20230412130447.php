@@ -23,8 +23,8 @@ class Payment extends Model
     const STATUS_NONPAID    = 'STATUS_NONPAID';
 
     protected const STATUS_LABEL = [
-        self::STATUS_PAID => 'پرداخت شده',
-        self::STATUS_NONPAID  => 'پرداخت نشده',
+        self::PAID_STATUS => 'پرداخت شده',
+        self::NONPAID_STATUS  => 'پرداخت نشده',
     ];
 
 
@@ -40,7 +40,7 @@ class Payment extends Model
 
     public function isPaid(): bool
     {
-        return (bool)($this->status === self::STATUS_PAID);
+        return (bool)($this->status === self::PAID_STATUS);
     }
 
     public function getAmountAttribute($value)

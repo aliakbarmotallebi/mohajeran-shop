@@ -1,4 +1,4 @@
-<div class="xl:col-span-3 lg:col-span-3 md:col-span-6 sm:col-span-12 col-span-12 w-full bg-white rounded-lg shadow-lg relative overflow-hidden group cursor-pointer">
+<div class="xl:col-span-3 lg:col-span-4 md:col-span-4 sm:col-span-12 col-span-12 w-full bg-white rounded-lg shadow-lg relative overflow-hidden group cursor-pointer">
     <div class="w-full h-[300px]">
       @if( $product->hasImage() )
         <img src="{{ asset($product->getImage()) }}" class="w-full h-full object-scale-down" alt="" srcset="">

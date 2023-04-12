@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Api'], function(){
         Route::apiResource('orders', 'OrderController')
             ->only(['index', 'show', 'store']);
         Route::get('addresses', 'AddressController@index');
-        Route::get('payments/self', 'PaymentController@index');
+        Route::get('payments/self', 'PaymentsController@index');
         Route::get('wallets/self', 'WalletController@index');
         Route::patch('addresses', 'AddressController@update');
     });
