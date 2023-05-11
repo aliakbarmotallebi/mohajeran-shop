@@ -15,7 +15,7 @@ class ProductController extends ApiController
 {
     use ApiResponser;
 
-    /**
+/**
 	 * @OA\Get(
 	 *     path="/products",
      *     tags={"Product"},
@@ -32,9 +32,9 @@ class ProductController extends ApiController
      *         @OA\Schema(
      *         type="array",
      *           @OA\Items(
-     *               type="integer",
-     *               enum={1, 2, 3}, 
-     *               default="1"
+     *               type="string",
+     *               enum={"VISIT_COUNT", "CHEAP", "EXPENSIVE", "DISCOUNT"}, 
+     *               default="VISIT_COUNT"
      *           ),
      *         ),
      *     ),
@@ -45,6 +45,27 @@ class ProductController extends ApiController
      *          @OA\Schema(
      *              type="integer",
      *          )
+     *     ),
+     *     @OA\Parameter(
+     *          name="category",
+     *          required=false,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="string",
+     *          )
+     *     ),
+     *     @OA\Parameter(
+     *          name="subcategory",
+     *          required=false,
+     *          in="query",
+     *          description="required send param subcategory with param category",
+     *         @OA\Schema(
+     *         type="array",
+     *           @OA\Items(
+     *               type="string",
+     *               default="bAAbNA5zDg0="
+     *           ),
+     *         ),
      *     ),
 	 *     @OA\Response(response="200", description="", @OA\JsonContent()),
      *     @OA\Response(response=400, description="Bad request", @OA\JsonContent()),
@@ -63,7 +84,7 @@ class ProductController extends ApiController
         // if($product->count() === 0){
         //     $this->dispatch( new NotifyTelegramSearchNullable($request->get('q')) );
         // }
-        return ProductResource::collection($product->get());
+        return ProductResource::collection($product->paginate($request->get('count') ?? 16)->withQueryString());
     }
 
     /**
@@ -163,7 +184,7 @@ class ProductController extends ApiController
             ->whereMainGroupCode(
                 $mainGroup->erp_code
             )->where('few', '!=', '0')->orderByRaw("name DESC")->filter($request);
-        return ProductResource::collection($products->get());
+        return ProductResource::collection($products->paginate($request->get('count') ?? 16)->withQueryString());
     }
 
     /**
@@ -205,7 +226,7 @@ class ProductController extends ApiController
             ->whereSideGroupCode(
                 $sideGroup->erp_code
             )->where('few', '!=', '0')->orderByRaw("name DESC")->filter($request);
-        return ProductResource::collection($products->get());
+        return ProductResource::collection($products->paginate($request->get('count') ?? 16)->withQueryString());
     }
 
 
@@ -232,7 +253,7 @@ class ProductController extends ApiController
             ->whereMainGroupCode(
                 $mainGroup->erp_code
             )->where('few', '!=', '0')->orderByRaw("name DESC")->filter($request);
-        return ProductResource::collection($products->get());
+        return ProductResource::collection($products->paginate($request->get('count') ?? 16)->withQueryString());
     }
 
 }

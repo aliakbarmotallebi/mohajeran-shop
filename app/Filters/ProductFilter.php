@@ -29,15 +29,16 @@ class ProductFilter extends Filter
     public function sort(string $value = null)
     {
         $field = [
-            1 => 'getVisitCount',
-            2 => 'getBestSeller',
-            3 => 'getSpecial'
+            'VISIT_COUNT' => 'getVisitCount',
+            'CHEAP' => 'getCheap',
+            'EXPENSIVE' => 'getExpensive',
+            'DISCOUNT' => 'getDiscount',
         ];
 
         
 
         if( isset($field[$value]) ){
-            return $this->{$field[$value]}()->where('few', '!=', 0);
+            return $this->{$field[$value]}();
                 // ->where('fewtak', '!=', 0);
         }
 
@@ -57,8 +58,9 @@ class ProductFilter extends Filter
      * @param int|null $number
      * @return mixed
      */
-    public function count(int $number = null)
+    public function count(int $number = 1)
     {
+        return $number;
         return $this->builder->take($number);
     }
 
@@ -76,21 +78,88 @@ class ProductFilter extends Filter
     /**
      * @return string
      */
-    private function getBestSeller()
-{
-        return $this->builder->whereBetween('code', [
-            '20001000', 
-            '20001050'
-        ])->orderBy('code', 'DESC');
+    private function getCheap()
+    {
+        return $this->builder->orderBy('sell_price', 'ASC');
     }
 
     /**
      * @return string
      */
-    private function getSpecial()
+    private function getExpensive()
     {
         return $this->builder->orderBy(
-            'is_special',  'DESC'
-        )->orderBy('name', 'ASC');
+            'sell_price',  'DESC'
+        );
     }
+    
+      /**
+     * @return string
+     */
+    private function getDiscount()
+    {
+        return $this->builder->where(
+            'discount_price', '!=' , 0
+        );
+    }
+    
+    /**
+     * @return string
+     */
+    public function available()
+    {
+        return $this->builder->where('fewTak', '!=', 0);
+    }
+    
+    /**
+     * @return string
+     */
+    public function price(array $prices)
+    {
+
+         if(!is_array($prices)){
+            return null;    
+        }
+        $number_min = 0 ;
+        $number_max = null;
+        
+        if($this->request->get('price')['min'] ?? null) {
+            $number_min = $this->request->get('price')['min'];
+        }
+        if($this->request->get('price')['max'] ?? null) {
+            $number_max = $this->request->get('price')['max'];
+        }
+        
+        return $this->builder->whereBetween(
+            'sell_price' , [$number_min, $number_max]
+        );
+    }
+    
+     /**
+     * @return string
+     */
+    public function category(string $category)
+    {
+        return $this->builder->whereMainGroupCode(
+            $category
+        );
+    }
+    
+      /**
+     * @return string
+     */
+    public function subcategory($subcategory)
+    {
+        if(!is_array($subcategory)){
+            return null;    
+        }
+        
+        if($this->request->has('category')) {
+            return $this->category($this->request->get('category'))->whereIn(
+                'side_group_code', $subcategory
+            );
+        }
+    }
+    
+
 }

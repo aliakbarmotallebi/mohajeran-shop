@@ -107,11 +107,7 @@ class Product extends Model
     //     // $this->attributes['status'] = $status;
     // }
 
-    public function isVendor(): bool
-    {
-        return (bool)$this->category->isVendor();        
-    }
-    
+
     public function hasImage(): bool
     {
         return (bool) !(empty($this->image) || is_null($this->image));
@@ -230,6 +226,11 @@ class Product extends Model
         
 
         return "عدد";
+    }
+    
+        public function isVendor(): bool
+    {
+        return (bool)($this->category->isVendor() ?? 0);        
     }
 
 

@@ -78,7 +78,10 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTCustomClaims()
     {
-        return [];
+        return [
+            'mobile' => $this->mobile,
+            'name' => $this->name,
+        ];
     }
 
 //    public function getAuthPassword(){
@@ -87,7 +90,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function callToVerify()
     {
-        $code = random_int(100000, 999999);
+        $code = '11111'; #random_int(100000, 999999);
 
         $this->forceFill([
             'verification_code' => $code,
@@ -162,6 +165,15 @@ class User extends Authenticatable implements JWTSubject
         $this->attributes['password'] = bcrypt($value);
     }
 
+
+    private function updateDefaultAddresses($address)
+    {
+        $addresses = $this->addresses ?? [];
+        $default = [ 0 => $address ];
+        $this->addresses = [...$default, ...$addresses];
+        $this->save();
+    }
+    
     public function setTelAttribute($value)
     {
         $this->attributes['tel'] = convert2english($value);
@@ -177,6 +189,10 @@ class User extends Authenticatable implements JWTSubject
         $this->attributes['address'] = convert2english(
             str_replace("،" , "," , $value)
         );
+        
+        $this->updateDefaultAddresses(convert2english(
+            str_replace("،" , "," , $value)
+        ));
     }
 
     public function orders()

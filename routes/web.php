@@ -12,8 +12,8 @@ Route::get('logs/webhook', function () {
 // Webhook url get data form Holoo system:
 Route::post('/webhook', 'WebHookController');
 
-Route::get('/', 'HomeController@index');
-
+// Route::get('/', 'HomeController@index');
+Route::redirect('/', '/index');
 
 Route::get('/privacy-policy', 'HomeController@privacy');
 

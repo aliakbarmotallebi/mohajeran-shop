@@ -24,6 +24,9 @@ class HomeController extends Controller
     public function index(Request $r)
     {
 
+
+        dd(env('JWT_BLACKLIST_ENABLED'));
+
               
 //         $p =Product::whereErpCode('bBAlOw5mckl4UB4O')->get();
 // dd($p);
@@ -75,7 +78,7 @@ class HomeController extends Controller
 //     '',
 //     ''
 //     );
-        return view('index');
+        // return view('index');
         
         // $data = OrderItem::with('product')->whereHas('product', function($q){
         //     return $q->where('main_group_code','bAAbfg==');

@@ -4,7 +4,7 @@
             {{ $title }}
         </h3>
     </div>
-    <div {{ $attributes->class(['w-full p-3']) }}>
+    <div {{ $attributes->class(['w-full overflow-x-auto']) }}>
         {{ $slot }}
     </div>
 </div>

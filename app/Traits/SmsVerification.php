@@ -9,6 +9,7 @@ trait SmsVerification
 
     public function isExpired(): bool
     {
+        // return true;
         if( empty($this->code_expired_at) || is_null($this->code_expired_at) ){
             return true;
         }
@@ -38,7 +39,9 @@ trait SmsVerification
         $api_key = env("SMS_IR_API_KEY");
         $secret_key = env("SMS_IR_SECRET_KEY");
         $api_url = env("SMS_IR_BASE_API_URL");
-
+  \Log::debug($api_key);
+   \Log::debug($secret_key);
+    \Log::debug($api_url);
         try {
               $data = array(
                 "ParameterArray" => array(
@@ -54,7 +57,20 @@ trait SmsVerification
              $sender = new SMSSender($api_key, $secret_key, $api_url);
              $r = $sender->ultraFastSend($data);
              
-             \Log::debug($r);
+            // $username = "09216841841";
+            // $password = 'Faraz@0521075386';
+            // $from = "+98EVENT";
+            // $pattern_code = "oa51k8sfv4e3pt9";
+            // $to = array($this->mobile);
+            // $input_data = array("code" => $code);
+            // $url = "https://ippanel.com/patterns/pattern?username=" . $username . "&password=" . urlencode($password) . "&from=$from&to=" . json_encode($to) . "&input_data=" . urlencode(json_encode($input_data)) . "&pattern_code=$pattern_code";
+            // $handler = curl_init($url);
+            // curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "POST");
+            // curl_setopt($handler, CURLOPT_POSTFIELDS, $input_data);
+            // curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
+            // $response = curl_exec($handler);
+            //  \Log::debug($response);
+            //  \Log::debug($r);
 
         } catch (\Exeption $e) {
             echo 'Error VerificationCode : ' . $e->getMessage();

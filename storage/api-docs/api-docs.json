@@ -201,13 +201,13 @@
                 }
             }
         },
-        "/app/slider-image": {
+        "/app/slider-vip": {
             "get": {
                 "tags": [
                     "App"
                 ],
-                "summary": "APP SLIDER_Image",
-                "operationId": "2c019b01ff33359cea55183ebaed58a6",
+                "summary": "APP slider",
+                "operationId": "677a92ac3d7537b65c50cbd0b291551b",
                 "responses": {
                     "201": {
                         "description": "create token the jwt",
@@ -228,24 +228,24 @@
                 }
             }
         },
-        "/app/slider-vip": {
+        "/app/transportation-cost": {
             "get": {
                 "tags": [
                     "App"
                 ],
-                "summary": "APP slider",
-                "operationId": "677a92ac3d7537b65c50cbd0b291551b",
+                "summary": "Order transportation cost",
+                "operationId": "574fe2e91e70e269545f1ea771f86009",
                 "responses": {
-                    "201": {
-                        "description": "create token the jwt",
+                    "200": {
+                        "description": "",
                         "content": {
                             "application/json": {
                                 "schema": {}
                             }
                         }
                     },
-                    "422": {
-                        "description": "Invalid login credentials",
+                    "400": {
+                        "description": "Bad request",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -525,13 +525,40 @@
                 }
             }
         },
-        "/categories": {
+        "/category": {
             "get": {
                 "tags": [
                     "Category"
                 ],
                 "summary": "List all Categories",
-                "operationId": "b1b247b2b491b0491c3c728dc33f23f0",
+                "operationId": "91fc23f78e8b18b8cd5d4650eddea6ae",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "List all Categories With Vendors Temporary",
+                "operationId": "6b59a2f6df6ba9ed707f4b71a6412fb7",
                 "responses": {
                     "200": {
                         "description": "",
@@ -773,6 +800,48 @@
                 ]
             }
         },
+        "/orders/details/{order}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Display Order by details self user",
+                "operationId": "be695870c65e838f34cfb50765c69476",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/orders/{order}/cancelled": {
             "get": {
                 "tags": [
@@ -924,12 +993,13 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "integer",
-                                "default": "1",
+                                "type": "string",
+                                "default": "VISIT_COUNT",
                                 "enum": [
-                                    1,
-                                    2,
-                                    3
+                                    "VISIT_COUNT",
+                                    "CHEAP",
+                                    "EXPENSIVE",
+                                    "DISCOUNT"
                                 ]
                             }
                         }
@@ -940,6 +1010,27 @@
                         "required": false,
                         "schema": {
                             "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "subcategory",
+                        "in": "query",
+                        "description": "required send param subcategory with param category",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "default": "bAAbNA5zDg0="
+                            }
                         }
                     }
                 ],

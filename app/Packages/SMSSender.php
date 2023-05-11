@@ -22,6 +22,7 @@ class SMSSender
     public function ultraFastSend($data)
     {
         $token = $this->_getToken($this->APIKey, $this->SecretKey);
+        \Log::debug($token);
         if ($token != false) {
             $postData = $data;
 
@@ -29,6 +30,7 @@ class SMSSender
             $UltraFastSend = $this->_execute($postData, $url, $token);
             $object = json_decode($UltraFastSend);
 
+             \Log::debug($object);
             $result = false;
             if (is_object($object)) {
                 $result = $object->Message;
@@ -38,6 +40,8 @@ class SMSSender
         } else {
             $result = false;
         }
+        
+             \Log::debug("ultraFastSend");
       return $result;
     }
 
@@ -78,6 +82,7 @@ class SMSSender
                 $resp = false;
             }
         }
+        \Log::debug($resp);
         return $resp;
     }
 

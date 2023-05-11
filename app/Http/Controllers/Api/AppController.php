@@ -102,20 +102,6 @@ class AppController extends Controller
         'MIN_ORDER_PRICE');
     }
 
-    /**
-     * @OA\Get(
-     *   tags={"App"},
-     *   path="/app/slider-image",
-     *   summary="APP SLIDER_Image",
-     *   @OA\Response(response=201, description="create token the jwt", @OA\JsonContent()),
-     *   @OA\Response(response=422, description="Invalid login credentials", @OA\JsonContent())
-     * )
-     */
-    public function sliderImage(Request $request){
-        return $this->success(
-            settings('SLIDER_IMAGE'),
-            'SLIDER_IMAGE');
-    }
 
     /**
      * @OA\Get(
@@ -127,10 +113,37 @@ class AppController extends Controller
      * )
      */
     public function sliderVip(Request $request){
+        \Artisan::call('optimize');
         return $this->success([
             'image' => settings('SLIDER_IMAGE'),
             'title' => settings('SLIDER_TITLE'),
             'color' => settings('SLIDER_COLOR'),
         ]);
+    }
+    
+    
+        /**
+     * @OA\Get(
+     *     path="/app/transportation-cost",
+     *     tags={"App"},
+     *     summary="Order transportation cost",
+     *     @OA\Response(response="200", description="", @OA\JsonContent()),
+     *     @OA\Response(response=400, description="Bad request", @OA\JsonContent()),
+     * )
+     */
+    public function transportationCost()
+    {
+        return [
+            'min_order_amount'   => settings('MIN_ORDER_AMOUNT') ?? 0,
+            'price_courier_cost' => settings('PRICE_COURIER_COST') ?? 0,
+            'taxiـfare' => '7000',
+            'transportationـcost' => [
+                50 => 1000,
+                40 => 2000,
+                30 => 3000,
+                20 => 4000,
+                10 => 5000,
+            ]
+        ];
     }
 }

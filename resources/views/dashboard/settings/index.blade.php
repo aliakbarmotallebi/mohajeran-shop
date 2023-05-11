@@ -8,7 +8,7 @@
     <x-slot name="header"></x-slot>
     <x-slot name="append"></x-slot>
     <x-dashboard.card title="تنظیمات سیستم">
-        <form action="{{ route('dashboard.settings.store') }}" class="grid grid-cols-1 md:grid-cols-2 gap-2" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('dashboard.settings.store') }}" class="p-5 grid grid-cols-1 md:grid-cols-2 gap-2" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="col-span-2 grid grid-cols-2 md:grid-cols-3 gap-2">
                 <div class="mb-6">

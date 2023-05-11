@@ -10,18 +10,59 @@
     <title>پنل مدیریت - @yield('title')</title>
     @livewireStyles
     <style>
-        [x-cloak] {
-            display: none !important;
-        }
+      [x-cloak] { display: none; }
     </style>
 </head>
 <body>
-  <div class="flex flex-row min-h-screen bg-gray-100 text-gray-800">
+  <div 
+    x-data="sidebar"
+    class="flex min-h-screen bg-gray-100 text-gray-800"
+    @resize.window="handleResize()" >
     <x-dashboard.sidebar />
     @yield('content')
   </div>
   @livewireScripts
-  <script src="{{ asset('js/app.js') }}"></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script>
+    function sidebar() {
+      const breakpoint = 1280
+      return {
+        open: {
+          above: true,
+          below: false,
+        },
+        isAboveBreakpoint: window.innerWidth > breakpoint,
+
+        handleResize() {
+          this.isAboveBreakpoint = window.innerWidth > breakpoint
+        },
+
+        isOpen() {
+          if (this.isAboveBreakpoint) {
+            return this.open.above
+          }
+          return this.open.below
+        },
+        handleOpen() {
+          if (this.isAboveBreakpoint) {
+            this.open.above = true
+          }
+          this.open.below = true
+        },
+        handleClose() {
+          if (this.isAboveBreakpoint) {
+            this.open.above = false
+          }
+          this.open.below = false
+        },
+        handleAway() {
+          if (!this.isAboveBreakpoint) {
+            this.open.below = false
+          }
+        },
+      }
+    }
+  </script>
   @stack('scripts')
 </body>
 </html>

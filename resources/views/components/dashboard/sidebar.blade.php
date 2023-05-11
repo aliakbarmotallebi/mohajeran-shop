@@ -1,7 +1,13 @@
 <aside
-    class="sidebar shadow-lg w-72 transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-white">
+    x-transition:enter="transition duration-200 transform ease-out"
+    x-transition:enter-start="-transition-x-0"
+    x-transition:leave="transition duration-100 transform ease-in"
+    x-transition:leave-end="opacity-0 -transition-x-0"
+    x-show="isOpen()"
+    class="fixed xl:static inset-0 flex bg-white bg-opacity-90 z-40 h-screen flex-col max-w-xs w-full">
+    <div x-show="!isOpen()" class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-50"></div>
     <div
-        class="sidebar-header flex items-center justify-center h-[88px] px-[25px] space-x-3 space-x-reverse border-b border-gray-200">
+        class="sidebar-header flex items-center bg-white p-5 bg-opacity-100 justify-center sticky top-0 h-[88px] px-[25px] space-x-3 space-x-reverse border-b border-gray-200">
         <a href="#" class="inline-flex flex-row items-center">
             <img src="{{ asset('icon.png') }}" alt="" class="w-10 h-10 rounded">
         </a>
@@ -16,14 +22,16 @@
                 09306193414
             </p>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rotate-90 text-gray-500" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-code">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-        </svg>
+        <i
+        class="cursor-pointer lg:hidden hover:opacity-30"
+        @click.prevent="handleClose()"
+      >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"></path></svg>
+        </i>
     </div>
-    <div class="sidebar-content px-4 py-6">
+    <div
+        @click.away="handleAway()" 
+        class="sidebar-content px-4 py-6 overflow-y-auto ">
         <ul class="flex flex-col w-full">
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.index') }}"

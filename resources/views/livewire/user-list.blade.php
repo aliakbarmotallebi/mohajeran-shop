@@ -1,7 +1,7 @@
 <x-dashboard.card title="لیست مشتریان">
   @foreach ($users as $user)
-  <div class="flex-grow flex px-6 py-6 text-grey-100 items-center border-b">
-      <div class="w-2/5 xl:w-1/4 px-4 flex items-center">
+  <div class="flex-grow flex px-6 py-6 text-grey-100 justify-between items-center border-b space-x-3">
+      <div class="px-4 whitespace-nowrap flex items-center w-28">
           <div class="rounded-full bg-gray-100 pl-4 inline-flex items-center">
               <div
                   class="items-center text-xl bg-slate-800 inline-block h-12 w-12 rounded-full uppercase text-white text-center align-middle leading-loose">
@@ -9,12 +9,12 @@
                     {{ $user->id }}
                   </span>
               </div>
-              <span class="text-lg mr-2 uppercase">
+              <span class="text-lg mr-2 uppercase truncate">
                   {{ $user->name ?? 'ثبت کامل نشده' }}
               </span>
           </div>
       </div>
-      <div class="px-4">
+      <div class="px-4 whitespace-nowrap">
           <div class="text-right">
               <span class="text-gray-400 text-xs block">
                   تلفن همراه
@@ -22,7 +22,7 @@
               {{ $user->mobile }}
           </div>
       </div>
-      <div class="px-4">
+      <div class="px-4 whitespace-nowrap">
           <div class="text-right w-52 truncate">
               <span class="text-gray-400 text-xs block">
                   آدرس
@@ -30,7 +30,7 @@
               {{ $user->address ?? 'بدون آدرس' }}
           </div>
       </div>
-      <div class="flex text-center gap-x-1 mr-auto">
+      <div class="flex text-center gap-x-1 mr-auto justify-self-end">
           <button
               class="flex items-center p-2 text-gray-700 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 focus:outline-none">
               <div class="font-medium">

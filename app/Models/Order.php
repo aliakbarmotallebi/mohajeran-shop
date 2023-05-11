@@ -48,6 +48,19 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'customer_erp_code', 'erp_code');
     }
+    
+    
+     public function setCustomeraddressAttribute($value)
+    {
+        $this->attributes['customeraddress'] = $value;
+        
+        if($this->user instanceof User  ){
+            $user = $this->user;
+            $user->address  = $value;
+            $user->save();
+        }
+
+    }
 
     /**
      * @return mixed

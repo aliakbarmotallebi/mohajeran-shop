@@ -43,7 +43,7 @@ class UserRequest extends FormRequest
             return [
                 'tel'      => 'sometimes',
 				'zip_code' => 'sometimes|digits:10|numeric',
-				'address'  => 'required',
+				'address'  => 'sometimes',
 				'name'     => 'required|string',            
             ];
         }

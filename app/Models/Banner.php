@@ -22,4 +22,9 @@ class Banner extends Model
         // $image->save();
         return asset($this->image);
     }
+    
+    public function getMainGroup()
+    {
+        return SideGroup::where('erp_code', $this->side_group_code)->first();
+    }
 }

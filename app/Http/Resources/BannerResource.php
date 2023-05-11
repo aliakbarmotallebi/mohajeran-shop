@@ -16,6 +16,7 @@ class BannerResource extends JsonResource
     {
         return [
             'LinkToSideGroup' => $this->side_group_code,
+            'LinkToMainGroup' => $this->getMainGroup()->main_erp_code ?? NULL,
             'Image' => $this->getImage(),
             'Status' => $this->status,
         ];

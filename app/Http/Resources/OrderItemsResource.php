@@ -26,10 +26,7 @@ class OrderItemsResource extends JsonResource
             'Id'       => $this->id,
             'Code'     => $this->code,
             'Products'  => [
-                'Id'           => $product->id,
-                'Name'         => $product->name,
-                'ErpCode'      => $product->erp_code,
-                'Image'        => $product->getImage()
+                new ProductResource($product)
             ],
             'Quantity'  => $this->quantity,
             'Price'     => (int)$this->price,

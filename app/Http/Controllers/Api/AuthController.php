@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserRequest;
 use JWTAuth;
@@ -147,8 +148,8 @@ class AuthController extends Controller
      *   @OA\Response(response=200, description="Successful", @OA\JsonContent())
      * )
      */
-    public function refresh() {
-        return $this->createNewToken(Auth::guard('api')->refresh());
+    public function refresh(Request $request) {
+        return $this->createNewToken(Auth::guard('api')->claims($request->user()->getJWTCustomClaims())->refresh());
     }
 
     /**

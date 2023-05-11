@@ -1,14 +1,14 @@
 <div>
 <x-dashboard.card title="لیست سفارشات">
   @foreach($orders as $order)
-    <div class="flex-grow flex px-6 py-6 text-grey-100 items-center border-b">
-      <div class="px-4">
+    <div class="flex-grow flex px-6 py-6 justify-between text-grey-100 items-center border-b">
+      <div class="px-4 whitespace-nowrap">
           <span class="text-gray-400 text-xs block">
               شماره سفارش
           </span>
           {{ $order->id }}
       </div>
-      <div class="px-4 w-60">
+      <div class="px-4 whitespace-nowrap w-60 truncate">
           <div class="text-right">
               <span class="text-gray-400 text-xs block">
               نام کاربر سفارش دهنده
@@ -17,7 +17,7 @@
               ({{ $order->user->mobile  ?? NULL }})
           </div>
       </div>
-      <div class="px-4">
+      <div class="px-4 whitespace-nowrap">
           <div class="text-right">
               <span class="text-gray-400 text-xs block">
               مبلغ کل سفارش
@@ -26,7 +26,15 @@
               ریال
           </div>
       </div>
-      <div class="px-4">
+            <div class="px-4 whitespace-nowrap">
+          <div class="text-right">
+              <span class="text-gray-400 text-xs block">
+              تاریخ ایجاد سفارش
+              </span>
+              {{ verta($order->created_at) }}
+          </div>
+      </div>
+      <div class="px-4 whitespace-nowrap">
           <div class="text-right">
               <span class="text-gray-400 text-xs block">
               وضعیت سفارش
@@ -42,26 +50,29 @@
               @endif
           </div>
       </div>
-      <div class="px-4">
+      <div class="px-4 whitespace-nowrap">
           <div class="text-right space-y-1">
               @if( $order->shipping_method == "2")
               <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                *
                 ارسال فوری
               </span>
               @endif
               @if( $order->is_cancelled )
                 <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
-                انصراف از سفارش
+                *
+                    انصراف از سفارش
               </span>
               @endif
               @if( $order->is_suggest )
                 <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
-              کالا مشابه فعال 
+              *
+                    کالا مشابه فعال 
               </span>
               @endif
           </div>
       </div>
-      <div class="flex text-center mr-auto ml-3">
+      <div class="flex text-center mr-auto ml-3 justify-self-end">
           @if ( $order->isPending() && !$order->items->isEmpty() )
           <button 
               wire:click="exec({{ $order->id }})"
@@ -76,7 +87,7 @@
               </svg>
               <svg
                   wire:target="exec({{ $order->id }})"
-                  wire:loading.class.add="hidden"
+                   wire:loading.class.add="hidden"
                   xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">

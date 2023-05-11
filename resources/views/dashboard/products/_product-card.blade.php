@@ -37,6 +37,14 @@
     <div class="bg-indigo-900/90 inset-0 w-full h-full absolute opacity-0 group-hover:opacity-100 transition-opacity delay-150">
         <div class="p-5 text-right w-full flex-col space-y-4">
             <div class="text-white text-sm">
+              <div class="text-xs after:content-[':'] font-semibold">
+                   عنوان
+              </div>
+                <span class="text-white text-xs">
+                  {{ $product->name }}
+                </span>
+            </div>
+            <div class="text-white text-sm">
                 <div class="text-xs after:content-[':'] font-semibold">
                  بارکد محصول
                 </div>

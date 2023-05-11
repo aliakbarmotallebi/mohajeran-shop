@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\OrderItemsResource;
+use App\Http\Resources\OrderDetailsResource;
 use App\Jobs\SendNewUserOrderToHoloo;
 use App\Jobs\NotifyTelegramOrderCreated;
 use App\Traits\ApiResponser;
@@ -324,6 +325,34 @@ class OrderController extends Controller
         }
         return $this->error('This action is unauthorized', 401);
     }
+    
+    /**
+     * @OA\Get(
+     *     path="/orders/details/{order}",
+     *     tags={"Order"},
+     *     summary="Display Order by details self user",
+     *     @OA\Parameter(
+     *          name="order",
+     *          in="path",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Response(response="200", description="", @OA\JsonContent()),
+     *     @OA\Response(response=400, description="Bad request", @OA\JsonContent()),
+     * )
+     */
+    public function details(Order $order)
+    {
+        $orderUser = $order->customer_erp_code ?? NULL;
+        $userId = auth('api')->user()->erp_code ?? NULL;
+        if($orderUser === $userId){
+            return new OrderDetailsResource($order);
+        }
+        return $this->error('This action is unauthorized', 401);
+    }
 
     /**
      * @OA\Get(
@@ -382,17 +411,16 @@ class OrderController extends Controller
     }
 
 
-    protected function minOrderAmount (Order $order)
+  protected function minOrderAmount (Order $order)
     {
+        if( $order->shipping_method == '2' ){
 
-        // if( settings('MIN_ORDER_AMOUNT') >= $order->getTotal() ){
-
-        //     $order->items()->create([
-        //         'product_erp_code'   => settings('ERPCODE_COURIER_COST'),
-        //         'price'              => settings('PRICE_COURIER_COST'),
-        //         'unit_price'         => settings('PRICE_COURIER_COST') ."0",
-        //         'quantity'           => 1,
-        //     ]);
-        // }
+            $order->items()->create([
+                'product_erp_code'   => settings('ERPCODE_COURIER_COST'),
+                'price'              => settings('PRICE_COURIER_COST'),
+                'unit_price'         => settings('PRICE_COURIER_COST') ."0",
+                'quantity'           => 1,
+            ]);
+        }
     }
 }
