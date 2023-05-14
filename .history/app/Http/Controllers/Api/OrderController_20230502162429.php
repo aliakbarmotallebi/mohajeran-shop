@@ -413,7 +413,7 @@ class OrderController extends Controller
 
   protected function minOrderAmount (Order $order)
     {
-        if( $order->shipping_method == '2' || $order->shipping_method == 'TAXI'){
+        if( $order->shipping_method == '2' ){
 
             $order->items()->create([
                 'product_erp_code'   => settings('ERPCODE_COURIER_COST'),

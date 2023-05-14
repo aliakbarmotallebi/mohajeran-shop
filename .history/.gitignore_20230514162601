@@ -2,7 +2,7 @@
 /public/hot
 /public/storage
 /storage/*.key
-/docker/mysql/*
+/docker/mysql
 /vendor
 .env
 .env.backup

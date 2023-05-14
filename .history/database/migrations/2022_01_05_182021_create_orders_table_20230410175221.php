@@ -39,25 +39,12 @@ class CreateOrdersTable extends Migration
             $table->string('customer_erp_code')->collate('utf8mb4_bin')
                 ->index();
 
-            $table->enum('shipping_method', [
-                'TAXI',
-                'NORMAL'
-            ])->default('NORMAL');
-
-            $table->enum('payment_method', [
-                'WALLET',
-                'HOME_DELIVERY'])
-                ->default('HOME_DELIVERY');
-    
             $table->enum('status', [
                 'Pending',
                 'Processing',
                 'Rejected',
                 'Completed'])
                 ->default('Pending');
-
-            $table->boolean('is_paid')
-                ->default(0);
 
             $table->string('total_price')
                 ->default(0);

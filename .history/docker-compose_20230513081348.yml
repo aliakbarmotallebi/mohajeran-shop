@@ -12,7 +12,20 @@ services:
             - ./:/var/www
         networks: 
             - laravel-mohjeranshop
-                
+
+    # php
+    php:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        container_name: php
+        volumes:
+        - ./:/var/www/html
+        ports:
+        - "9000:9000"
+        networks:
+        - laravel-mohjeranshop
+    
     # nginx
     nginx:
         image: nginx:alpine
@@ -29,7 +42,6 @@ services:
     mysql:
         image: mysql:5.7.22
         restart: unless-stopped
-        command: mysqld --sql_mode="NO_ENGINE_SUBSTITUTION"
         environment: 
             MYSQL_DATABASE: ${DB_DATABASE}
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -50,7 +62,6 @@ services:
         - PMA_HOST=mysql
         - PMA_USER=${DB_USERNAME}
         - PMA_PASSWORD=${DB_PASSWORD}
-        - UPLOAD_LIMIT= 102400000000
       restart: always
       ports:
         - 8181:80

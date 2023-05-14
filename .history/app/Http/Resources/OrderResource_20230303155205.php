@@ -25,10 +25,6 @@ class OrderResource extends JsonResource
             'Cancelled'      => $this->is_cancelled ?? 0,
             'Status'      => $this->status,
             'CreatedAt'   => verta($this->created_at)->format('H:i Y-m-d'),
-            'PaymentMethod' => 'WALLET', //HOME_DELIVERY 
-            'CurrentWalletBalance' => '20000',
-            'DiffAmountPay ' => '', 
-            'Paid' => 0
         ];
     }
 }
