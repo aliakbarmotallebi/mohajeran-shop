@@ -46,7 +46,7 @@ services:
       container_name: phpmyadmin
       image: phpmyadmin/phpmyadmin:latest
       environment:
-        - PMA_HOST=mariadb
+        - PMA_HOST=mysql
         - PMA_USER=${DB_USERNAME}
         - PMA_PASSWORD=${DB_PASSWORD}
         - UPLOAD_LIMIT= 102400000000

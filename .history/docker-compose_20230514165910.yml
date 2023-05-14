@@ -29,6 +29,7 @@ services:
     mariadb:
         image: mariadb:latest
         restart: unless-stopped
+        command: mysqld --sql_mode="NO_ENGINE_SUBSTITUTION"
         environment: 
             MYSQL_DATABASE: ${DB_DATABASE}
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -46,7 +47,7 @@ services:
       container_name: phpmyadmin
       image: phpmyadmin/phpmyadmin:latest
       environment:
-        - PMA_HOST=mariadb
+        - PMA_HOST=mysql
         - PMA_USER=${DB_USERNAME}
         - PMA_PASSWORD=${DB_PASSWORD}
         - UPLOAD_LIMIT= 102400000000
