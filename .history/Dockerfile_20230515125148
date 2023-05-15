@@ -10,8 +10,8 @@ RUN rm -rf /var/www/html
 # https://github.com/nodesource/distributions#debmanual
 COPY package*.json ./
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get update && apt-get upgrade -y \
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get update & apt-get upgrade -y \
     && apt-get install -y nodejs
 
 RUN npm install

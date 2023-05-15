@@ -45,12 +45,3 @@ if (! function_exists('convert2english')) {
         return str_replace($persian, $newNumbers, $string);
     }
 }
-
-
-
-if (!function_exists('_is_link_active')) {
-    function _is_link_active($route)
-    {
-        return request()->routeIs("{$route}*");
-    }
-}
