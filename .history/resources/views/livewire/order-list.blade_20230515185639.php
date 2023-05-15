@@ -9,7 +9,7 @@
           {{ $order->id }}
       </div>
       <div class="px-4 whitespace-nowrap text-center w-60 truncate">
-          <div class="md:text-right text-center">
+          <div class="text-right">
               <span class="text-gray-400 text-xs block">
               نام کاربر سفارش دهنده
               </span>
@@ -18,7 +18,7 @@
           </div>
       </div>
       <div class="px-4 whitespace-nowrap text-center">
-          <div class="md:text-right text-center">
+          <div class="text-right">
               <span class="text-gray-400 text-xs block">
               مبلغ کل سفارش
               </span>
@@ -27,7 +27,7 @@
           </div>
       </div>
             <div class="px-4 whitespace-nowrap text-center">
-          <div class="md:text-right text-center">
+          <div class="text-right">
               <span class="text-gray-400 text-xs block">
               تاریخ ایجاد سفارش
               </span>
@@ -35,7 +35,7 @@
           </div>
       </div>
       <div class="px-4 whitespace-nowrap text-center">
-          <div class="md:text-right text-center">
+          <div class="text-right">
               <span class="text-gray-400 text-xs block">
               وضعیت سفارش
               </span>
@@ -51,7 +51,7 @@
           </div>
       </div>
       <div class="px-4 whitespace-nowrap text-center">
-          <div class="md:text-right text-center space-y-1">
+          <div class="text-right space-y-1">
               @if( $order->shipping_method == "2")
               <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
                 *

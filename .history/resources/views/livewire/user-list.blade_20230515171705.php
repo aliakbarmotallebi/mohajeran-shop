@@ -1,15 +1,15 @@
 <x-dashboard.card title="لیست مشتریان">
     @foreach ($users as $user)
-        <div class="flex flex-col md:flex-row gap-y-4 m:gap-y-0 px-6 py-6 text-grey-100 justify-between items-center border-b space-x-3 w-full">
-            <div class="px-4 whitespace-nowrap flex items-center max-w-xs">
-                <div class="rounded-full bg-gray-100  inline-flex items-center group">
+        <div class="flex-grow flex px-6 py-6 text-grey-100 justify-between items-center border-b space-x-3">
+            <div class="px-4 whitespace-nowrap flex items-center w-28">
+                <div class="rounded-full bg-gray-100 pl-4 inline-flex items-center">
                     <div
                         class="items-center text-xl bg-slate-800 inline-block h-12 w-12 rounded-full uppercase text-white text-center align-middle leading-loose">
                         <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-7 h-7 inline" fill="none" viewBox="0 0 24 24">
                             <path  d="M12 11.25a3.744 3.744 0 0 1-3.733-3.733h-1.5A5.244 5.244 0 0 0 12 12.75v-1.5ZM8.267 7.517C8.267 5.456 9.954 3.75 12 3.75v-1.5c-2.888 0-5.233 2.392-5.233 5.267h1.5ZM12 3.75a3.744 3.744 0 0 1 3.733 3.733h1.5A5.244 5.244 0 0 0 12 2.25v1.5Zm3.733 3.733c0 2.061-1.687 3.767-3.733 3.767v1.5c2.888 0 5.233-2.392 5.233-5.267h-1.5ZM19 20.25H5v1.5h14v-1.5Zm-14 0a.253.253 0 0 1-.25-.25h-1.5c0 .964.786 1.75 1.75 1.75v-1.5ZM4.75 20v-1h-1.5v1h1.5Zm0-1A3.262 3.262 0 0 1 8 15.75v-1.5A4.762 4.762 0 0 0 3.25 19h1.5ZM8 15.75h8v-1.5H8v1.5Zm8 0A3.262 3.262 0 0 1 19.25 19h1.5A4.762 4.762 0 0 0 16 14.25v1.5ZM19.25 19v1h1.5v-1h-1.5Zm0 1c0 .136-.114.25-.25.25v1.5c.964 0 1.75-.786 1.75-1.75h-1.5Z"/>
-                        </svg>
+                          </svg>
                     </div>
-                    <span class="text-lg px-4 uppercase truncate  transition-all duration-200 overflow-hidden">
+                    <span class="text-lg mr-2 uppercase truncate">
                         {{ $user->name ?? 'ثبت کامل نشده' }}
                     </span>
                 </div>
@@ -22,18 +22,18 @@
                     {{ $user->mobile }}
                 </div>
             </div>
-            <div class="px-4 whitespace-nowrap relative">
+            <div class="px-4 whitespace-nowrap">
                 <div class="text-right w-52 truncate">
                     <span class="text-gray-400 text-xs block">
                         آدرس
                     </span>
-                    <div class="group cursor-pointer inline-block border-b border-gray-400 text-center">
-                        {{ $user->getAddressLimit() ?? 'بدون آدرس' }}
-                        <div class="opacity-0 bg-black text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full right-1/2 ml-14 px-3 pointer-events-none">
-                            {{ $user->address ?? 'بدون آدرس' }}
-                          <svg class="absolute text-black h-2 w-full right-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                    <div class="group cursor-pointer relative inline-block border-b border-gray-400 w-28 text-center">{{ $user->address ?? 'بدون آدرس' }}
+                        <div class="opacity-0 w-28 bg-black text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full -left-1/2 ml-14 px-3 pointer-events-none">
+                                              {{ $user->address ?? 'بدون آدرس' }}
+                          <svg class="absolute text-black h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
                         </div>
-                    </div>
+                      </div>
+
                 </div>
             </div>
             <div class="flex text-center gap-x-1 mr-auto justify-self-end">

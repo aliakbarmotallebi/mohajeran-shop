@@ -239,13 +239,13 @@ class User extends Authenticatable implements JWTSubject
         });
     }
     
-    public function limitStr($string = '', $length = 20)
+    public function limitStr($string = '')
     {
-         return (strlen($string) > 0) ? substr($string,0,$length).'...' : $string;
+         return (strlen($string) > 0) ? substr($string,0,20).'...' : $string;
     }
 
     public function getAddressLimit() {
-        return $this->limitStr($this->address, 40);
+        $this->limitStr($this->address);
     }
     
     public function stringToSecret(string $string = NULL)

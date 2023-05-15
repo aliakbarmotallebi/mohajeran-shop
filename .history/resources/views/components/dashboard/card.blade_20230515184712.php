@@ -4,7 +4,7 @@
             {{ $title }}
         </h3>
     </div>
-    <div {{ $attributes->class([]) }}>
+    <div {{ $attributes->class() }}>
         {{ $slot }}
     </div>
 </div>

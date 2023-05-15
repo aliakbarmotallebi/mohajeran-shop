@@ -2,14 +2,14 @@
 <x-dashboard.card title="لیست سفارشات">
   @foreach($orders as $order)
     <div class="flex flex-col md:flex-row gap-y-4 m:gap-y-0 px-6 py-6 justify-between text-grey-100 items-center border-b">
-      <div class="px-4 whitespace-nowrap text-center">
+      <div class="px-4 whitespace-nowrap">
           <span class="text-gray-400 text-xs block">
               شماره سفارش
           </span>
           {{ $order->id }}
       </div>
-      <div class="px-4 whitespace-nowrap text-center w-60 truncate">
-          <div class="md:text-right text-center">
+      <div class="px-4 whitespace-nowrap w-60 truncate">
+          <div class="text-right">
               <span class="text-gray-400 text-xs block">
               نام کاربر سفارش دهنده
               </span>
@@ -17,8 +17,8 @@
               ({{ $order->user->mobile  ?? NULL }})
           </div>
       </div>
-      <div class="px-4 whitespace-nowrap text-center">
-          <div class="md:text-right text-center">
+      <div class="px-4 whitespace-nowrap">
+          <div class="text-right">
               <span class="text-gray-400 text-xs block">
               مبلغ کل سفارش
               </span>
@@ -26,16 +26,16 @@
               ریال
           </div>
       </div>
-            <div class="px-4 whitespace-nowrap text-center">
-          <div class="md:text-right text-center">
+            <div class="px-4 whitespace-nowrap">
+          <div class="text-right">
               <span class="text-gray-400 text-xs block">
               تاریخ ایجاد سفارش
               </span>
               {{ verta($order->created_at) }}
           </div>
       </div>
-      <div class="px-4 whitespace-nowrap text-center">
-          <div class="md:text-right text-center">
+      <div class="px-4 whitespace-nowrap">
+          <div class="text-right">
               <span class="text-gray-400 text-xs block">
               وضعیت سفارش
               </span>
@@ -50,8 +50,8 @@
               @endif
           </div>
       </div>
-      <div class="px-4 whitespace-nowrap text-center">
-          <div class="md:text-right text-center space-y-1">
+      <div class="px-4 whitespace-nowrap">
+          <div class="text-right space-y-1">
               @if( $order->shipping_method == "2")
               <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
                 *

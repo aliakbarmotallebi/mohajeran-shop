@@ -29,7 +29,7 @@
                     </span>
                     <div class="group cursor-pointer inline-block border-b border-gray-400 text-center">
                         {{ $user->getAddressLimit() ?? 'بدون آدرس' }}
-                        <div class="opacity-0 bg-black text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full right-1/2 ml-14 px-3 pointer-events-none">
+                        <div class="opacity-0 bg-black text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full ml-14 px-3 pointer-events-none">
                             {{ $user->address ?? 'بدون آدرس' }}
                           <svg class="absolute text-black h-2 w-full right-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
                         </div>
