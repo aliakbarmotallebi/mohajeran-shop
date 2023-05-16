@@ -1,114 +1,104 @@
 @font-face {
-    /* Pelak Thin */
-    font-family: "Pelak";
-    font-style: normal;
-    font-weight: 100;
-   
-    src:url(/fonts/Pelak-Thin.eot?56a0968bd9c51e2c9f5c29a9e4a94e48); /* IE9 Compat Modes */
-    src:url(/fonts/Pelak-Thin.eot?56a0968bd9c51e2c9f5c29a9e4a94e48?#iefix) format('embedded-opentype'), /* IE6-IE8 */
-    url(/fonts/Pelak-Thin.woff2?8dadcd4ef8d1c919f0ba675728cfc5d2) format('woff2'), /* Super Modern Browsers */
-    url(/fonts/Pelak-Thin.woff?27c35e40e75fc25702c6b63e6297126f) format('woff'), /* Pretty Modern Browsers */
-    url(/fonts/Pelak-Thin.ttf?85f532f06515fc980a48b13c6d50a414) format('truetype'), /* Safari, Android, iOS */
-    url(/fonts/Pelak-Thin.otf?d22596d97477e06121109a9d4fda9149) format('opentype');
-}
-
-@font-face {
-    /* Pelak Light */
-    font-family: "Pelak";
-    font-style: normal;
-    font-weight: 200;
-   
-    src:url(/fonts/Pelak-light.eot?9d0cde42d3b68f5f2d4e0e3b4bc19245);
-    src:url(/fonts/Pelak-light.eot?9d0cde42d3b68f5f2d4e0e3b4bc19245) format('embedded-opentype'),
-    url(/fonts/Pelak-light.woff2?d6def964b2b68ad3aec2b01a1c07ff2b) format('woff2'),
-    url(/fonts/Pelak-light.woff?6bb18bb17c7bea5b011e8c3247c17dda) format('woff'),
-    url(/fonts/Pelak-light.ttf?f8649e70f963e64761579896dc309a17) format('truetype'),
-    url(/fonts/Pelak-light.otf?901b7d3112e769a9836dbc802843681f) format('opentype');
-}
-
-@font-face {
-    /* Pelak Regular */
-    font-family: "Pelak";
-    font-style: normal;
-    font-weight: 400;
-   
-    src:url(/fonts/Pelak-Regular.eot?d58e166e827399788c97c132feacacd8);
-    src:url(/fonts/Pelak-Regular.eot?d58e166e827399788c97c132feacacd8) format('embedded-opentype'),
-    url(/fonts/Pelak-Regular.woff2?8b33385d1d2b557c173f95769d084aff) format('woff2'),
-    url(/fonts/Pelak-Regular.woff?9a3f265bc798cf0430dbd803a2a447d4) format('woff'),
-    url(/fonts/Pelak-Regular.ttf?ec8d84a813702013fcd0753bb88c200e) format('truetype'),
-    url(/fonts/Pelak-Regular.otf?9ab5260037ffceba63e6d86c0dc9b1a8) format('opentype');
-}
-
-@font-face {
-    /* Pelak Medium */
-    font-family: "Pelak";
-    font-style: normal;
-    font-weight: 500;
-   
-    src:url(/fonts/Pelak-Medium.eot?d41cd447c0aabc8dafe272770ada9c98);
-    src:url(/fonts/Pelak-Medium.eot?d41cd447c0aabc8dafe272770ada9c98) format('embedded-opentype'),
-    url(/fonts/Pelak-Medium.woff2?5d520af0290bac65b90701f4b35a83e9) format('woff2'),
-    url(/fonts/Pelak-Medium.woff?eb25118f29bad058223c6b8cada64694) format('woff'),
-    url(/fonts/Pelak-Medium.ttf?b81744178cdbdc3ddb674ed167968fe7) format('truetype'),
-    url(/fonts/Pelak-Medium.otf?9781ebaf4b860e887092a01eb1a7a764) format('opentype');
-}
-
-@font-face {
-    /* Pelak Semi-Bold */
-    font-family: "Pelak";
-    font-style: normal;
-    font-weight: 600;
-   
-    src:url(/fonts/Pelak-SemiBold.eot?1c67ae1568986c66190d6539ce040bf1);
-    src:url(/fonts/Pelak-SemiBold.eot?1c67ae1568986c66190d6539ce040bf1) format('embedded-opentype'),
-    url(/fonts/Pelak-SemiBold.woff2?8a605fa3a4e907d2340bc8d39ddcae9d) format('woff2'),
-    url(/fonts/Pelak-SemiBold.woff?e30c78eb6fcf32dcd9af1557df887af8) format('woff'),
-    url(/fonts/Pelak-SemiBold.ttf?f6f4fc62bc30e1d952784393aeb06861) format('truetype'),
-    url(/fonts/Pelak-SemiBold.otf?77878f3837b1c60be19094d2cc0a823a) format('opentype');
-}
-
-@font-face {
-    /* Pelak Bold */
-    font-family: "Pelak";
-    font-style: normal;
-    font-weight: 700;
-   
-    src:url(/fonts/Pelak-Bold.eot?246328d5938ab7818e0559f88ff0c551);
-    src:url(/fonts/Pelak-Bold.eot?246328d5938ab7818e0559f88ff0c551) format('embedded-opentype'),
-    url(/fonts/Pelak-Bold.woff2?783f1c01d814e298823200c2f067b688) format('woff2'),
-    url(/fonts/Pelak-Bold.woff?cb589ad33abd297e4edb424fb87e8b6a) format('woff'),
-    url(/fonts/Pelak-Bold.ttf?284159f462b68e1b3342406bbf45703a) format('truetype'),
-    url(/fonts/Pelak-Bold.otf?d2ec22ad98c7e7e818f4f7f9df14c306) format('opentype');
-}
-
-@font-face {
-    /* Pelak Extra-Bold */
-    font-family: "Pelak";
-    font-style: normal;
-    font-weight: 800;
-   
-    src:url(/fonts/Pelak-ExtraBold.eot?9bd84b1abfe86782f3a6c6126456d0fc);
-    src:url(/fonts/Pelak-ExtraBold.eot?9bd84b1abfe86782f3a6c6126456d0fc) format('embedded-opentype'),
-    url(/fonts/Pelak-ExtraBold.woff2?63b6dc81ecf809fffff7230abea582e0) format('woff2'),
-    url(/fonts/Pelak-ExtraBold.woff?b25edb52195bec881bd581612eaa642b) format('woff'),
-    url(/fonts/Pelak-ExtraBold.ttf?51c926b92d57af1b248c57efbc0680eb) format('truetype'),
-    url(/fonts/Pelak-ExtraBold.otf?354dad4ce170d449d6577e9c20fdb648) format('opentype');
-}
-
-@font-face {
-    /* Pelak Black */
-    font-family: "Pelak";
+    font-family: IRANSans;
     font-style: normal;
     font-weight: 900;
-   
-    src:url(/fonts/Pelak-Black.eot?7806f435e1b3bc01cad8b0431fe224bc);
-    src:url(/fonts/Pelak-Black.eot?7806f435e1b3bc01cad8b0431fe224bc) format('embedded-opentype'),
-    url(/fonts/Pelak-Black.woff2?8fcc1b0180aeb43d730c8f9285b3352c) format('woff2'),
-    url(/fonts/Pelak-Black.woff?39f5e04548f9e2657ad968b5ce720374) format('woff'),
-    url(/fonts/Pelak-Black.ttf?092dfbb8c985248b81d5a86b73c1f51c) format('truetype'),
-    url(/fonts/Pelak-Black.otf?4d1e62b26fee621d48dc65debab8cc13) format('opentype');
-}
+    src: url("/fonts/IRANSansWeb(FaNum)_Black.eot?0c82357136706fe0b8496ac2321a5c69");
+    src: url("/fonts/IRANSansWeb(FaNum)_Black.eot?0c82357136706fe0b8496ac2321a5c69?#iefix")
+        format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/IRANSansWeb(FaNum)_Black.woff2?aca84f753ff041f9bbd6559f178b7677")
+        format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/
+        url("/fonts/IRANSansWeb(FaNum)_Black.woff?45f207ebaeda42d31740c696302c4c40") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("/fonts/IRANSansWeb(FaNum)_Black.ttf?cdee2dc6ef6187c370dc44f0c325f545")
+        format("truetype");
+  }
+  
+  @font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: bold;
+    src: url("/fonts/IRANSansWeb(FaNum)_Bold.eot?51ba486fa50e8204665fa810cd319500");
+    src: url("/fonts/IRANSansWeb(FaNum)_Bold.eot?51ba486fa50e8204665fa810cd319500?#iefix")
+        format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/IRANSansWeb(FaNum)_Bold.woff2?424eca1112ae72643ee80830a522e8da")
+        format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/
+        url("/fonts/IRANSansWeb(FaNum)_Bold.woff?aa12a017cbd4a5f7358752f4e7e7f344") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("/fonts/IRANSansWeb(FaNum)_Bold.ttf?282f38380a6bd094a001e0afd24ece9e")
+        format("truetype");
+  }
+  
+  @font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/IRANSansWeb(FaNum)_Medium.eot?7fed925eed1fe5c4a633d0011d860b47");
+    src: url("/fonts/IRANSansWeb(FaNum)_Medium.eot?7fed925eed1fe5c4a633d0011d860b47?#iefix")
+        format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/IRANSansWeb(FaNum)_Medium.woff2?ed4ac452b05d496237b8652311e6b466")
+        format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/
+        url("/fonts/IRANSansWeb(FaNum)_Medium.woff?10d80bfa89985b74a634d157df3c1f70")
+        format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("/fonts/IRANSansWeb(FaNum)_Medium.ttf?f885eebbc714297156bbac2f5c4794a7")
+        format("truetype");
+  }
+  
+  @font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: 300;
+    src: url("/fonts/IRANSansWeb(FaNum)_Light.eot?2dffffe3b22e33c7ec29c429aa909806");
+    src: url("/fonts/IRANSansWeb(FaNum)_Light.eot?2dffffe3b22e33c7ec29c429aa909806?#iefix")
+        format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/IRANSansWeb(FaNum)_Light.woff2?721eb7ab97005da7447ed61b3ecc32d7")
+        format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/
+        url("/fonts/IRANSansWeb(FaNum)_Light.woff?955f38e3e1aab0d034a9aed686a428ec") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("/fonts/IRANSansWeb(FaNum)_Light.ttf?cc2c043728adc25f924baa640408fd1e")
+        format("truetype");
+  }
+  
+  @font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: 200;
+    src: url("/fonts/IRANSansWeb(FaNum)_UltraLight.eot?93a22db98bbe6a6fdef5d98af544d121");
+    src: url("/fonts/IRANSansWeb(FaNum)_UltraLight.eot?93a22db98bbe6a6fdef5d98af544d121?#iefix")
+        format("embedded-opentype"),
+      /* IE6-8 */
+        url("/fonts/IRANSansWeb(FaNum)_UltraLight.woff2?7f6c155499d3fd780868d8acf39a5d5d")
+        format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/
+        url("/fonts/IRANSansWeb(FaNum)_UltraLight.woff?e9c28ed76d8679566bd67dfb8d50e5f0")
+        format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("/fonts/IRANSansWeb(FaNum)_UltraLight.ttf?3a4474e9d8093ac7d0e877446d2af502")
+        format("truetype");
+  }
+  
+  @font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/IRANSansWeb(FaNum).eot?1a6f8943e894fa4f861a0ac56a290dba");
+    src: url("/fonts/IRANSansWeb(FaNum).eot?1a6f8943e894fa4f861a0ac56a290dba?#iefix")
+        format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/IRANSansWeb(FaNum).woff2?8d649f69659e092cd2f977d6b8d95599")
+        format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/
+        url("/fonts/IRANSansWeb(FaNum).woff?337881a1246d3b51b420e1ce1ad35422") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("/fonts/IRANSansWeb(FaNum).ttf?732cabbff87f779b74d3ee5741eb933f") format("truetype");
+  }
+  
+  
+  
+
 /*
 ! tailwindcss v3.0.15 | MIT License | https://tailwindcss.com
 */
@@ -424,7 +414,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 body{
-  font-family: Pelak;
+  font-family: IRANSans;
 }
 *, ::before, ::after{
   --tw-translate-x: 0;
@@ -470,17 +460,6 @@ body{
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-.sr-only{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
 .pointer-events-none{
   pointer-events: none;
 }
@@ -515,8 +494,14 @@ body{
 .left-0{
   left: 0px;
 }
+.bottom-full{
+  bottom: 100%;
+}
 .right-0{
   right: 0px;
+}
+.top-full{
+  top: 100%;
 }
 .bottom-4{
   bottom: 1rem;
@@ -524,20 +509,11 @@ body{
 .left-4{
   left: 1rem;
 }
-.bottom-full{
-  bottom: 100%;
-}
-.-left-1\/2{
-  left: -50%;
-}
-.top-full{
-  top: 100%;
-}
-.right-1\/2{
-  right: 50%;
-}
 .z-30{
   z-index: 30;
+}
+.z-10{
+  z-index: 10;
 }
 .z-40{
   z-index: 40;
@@ -547,9 +523,6 @@ body{
 }
 .z-0{
   z-index: 0;
-}
-.z-10{
-  z-index: 10;
 }
 .col-span-12{
   grid-column: span 12 / span 12;
@@ -562,6 +535,12 @@ body{
 }
 .col-span-8{
   grid-column: span 8 / span 8;
+}
+.col-span-3{
+  grid-column: span 3 / span 3;
+}
+.col-span-1{
+  grid-column: span 1 / span 1;
 }
 .m-auto{
   margin: auto;
@@ -665,6 +644,9 @@ body{
 .mb-1{
   margin-bottom: 0.25rem;
 }
+.ml-14{
+  margin-left: 3.5rem;
+}
 .-mb-px{
   margin-bottom: -1px;
 }
@@ -688,12 +670,6 @@ body{
 }
 .-ml-px{
   margin-left: -1px;
-}
-.ml-14{
-  margin-left: 3.5rem;
-}
-.mr-0{
-  margin-right: 0px;
 }
 .block{
   display: block;
@@ -746,6 +722,9 @@ body{
 .h-full{
   height: 100%;
 }
+.h-2{
+  height: 0.5rem;
+}
 .h-\[87px\]{
   height: 87px;
 }
@@ -767,20 +746,11 @@ body{
 .h-\[300px\]{
   height: 300px;
 }
-.h-2{
-  height: 0.5rem;
-}
-.h-24{
-  height: 6rem;
-}
 .max-h-\[518px\]{
   max-height: 518px;
 }
 .max-h-\[446px\]{
   max-height: 446px;
-}
-.max-h-12{
-  max-height: 3rem;
 }
 .min-h-screen{
   min-height: 100vh;
@@ -824,26 +794,11 @@ body{
 .w-8{
   width: 2rem;
 }
-.w-28{
-  width: 7rem;
-}
 .w-52{
   width: 13rem;
 }
 .w-1{
   width: 0.25rem;
-}
-.w-0{
-  width: 0px;
-}
-.w-32{
-  width: 8rem;
-}
-.w-\[24rem\]{
-  width: 24rem;
-}
-.min-w-\[24rem\]{
-  min-width: 24rem;
 }
 .max-w-sm{
   max-width: 24rem;
@@ -857,14 +812,8 @@ body{
 .max-w-md{
   max-width: 28rem;
 }
-.max-w-xl{
-  max-width: 36rem;
-}
 .flex-1{
   flex: 1 1 0%;
-}
-.flex-grow{
-  flex-grow: 1;
 }
 .-translate-x-full{
   --tw-translate-x: -100%;
@@ -940,6 +889,12 @@ body{
       -ms-user-select: none;
           user-select: none;
 }
+.grid-flow-row{
+  grid-auto-flow: row;
+}
+.grid-flow-col{
+  grid-auto-flow: column;
+}
 .grid-cols-12{
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
@@ -954,6 +909,9 @@ body{
 }
 .grid-cols-3{
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-rows-6{
+  grid-template-rows: repeat(6, minmax(0, 1fr));
 }
 .flex-row{
   flex-direction: row;
@@ -997,15 +955,15 @@ body{
 .gap-5{
   gap: 1.25rem;
 }
+.gap-y-4{
+  row-gap: 1rem;
+}
 .gap-y-5{
   row-gap: 1.25rem;
 }
 .gap-x-1{
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
-}
-.gap-y-4{
-  row-gap: 1rem;
 }
 .space-y-4 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
@@ -1185,6 +1143,10 @@ body{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
+.border-gray-400{
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
 .border-red-500{
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
@@ -1192,22 +1154,6 @@ body{
 .border-blue-700{
   --tw-border-opacity: 1;
   border-color: rgb(29 78 216 / var(--tw-border-opacity));
-}
-.border-gray-400{
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
-}
-.border-neutral-400{
-  --tw-border-opacity: 1;
-  border-color: rgb(163 163 163 / var(--tw-border-opacity));
-}
-.border-sky-400{
-  --tw-border-opacity: 1;
-  border-color: rgb(56 189 248 / var(--tw-border-opacity));
-}
-.border-sky-500{
-  --tw-border-opacity: 1;
-  border-color: rgb(14 165 233 / var(--tw-border-opacity));
 }
 .border-sky-600{
   --tw-border-opacity: 1;
@@ -1283,6 +1229,14 @@ body{
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
+.bg-black{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.bg-yellow-100{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+}
 .bg-slate-100{
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
@@ -1310,44 +1264,16 @@ body{
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
 }
-.bg-indigo-900\/90{
-  background-color: rgb(49 46 129 / 0.9);
-}
-.bg-yellow-100{
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
-}
-.bg-blue-200{
-  --tw-bg-opacity: 1;
-  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
-}
-.bg-neutral-100{
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
-}
-.bg-neutral-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(115 115 115 / var(--tw-bg-opacity));
-}
-.bg-neutral-400{
-  --tw-bg-opacity: 1;
-  background-color: rgb(163 163 163 / var(--tw-bg-opacity));
-}
 .bg-neutral-50{
   --tw-bg-opacity: 1;
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
 }
-.bg-slate-50{
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+.bg-indigo-900\/90{
+  background-color: rgb(49 46 129 / 0.9);
 }
-.bg-yellow-700{
+.bg-neutral-100{
   --tw-bg-opacity: 1;
-  background-color: rgb(161 98 7 / var(--tw-bg-opacity));
-}
-.bg-black{
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 .bg-opacity-90{
   --tw-bg-opacity: 0.9;
@@ -1386,9 +1312,6 @@ body{
 .fill-current{
   fill: currentColor;
 }
-.fill-white{
-  fill: #fff;
-}
 .stroke-current{
   stroke: currentColor;
 }
@@ -1417,17 +1340,8 @@ body{
 .\!p-0{
   padding: 0px !important;
 }
-.p-20{
-  padding: 5rem;
-}
 .p-16{
   padding: 4rem;
-}
-.p-10{
-  padding: 2.5rem;
-}
-.p-8{
-  padding: 2rem;
 }
 .px-4{
   padding-left: 1rem;
@@ -1538,9 +1452,6 @@ body{
 .pb-4{
   padding-bottom: 1rem;
 }
-.pl-4{
-  padding-left: 1rem;
-}
 .pt-20{
   padding-top: 5rem;
 }
@@ -1553,8 +1464,11 @@ body{
 .pb-5{
   padding-bottom: 1.25rem;
 }
-.pl-0{
-  padding-left: 0px;
+.pl-2{
+  padding-left: 0.5rem;
+}
+.pl-3{
+  padding-left: 0.75rem;
 }
 .text-left{
   text-align: left;
@@ -1687,9 +1601,13 @@ body{
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
-.text-yellow-400{
+.text-black{
   --tw-text-opacity: 1;
-  color: rgb(250 204 21 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-yellow-700{
+  --tw-text-opacity: 1;
+  color: rgb(161 98 7 / var(--tw-text-opacity));
 }
 .text-\[\#32325D\]{
   --tw-text-opacity: 1;
@@ -1715,6 +1633,10 @@ body{
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity));
 }
+.text-sky-600{
+  --tw-text-opacity: 1;
+  color: rgb(2 132 199 / var(--tw-text-opacity));
+}
 .text-yellow-800{
   --tw-text-opacity: 1;
   color: rgb(133 77 14 / var(--tw-text-opacity));
@@ -1734,26 +1656,6 @@ body{
 .text-green-600{
   --tw-text-opacity: 1;
   color: rgb(22 163 74 / var(--tw-text-opacity));
-}
-.text-sky-500{
-  --tw-text-opacity: 1;
-  color: rgb(14 165 233 / var(--tw-text-opacity));
-}
-.text-sky-700{
-  --tw-text-opacity: 1;
-  color: rgb(3 105 161 / var(--tw-text-opacity));
-}
-.text-sky-600{
-  --tw-text-opacity: 1;
-  color: rgb(2 132 199 / var(--tw-text-opacity));
-}
-.text-yellow-700{
-  --tw-text-opacity: 1;
-  color: rgb(161 98 7 / var(--tw-text-opacity));
-}
-.text-black{
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .placeholder-red-700::-moz-placeholder{
   --tw-placeholder-opacity: 1;
@@ -1849,9 +1751,6 @@ body{
 }
 .duration-100{
   transition-duration: 100ms;
-}
-.duration-700{
-  transition-duration: 700ms;
 }
 .ease-in{
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
@@ -2214,10 +2113,6 @@ body{
   cursor: not-allowed;
 }
 
-.group:hover .group-hover\:w-full{
-  width: 100%;
-}
-
 .group:hover .group-hover\:translate-x-0{
   --tw-translate-x: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2227,14 +2122,14 @@ body{
   fill: #2563eb;
 }
 
-.group:hover .group-hover\:text-blue-600{
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
-}
-
 .group:hover .group-hover\:text-blue-700{
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
+.group:hover .group-hover\:text-blue-600{
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:opacity-100{
@@ -2446,9 +2341,6 @@ body{
   .md\:ml-0{
     margin-left: 0px;
   }
-  .md\:mr-2{
-    margin-right: 0.5rem;
-  }
   .md\:block{
     display: block;
   }
@@ -2464,12 +2356,6 @@ body{
   .md\:w-1\/2{
     width: 50%;
   }
-  .md\:w-28{
-    width: 7rem;
-  }
-  .md\:w-0{
-    width: 0px;
-  }
   .md\:max-w-xl{
     max-width: 36rem;
   }
@@ -2478,6 +2364,15 @@ body{
   }
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .md\:grid-cols-12{
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .md\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .md\:grid-rows-6{
+    grid-template-rows: repeat(6, minmax(0, 1fr));
   }
   .md\:flex-row{
     flex-direction: row;
@@ -2497,9 +2392,6 @@ body{
   .md\:pt-0{
     padding-top: 0px;
   }
-  .md\:pl-4{
-    padding-left: 1rem;
-  }
   .md\:text-right{
     text-align: right;
   }
@@ -2515,11 +2407,23 @@ body{
   .lg\:col-span-3{
     grid-column: span 3 / span 3;
   }
+  .lg\:col-span-2{
+    grid-column: span 2 / span 2;
+  }
   .lg\:hidden{
     display: none;
   }
   .lg\:max-w-3xl{
     max-width: 48rem;
+  }
+  .lg\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lg\:grid-cols-8{
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+  .lg\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
