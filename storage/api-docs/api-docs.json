@@ -709,6 +709,7 @@
                     "Order"
                 ],
                 "summary": "Store cart products to order",
+                "description": "[suggest: {1, 0}, shipping_method: {TAXI, NORMAL}, payment_method: {HOME_DELIVERY, WALLET}]",
                 "operationId": "8457da312b2f3c5f38390f58067e6c8e",
                 "requestBody": {
                     "content": {
@@ -724,7 +725,11 @@
                                         "type": "string"
                                     },
                                     "shipping_method": {
-                                        "description": "1or2=fast",
+                                        "description": "TAXI|NORMAL",
+                                        "type": "string"
+                                    },
+                                    "payment_method": {
+                                        "description": "WALLET|HOME_DELIVERY",
                                         "type": "string"
                                     },
                                     "products": {
@@ -877,6 +882,48 @@
                 ],
                 "summary": "order cancelled",
                 "operationId": "076442f0f32a99ab8814be6b4015a8d6",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/orders/pay/{order}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "payment the order",
+                "operationId": "f062e519b903421e074d2977f5aca186",
                 "parameters": [
                     {
                         "name": "order",
