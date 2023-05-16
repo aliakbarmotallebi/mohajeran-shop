@@ -7,6 +7,9 @@
     },
     "servers": [
         {
+            "url": "http://192.168.1.7:8180/api"
+        },
+        {
             "url": "http://localhost:8000/api",
             "description": "localhost"
         },
@@ -485,16 +488,41 @@
                 }
             }
         },
-        "/carts/": {
+        "/carts/check": {
             "post": {
                 "tags": [
                     "Cart"
                 ],
                 "summary": "Store cart",
-                "operationId": "5f196d12282f472838dd49aea4433511",
+                "operationId": "b63f8d7b0c07a67e2887d2fae8640c82",
                 "requestBody": {
+                    "description": "Data packet for Test",
+                    "required": true,
                     "content": {
-                        "application/json": {}
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "erp_codes": {
+                                        "description": "Store reward index",
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "erp_code": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "quantity": {
+                                                    "type": "integer",
+                                                    "example": ""
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
                     }
                 },
                 "responses": {

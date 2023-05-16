@@ -12,39 +12,20 @@ class CartController extends Controller
 {
      /**
      * @OA\Post(
-     *     path="/carts/check",
+     *     path="/carts/",
      *     tags={"Cart"},
      *     summary="Store cart",
      *     @OA\RequestBody(
-     *          required = true,
-     *        description = "Data packet for Test",
-     *        @OA\JsonContent(
-     *             type="object",
-        *   @OA\Property(
-        *      property="erp_codes",
-        *      type="array",
-        *      @OA\Items(
-* @OA\Property(
-     *                         property="erp_code",
-     *                         type="string",
-     *                         example=""
-     *                      ),
-     *                      @OA\Property(
-     *                         property="quantity",
-     *                         type="integer",
-     *                         example=""
-     *                      ),
-        *         ),
-        *      description="Store reward index"
-        * )
-        *)
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *        )
      *     ),
      *     @OA\Response(response="200", description="", @OA\JsonContent()),
      *     @OA\Response(response="403", description="", @OA\JsonContent()),
      *     @OA\Response(response=400, description="Bad request", @OA\JsonContent()),
      * )
      */
-    public function check(Request $request)
+    public function __invoke(Request $request)
     {
         $this->validate($request, [
             'erp_codes' => 'required',
@@ -91,18 +72,32 @@ class CartController extends Controller
     
     
     function totalPrice(Request $request){
-        $userProducts = [];
-        foreach($request->all() as $product){
-            $userProducts[$product['id']] = $product['count'];
-        }
-        $products = Product::whereIn('id', array_keys($userProducts))->get();
-        $totalPrice = 0;
-        foreach($products as $product){
-            $totalPrice += ($product->sell_price - $product->discount_price) * $userProducts[$product->id];
-        }
-        return [
-            "totalPrice" => $totalPrice
-        ]; 
+            //  return response($request->all(),500);
+            $userProducts = [];
+            foreach($request->all() as $product){
+                $userProducts[$product['id']] = $product['count'];
+                
+            }
+            // return response($userProducts, 500); 
+            
+            $products = Product::whereIn('id', array_keys($userProducts))->get();
+
+            $totalPrice = 0;
+            
+            foreach($products as $product){
+                
+                // dd($product);
+                $totalPrice += ($product->sell_price - $product->discount_price) * $userProducts[$product->id];
+                
+            }
+            
+            
+            return [
+                
+                "totalPrice" => $totalPrice
+                
+                ];
+            
     }
     
     

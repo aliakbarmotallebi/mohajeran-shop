@@ -68,8 +68,10 @@ Route::group(['namespace' => 'Api'], function(){
     
     Route::get('app/transportation-cost', 'AppController@transportationCost');
 
-    Route::any('carts', 'CartController');
+    // Route::any('carts', 'CartController');
     
+    Route::post('carts/check', 'CartController@check');
+
     Route::post('cart/total-price', 'CartController@totalPrice');
 
 	Route::get('category', 'CategoryController@index');
