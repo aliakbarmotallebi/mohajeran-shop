@@ -18,7 +18,7 @@ class AsanPardakhtGateway implements GatewayInterface
     protected $configs;
 
 
-    protected $serverUrl = 'https://ipgsoap.asanpardakht.ir/paygate/merchantservices.asmx?WSDL';
+    protected $serverUrl = 'https://ipgsoap.asanpardakht.ir/paygate/merchantservices.asmx';
 
     protected $merchantId = '768327';
 
@@ -188,27 +188,28 @@ class AsanPardakhtGateway implements GatewayInterface
         $req = "1,{$username},{$password},{$orderId},{$price},{$localDate},{$additionalData},{$callBackUrl},0";
 
         $encryptedRequest = $this->encrypt($req);
+        \Log::debug($encryptedRequest);
+        // $params = array(
+        //     'merchantConfigurationID' => $this->merchantConfigId,
+        //     'encryptedRequest' => $encryptedRequest
+        // );
+        // \Log::debug($params);
+        // try {
+        //     $response = $client->RequestOperation($params);
+        //     \Log::debug($response);
+        // } catch (\SoapFault $e) {
+        //     return false;
+        // }
+        // \Log::debug($response);
+        // $response = $response->RequestOperationResult;
+        // $responseCode = explode(",", $response)[0];
+        // if ($responseCode != '0') {
+        //     return false;
+        // }
 
-        $params = array(
-            'merchantConfigurationID' => $this->merchantConfigId,
-            'encryptedRequest' => $encryptedRequest
-        );
-
-        try {
-            $response = $client->RequestOperation($params);
-        } catch (\SoapFault $e) {
-            return false;
-        }
-
-        $response = $response->RequestOperationResult;
-        $responseCode = explode(",", $response)[0];
-        if ($responseCode != '0') {
-            return false;
-        }
-
-        $refId = substr($response, 2);
-        $this->setResnumber($refId);
-        return true;
+        // $refId = substr($response, 2);
+        // $this->setResnumber($refId);
+        // return true;
     }
 
      /**
@@ -328,6 +329,7 @@ class AsanPardakhtGateway implements GatewayInterface
             );
 
             $response = $soap->EncryptInAES($params);
+            \Log::debug($response);
             return $response->EncryptInAESResult;
 
         } catch (\SoapFault $e) {

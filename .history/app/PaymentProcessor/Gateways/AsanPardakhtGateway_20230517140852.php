@@ -1,4 +1,5 @@
 <?php  namespace App\PaymentProcessor\Gateways;
+
 use App\PaymentProcessor\Interfaces\GatewayInterface;
 use App\PaymentProcessor\Interfaces\PaymentableInterface;
 use Exception;
@@ -18,22 +19,22 @@ class AsanPardakhtGateway implements GatewayInterface
     protected $configs;
 
 
-    protected $serverUrl = 'https://ipgsoap.asanpardakht.ir/paygate/merchantservices.asmx?WSDL';
-
+    protected $serverUrl = 'https://services.asanpardakht.net/paygate/merchantservices.asmx?wsdl';
+    
     protected $merchantId = '768327';
-
+    
     protected $merchantConfigId = '608';
-
+    
     protected $key = 'u/S3A0LyRCrKsCTKoAWgwB0/SSKlgqqG7IFdk3z7MvM=';
-
+    
     protected $iv = 'UF7YFMSB36wj8Vd0ZJv3Ic0IC+idtwlz9utybJYlWoA=';
-
+    
     protected $username = 'MABNA768327';
-
+    
     protected $password = 'Q5r4UYi8poW2Ey';
-
+    
     protected $callbackUrl = 'http://localhost:8180';
-
+    
 
     /**
      * @var client
@@ -76,6 +77,7 @@ class AsanPardakhtGateway implements GatewayInterface
 
     public function __construct()
     {
+		$this->configs = (object)Config::get('payment.asanpardakht');
         $this->getSoapClient();
     }
     
@@ -147,8 +149,9 @@ class AsanPardakhtGateway implements GatewayInterface
      */
     protected function getSoapClient()
     {
+        $this->configs = (object)Config::get('payment.asanpardakht');
         try {
-            return $this->client = new \SoapClient($this->serverUrl);
+            return $this->client = new \SoapClient('https://services.asanpardakht.net/paygate/merchantservices.asmx?wsdl');
         } catch (\SoapFault $e) {
             return false;
         }
@@ -165,7 +168,7 @@ class AsanPardakhtGateway implements GatewayInterface
 
     public function redirect() 
     {
-        $url = $this->serverUrl;
+        $url = $this->configs->paymentUrl;
 
         $inputs = [
             'RefId' => $this->getResnumber()
@@ -178,19 +181,20 @@ class AsanPardakhtGateway implements GatewayInterface
     {
         $client = $this->getSoapClient();
 
-        $username = $this->username;
-        $password = $this->password;
+        return $this->configs;
+
+        $username = $this->configs->username;
+        $password = $this->configs->password;
         $orderId = $this->paymentable->id;
         $price = $this->paymentable->getAmountPay();
         $localDate = date("Ymd His");
         $additionalData = "";
-        $callBackUrl = $this->callbackUrl;
+        $callBackUrl = $this->configs->callbackUrl;
         $req = "1,{$username},{$password},{$orderId},{$price},{$localDate},{$additionalData},{$callBackUrl},0";
 
         $encryptedRequest = $this->encrypt($req);
-
         $params = array(
-            'merchantConfigurationID' => $this->merchantConfigId,
+            'merchantConfigurationID' => $this->configs->merchantConfigId,
             'encryptedRequest' => $encryptedRequest
         );
 
@@ -200,6 +204,7 @@ class AsanPardakhtGateway implements GatewayInterface
             return false;
         }
 
+
         $response = $response->RequestOperationResult;
         $responseCode = explode(",", $response)[0];
         if ($responseCode != '0') {
@@ -208,7 +213,7 @@ class AsanPardakhtGateway implements GatewayInterface
 
         $refId = substr($response, 2);
         $this->setResnumber($refId);
-        return true;
+
     }
 
      /**
@@ -252,12 +257,12 @@ class AsanPardakhtGateway implements GatewayInterface
 
         $this->userPayment();
         
-        $username = $this->username;
-        $password = $this->password;
+        $username = $this->configs->username;
+        $password = $this->configs->password;
 
         $encryptedCredintials = $this->encrypt("{$username},{$password}");
         $params = array(
-            'merchantConfigurationID' => $this->merchantConfigId,
+            'merchantConfigurationID' => $this->config->merchantConfigId,
             'encryptedCredentials' => $encryptedCredintials,
             'payGateTranID' => $this->trackingCode
         );
@@ -305,22 +310,12 @@ class AsanPardakhtGateway implements GatewayInterface
     private function encrypt($string = "")
     {
 
-        $key = $this->key;
-        $iv = $this->iv;
+        $key = $this->configs->key;
+        $iv = $this->configs->iv;
 
         try {
-            $options =
-            [
-                'ssl' =>
-                [
-                    'verify_peer'      => false,
-                    'verify_peer_name' => false,
-                ]
-            ];
 
-
-            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true,];
-            $soap = new SoapClient("https://ipgsoap.asanpardakht.ir/paygate/internalutils.asmx?WSDL",$params);
+            $soap = new SoapClient("https://services.asanpardakht.net/paygate/internalutils.asmx?WSDL");
             $params = array(
                 'aesKey' => $key,
                 'aesVector' => $iv,
@@ -344,12 +339,12 @@ class AsanPardakhtGateway implements GatewayInterface
      */
     private function decrypt($string = "")
     {
-        $key = $this->key;
-        $iv = $this->iv;
+        $key = $this->configs->key;
+        $iv = $this->configs->iv;
 
         try {
 
-            $soap = new SoapClient("https://ipgsoap.asanpardakht.ir/paygate/internalutils.asmx?WSDL");
+            $soap = new SoapClient("https://services.asanpardakht.net/paygate/internalutils.asmx?WSDL");
             $params = array(
                 'aesKey' => $key,
                 'aesVector' => $iv,

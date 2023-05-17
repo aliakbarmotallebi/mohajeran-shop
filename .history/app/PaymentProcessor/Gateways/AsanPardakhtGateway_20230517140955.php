@@ -1,4 +1,5 @@
 <?php  namespace App\PaymentProcessor\Gateways;
+
 use App\PaymentProcessor\Interfaces\GatewayInterface;
 use App\PaymentProcessor\Interfaces\PaymentableInterface;
 use Exception;
@@ -18,7 +19,7 @@ class AsanPardakhtGateway implements GatewayInterface
     protected $configs;
 
 
-    protected $serverUrl = 'https://ipgsoap.asanpardakht.ir/paygate/merchantservices.asmx?WSDL';
+    protected $serverUrl = 'https://services.asanpardakht.net/paygate/merchantservices.asmx?wsdl';
 
     protected $merchantId = '768327';
 
@@ -178,6 +179,8 @@ class AsanPardakhtGateway implements GatewayInterface
     {
         $client = $this->getSoapClient();
 
+        return $this->configs;
+
         $username = $this->username;
         $password = $this->password;
         $orderId = $this->paymentable->id;
@@ -188,7 +191,6 @@ class AsanPardakhtGateway implements GatewayInterface
         $req = "1,{$username},{$password},{$orderId},{$price},{$localDate},{$additionalData},{$callBackUrl},0";
 
         $encryptedRequest = $this->encrypt($req);
-
         $params = array(
             'merchantConfigurationID' => $this->merchantConfigId,
             'encryptedRequest' => $encryptedRequest
@@ -200,6 +202,7 @@ class AsanPardakhtGateway implements GatewayInterface
             return false;
         }
 
+
         $response = $response->RequestOperationResult;
         $responseCode = explode(",", $response)[0];
         if ($responseCode != '0') {
@@ -208,7 +211,7 @@ class AsanPardakhtGateway implements GatewayInterface
 
         $refId = substr($response, 2);
         $this->setResnumber($refId);
-        return true;
+
     }
 
      /**
@@ -257,7 +260,7 @@ class AsanPardakhtGateway implements GatewayInterface
 
         $encryptedCredintials = $this->encrypt("{$username},{$password}");
         $params = array(
-            'merchantConfigurationID' => $this->merchantConfigId,
+            'merchantConfigurationID' => $this->config->merchantConfigId,
             'encryptedCredentials' => $encryptedCredintials,
             'payGateTranID' => $this->trackingCode
         );
@@ -309,18 +312,8 @@ class AsanPardakhtGateway implements GatewayInterface
         $iv = $this->iv;
 
         try {
-            $options =
-            [
-                'ssl' =>
-                [
-                    'verify_peer'      => false,
-                    'verify_peer_name' => false,
-                ]
-            ];
 
-
-            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true,];
-            $soap = new SoapClient("https://ipgsoap.asanpardakht.ir/paygate/internalutils.asmx?WSDL",$params);
+            $soap = new SoapClient("https://services.asanpardakht.net/paygate/internalutils.asmx?WSDL");
             $params = array(
                 'aesKey' => $key,
                 'aesVector' => $iv,
@@ -349,7 +342,7 @@ class AsanPardakhtGateway implements GatewayInterface
 
         try {
 
-            $soap = new SoapClient("https://ipgsoap.asanpardakht.ir/paygate/internalutils.asmx?WSDL");
+            $soap = new SoapClient("https://services.asanpardakht.net/paygate/internalutils.asmx?WSDL");
             $params = array(
                 'aesKey' => $key,
                 'aesVector' => $iv,

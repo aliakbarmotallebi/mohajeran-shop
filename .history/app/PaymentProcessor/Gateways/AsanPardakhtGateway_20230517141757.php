@@ -18,7 +18,7 @@ class AsanPardakhtGateway implements GatewayInterface
     protected $configs;
 
 
-    protected $serverUrl = 'https://ipgsoap.asanpardakht.ir/paygate/merchantservices.asmx?WSDL';
+    protected $serverUrl = 'https://services.asanpardakht.net/paygate/merchantservices.asmx?wsdl';
 
     protected $merchantId = '768327';
 
@@ -188,18 +188,18 @@ class AsanPardakhtGateway implements GatewayInterface
         $req = "1,{$username},{$password},{$orderId},{$price},{$localDate},{$additionalData},{$callBackUrl},0";
 
         $encryptedRequest = $this->encrypt($req);
-
         $params = array(
             'merchantConfigurationID' => $this->merchantConfigId,
             'encryptedRequest' => $encryptedRequest
         );
-
+        \Log::debug($params);
         try {
             $response = $client->RequestOperation($params);
+            \Log::debug($response);
         } catch (\SoapFault $e) {
             return false;
         }
-
+        \Log::debug($response);
         $response = $response->RequestOperationResult;
         $responseCode = explode(",", $response)[0];
         if ($responseCode != '0') {
@@ -309,23 +309,15 @@ class AsanPardakhtGateway implements GatewayInterface
         $iv = $this->iv;
 
         try {
-            $options =
-            [
-                'ssl' =>
-                [
-                    'verify_peer'      => false,
-                    'verify_peer_name' => false,
-                ]
-            ];
 
-
-            $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true,];
-            $soap = new SoapClient("https://ipgsoap.asanpardakht.ir/paygate/internalutils.asmx?WSDL",$params);
+            $soap = new SoapClient("https://ipgsoap.asanpardakht.ir/paygate/internalutils.asmx");
             $params = array(
                 'aesKey' => $key,
                 'aesVector' => $iv,
                 'toBeEncrypted' => $string
             );
+
+            \Log::debug($params);
 
             $response = $soap->EncryptInAES($params);
             return $response->EncryptInAESResult;
@@ -349,7 +341,7 @@ class AsanPardakhtGateway implements GatewayInterface
 
         try {
 
-            $soap = new SoapClient("https://ipgsoap.asanpardakht.ir/paygate/internalutils.asmx?WSDL");
+            $soap = new SoapClient("https://ipgsoap.asanpardakht.ir/paygate/internalutils.asmx");
             $params = array(
                 'aesKey' => $key,
                 'aesVector' => $iv,

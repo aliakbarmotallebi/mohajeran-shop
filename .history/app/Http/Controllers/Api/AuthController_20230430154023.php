@@ -49,6 +49,9 @@ class AuthController extends Controller
                 'code_expired_at' => Carbon::now()
             ]);
         });
+        
+        \Log::debug($user);
+
 
         if($user instanceof User){
 

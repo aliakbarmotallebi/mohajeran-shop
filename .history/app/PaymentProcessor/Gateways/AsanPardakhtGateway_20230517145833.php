@@ -199,7 +199,7 @@ class AsanPardakhtGateway implements GatewayInterface
         } catch (\SoapFault $e) {
             return false;
         }
-
+        \Log::debug(json_encode($response));
         $response = $response->RequestOperationResult;
         $responseCode = explode(",", $response)[0];
         if ($responseCode != '0') {

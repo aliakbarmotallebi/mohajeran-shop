@@ -82,7 +82,7 @@ class User extends Authenticatable implements JWTSubject
             'mobile' => $this->mobile,
             'name' => $this->name,
             'wallet_balance' => $this->balance(),
-            'score_order' => 202
+            'score_order' => 2023
         ];
     }
 

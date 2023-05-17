@@ -6,7 +6,7 @@ use App\PaymentProcessor\Interfaces\PaymentableInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Wallet extends Model implements PaymentableInterface
+class Wallet extends Model 
 {
     use HasFactory;
 

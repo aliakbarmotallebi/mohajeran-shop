@@ -438,7 +438,7 @@ class OrderController extends Controller
             $payment =  PaymentManager::setDeriver('AsanPardakhat')
                 ->setPaymentable($deposit)
                 ->createRequest();
-            
+        
             if($payment->request()) {
                 // $deposit->payment()->create([
                 //     'resnumber' => $payment->getResnumber(),
@@ -453,7 +453,7 @@ class OrderController extends Controller
                 ], 'اتصال به در گاه بانکی...');
             }
 
-            return $this->error('خطا در اتصال به درگاه بانکی', 400);
+            $this->error('خطا در اتصال به درگاه بانکی', 400);
 
         }
 

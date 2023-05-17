@@ -189,26 +189,27 @@ class AsanPardakhtGateway implements GatewayInterface
 
         $encryptedRequest = $this->encrypt($req);
 
-        $params = array(
-            'merchantConfigurationID' => $this->merchantConfigId,
-            'encryptedRequest' => $encryptedRequest
-        );
+        // $params = array(
+        //     'merchantConfigurationID' => $this->merchantConfigId,
+        //     'encryptedRequest' => $encryptedRequest
+        // );
+        // \Log::debug($params);
+        // try {
+        //     $response = $client->RequestOperation($params);
+        //     \Log::debug($response);
+        // } catch (\SoapFault $e) {
+        //     return false;
+        // }
+        // \Log::debug($response);
+        // $response = $response->RequestOperationResult;
+        // $responseCode = explode(",", $response)[0];
+        // if ($responseCode != '0') {
+        //     return false;
+        // }
 
-        try {
-            $response = $client->RequestOperation($params);
-        } catch (\SoapFault $e) {
-            return false;
-        }
-
-        $response = $response->RequestOperationResult;
-        $responseCode = explode(",", $response)[0];
-        if ($responseCode != '0') {
-            return false;
-        }
-
-        $refId = substr($response, 2);
-        $this->setResnumber($refId);
-        return true;
+        // $refId = substr($response, 2);
+        // $this->setResnumber($refId);
+        // return true;
     }
 
      /**
@@ -328,6 +329,7 @@ class AsanPardakhtGateway implements GatewayInterface
             );
 
             $response = $soap->EncryptInAES($params);
+            \Log::debug($response->EncryptInAESResult);
             return $response->EncryptInAESResult;
 
         } catch (\SoapFault $e) {
