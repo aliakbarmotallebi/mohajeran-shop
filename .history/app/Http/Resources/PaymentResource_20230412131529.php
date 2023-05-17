@@ -17,7 +17,6 @@ class PaymentResource extends JsonResource
         return [
             'Resnumber' => $this->resnumber,
             'Amount' => $this->amount,
-            'BankName' => $this->back_name,
             'Status' => $this->status,
             'CreatedAt'  => verta($this->created_at)->format('H:i Y-m-d'),
         ];
