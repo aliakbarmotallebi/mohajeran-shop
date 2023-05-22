@@ -75,9 +75,9 @@ Route::group(['namespace' => 'Api'], function(){
 
     Route::post('cart/total-price', 'CartController@totalPrice');
 
-    Route::get('lottery/current', 'LotteryController@current');
+    // Route::get('lottery/current', 'LotteryController@current');
 
-    Route::get('lotteries', 'LotteryController@index');
+    // Route::get('lotteries', 'LotteryController@index');
 
 	Route::get('category', 'CategoryController@index');
     Route::get('categories', 'CategoryController@indexForApp'); // temporary

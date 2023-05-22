@@ -14,11 +14,6 @@ class LotteryPrizeResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'Name' => $this->name,
-            'Description' => $this->description,
-            'ImageUrl' => $this->image_url,
-            'Scores' => $this->scores,
-        ];
+        return parent::toArray($request);
     }
 }

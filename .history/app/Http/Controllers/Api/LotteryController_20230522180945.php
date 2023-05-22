@@ -7,7 +7,6 @@ use App\Http\Resources\LotteryResource;
 use App\Models\Lottery;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class LotteryController extends Controller
 {
@@ -25,11 +24,11 @@ class LotteryController extends Controller
     public function current(Request $request)
     {
         $date = \Carbon\Carbon::now();
-        $lottery = Lottery::latest()
-            ->whereStatus('PUBLISH')
-            ->where('end_at', '>=', Carbon::today())
-            ->first();
-        return $this->success(new LotteryResource($lottery));
+        $lottery = Lottery::latest()->whereStatus('PUBLISH')->first();
+    return $lottery ;
+        return 
+        $this->success(
+            new LotteryResource($lottery));
     }
 
     /**
@@ -43,7 +42,7 @@ class LotteryController extends Controller
      */
     public function index(Request $request)
     {
-        $lottereis = Lottery::latest()->whereStatus('PUBLISH')->get();
+        $lottereis = Lottery::latest()->whereStatus('PUBLISH')->all();
         return $this->success(
             LotteryResource::collection($lottereis));
     }

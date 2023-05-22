@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Lottery;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LotteryResource extends JsonResource
@@ -15,19 +14,13 @@ class LotteryResource extends JsonResource
      */
     public function toArray($request)
     {
-        if (is_null($this->resource)) {
-            return [];
-        }
-
         return [
             'Name' => $this->name,
             'Description' => $this->description,
             'ImageUrl' => $this->image_url,
-            'StartAt' => verta($this->start_at)->format('Y-m-d'),
-            'EndAt' => verta($this->end_at)->format('Y-m-d'),
-            'Past' => $this->isPast(),
-            'Winners' => LotteryStockResource::collection($this->stocks),
-            'Prizes' => LotteryPrizeResource::collection($this->prizes)
+            'StartAt' => verta($this->start_at),
+            'EndAt' => verta($this->end_at),
+            'Status' => $this->end_at->isPast(),
         ];
     }
 }

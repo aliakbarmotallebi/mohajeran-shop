@@ -66,6 +66,11 @@ Route::group(['namespace' => 'Api'], function(){
     Route::get('app/instant-messagings', 'AppController@instantMessagings');
     
     Route::get('app/min-order-amount', 'AppController@minOrderAmount');
+
+
+    Route::get('lottery/current', 'LotteryController@current');
+
+    Route::get('lotteries', 'LotteryController@index');
     
     Route::get('app/transportation-cost', 'AppController@transportationCost');
 
@@ -74,10 +79,6 @@ Route::group(['namespace' => 'Api'], function(){
     Route::post('carts/check', 'CartController@check');
 
     Route::post('cart/total-price', 'CartController@totalPrice');
-
-    Route::get('lottery/current', 'LotteryController@current');
-
-    Route::get('lotteries', 'LotteryController@index');
 
 	Route::get('category', 'CategoryController@index');
     Route::get('categories', 'CategoryController@indexForApp'); // temporary

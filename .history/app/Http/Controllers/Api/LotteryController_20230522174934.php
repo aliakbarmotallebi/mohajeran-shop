@@ -5,13 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\LotteryResource;
 use App\Models\Lottery;
-use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class LotteryController extends Controller
 {
-    use ApiResponser;
     /**
      * @OA\Get(
      *   tags={"Lottery"},
@@ -24,12 +21,9 @@ class LotteryController extends Controller
 
     public function current(Request $request)
     {
-        $date = \Carbon\Carbon::now();
-        $lottery = Lottery::latest()
-            ->whereStatus('PUBLISH')
-            ->where('end_at', '>=', Carbon::today())
-            ->first();
-        return $this->success(new LotteryResource($lottery));
+        // $date = \Carbon\Carbon::today();
+        // $lottery = Lottery::latest()->where('end_at','>=',$date)->get();
+        // return new LotteryResource($lottery);
     }
 
     /**
@@ -43,9 +37,8 @@ class LotteryController extends Controller
      */
     public function index(Request $request)
     {
-        $lottereis = Lottery::latest()->whereStatus('PUBLISH')->get();
-        return $this->success(
-            LotteryResource::collection($lottereis));
+        // $lottereis = Lottery::latest()->all();
+        // return LotteryResource::collection($lottereis);
     }
 }
 

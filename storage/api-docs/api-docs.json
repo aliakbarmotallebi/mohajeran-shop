@@ -607,6 +607,60 @@
                 }
             }
         },
+        "/lottery/current": {
+            "get": {
+                "tags": [
+                    "Lottery"
+                ],
+                "summary": "Lottery current",
+                "operationId": "6f1b04ef354d1e826f2502c5cb50a97a",
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/lotteries": {
+            "get": {
+                "tags": [
+                    "Lottery"
+                ],
+                "summary": "Lottery Past",
+                "operationId": "7710df9dcbf33a846695a03df55d7ed0",
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/orders": {
             "get": {
                 "tags": [

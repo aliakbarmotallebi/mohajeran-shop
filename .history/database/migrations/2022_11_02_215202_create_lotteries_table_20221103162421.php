@@ -41,12 +41,6 @@ class CreateLotteriesTable extends Migration
                 ->nullable();
             $table->integer('scores')
                 ->default(0);
-            $table->unsignedBigInteger('lottery_id');
-            $table->foreign('lottery_id')
-                ->references('id')
-                ->on('lotteries')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
             $table->enum('status', [
                 'PUBLISH',
                 'UN_PUBLISH'

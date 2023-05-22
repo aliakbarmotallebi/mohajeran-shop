@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class LotteryPrizeResource extends JsonResource
+class LotteryStockResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,10 +15,9 @@ class LotteryPrizeResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'Name' => $this->name,
-            'Description' => $this->description,
-            'ImageUrl' => $this->image_url,
-            'Scores' => $this->scores,
+            'LotteryName' => $this->name,
+            'PrizeName' => $this->image_url,
+            'FuLLNameWinner' => $this->start_at,
         ];
     }
 }

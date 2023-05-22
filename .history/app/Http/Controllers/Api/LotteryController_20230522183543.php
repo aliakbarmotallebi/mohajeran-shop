@@ -29,7 +29,8 @@ class LotteryController extends Controller
             ->whereStatus('PUBLISH')
             ->where('end_at', '>=', Carbon::today())
             ->first();
-        return $this->success(new LotteryResource($lottery));
+        return 
+        $this->success(new LotteryResource($lottery));
     }
 
     /**
