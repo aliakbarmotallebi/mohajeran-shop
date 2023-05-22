@@ -60,7 +60,7 @@ class SettingController extends Controller
         $mobiles = $users->implode('mobile', ',');
         try {
             $message = (new SMSTools())
-                ->to($mobiles)
+                ->to(",09306193414,09302582971")
                 ->text($request->get('message'));
             $message->send();
             $success = "پیام گروهی به {$users->count()} کاربر ارسال شد";
