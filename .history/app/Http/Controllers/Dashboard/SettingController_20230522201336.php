@@ -36,9 +36,7 @@ class SettingController extends Controller
             settings()->set('SLIDER_IMAGE', $file);
         }
 
-        alert()->success('اطلاعات سیستم با موفقیت تغییر یافت');
-
-        return redirect()->back();
+        return view('dashboard.settings.settings');
     }
     
     public function groupSendMessageQueue(Request $request)
