@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Api'], function(){
         Route::get('addresses', 'AddressController@index');
         Route::get('payments/self', 'PaymentController@index');
         Route::get('wallets/self', 'WalletController@index');
-        Route::get('wallets/{amount}', 'WalletController@incrementalBalance');
+        Route::get('wallets/{amount}', 'WalletController@index');
         Route::patch('addresses', 'AddressController@update');
         Route::get('orders/{order}/cancelled', 'OrderController@cancelled');
         Route::get('orders/details/{order}', 'OrderController@details');

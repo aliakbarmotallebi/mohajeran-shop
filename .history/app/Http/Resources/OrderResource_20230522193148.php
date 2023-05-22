@@ -31,7 +31,7 @@ class OrderResource extends JsonResource
             'DiffAmountPayWithWallet' => $this->diffAmountPayWithWallet(), 
             'ShouldPayWithPayment' => $this->shouldPayWithPayment(), 
             'StatusPaid' => $this->getStatusPaid(),
-            'TotalScoresOrder' => 100
+            'TotalScoresOrder' => 1
         ];
     }
 }

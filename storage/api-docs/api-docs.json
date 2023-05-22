@@ -1525,6 +1525,40 @@
                     }
                 ]
             }
+        },
+        "/wallets/{amount}": {
+            "get": {
+                "tags": [
+                    "Wallet"
+                ],
+                "summary": "List all Wallets self user",
+                "operationId": "95cc9dacf85915cdd73649294cced0ea",
+                "parameters": [
+                    {
+                        "name": "amount",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {

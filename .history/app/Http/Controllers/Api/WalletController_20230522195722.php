@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\PaymentProcessor\Facades\PaymentManager;
 use App\Facades\TransactionWalletManager;
 use App\Traits\ApiResponser;
-use Illuminate\Support\Facades\DB;
+use DB;
 
 class WalletController extends Controller
 {
@@ -89,6 +89,7 @@ class WalletController extends Controller
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
+            // something went wrong
         }
 
         return $this->error('خطا در اتصال به درگاه بانکی', 400);

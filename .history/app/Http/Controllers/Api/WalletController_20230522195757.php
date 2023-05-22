@@ -89,6 +89,7 @@ class WalletController extends Controller
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
+            // something went wrong
         }
 
         return $this->error('خطا در اتصال به درگاه بانکی', 400);

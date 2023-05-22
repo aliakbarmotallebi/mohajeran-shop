@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\PaymentProcessor\Facades\PaymentManager;
 use App\Facades\TransactionWalletManager;
 use App\Traits\ApiResponser;
-use Illuminate\Support\Facades\DB;
 
 class WalletController extends Controller
 {
@@ -60,35 +59,28 @@ class WalletController extends Controller
                 'حداقل مقدار باید ۱۰۰۰ تومان باشد', 422
             );
         }
-        DB::beginTransaction();
 
-        try {
-            $deposit = TransactionWalletManager::deposit(
-                amount: $amount,
-                user: $request->user(),
-            );
+        $deposit = TransactionWalletManager::deposit(
+            amount: $amount,
+            user: $request->user(),
+        );
 
-            $payment =  PaymentManager::setDeriver('AsanPardakhat')
-                ->setPaymentable($deposit)
-                ->createRequest();
-            
-            if($payment->request()) {
-                // $deposit->payment()->create([
-                //     'resnumber' => $payment->getResnumber(),
-                //     'bank_name' => 'AsanPardakhat',
-                //     'amount' => $deposit->getAmountPay(),
-                //     'user_id' => $user->id,
-                // ]);
-                        
-                return $this->success([
-                    'section' => 'PAYMENT',
-                    'redirectToUrl' => $payment->redirect()
-                ], 'اتصال به در گاه بانکی...');
-            }
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
+        $payment =  PaymentManager::setDeriver('AsanPardakhat')
+            ->setPaymentable($deposit)
+            ->createRequest();
+        
+        if($payment->request()) {
+            // $deposit->payment()->create([
+            //     'resnumber' => $payment->getResnumber(),
+            //     'bank_name' => 'AsanPardakhat',
+            //     'amount' => $deposit->getAmountPay(),
+            //     'user_id' => $user->id,
+            // ]);
+                      
+            return $this->success([
+                'section' => 'PAYMENT',
+                'redirectToUrl' => $payment->redirect()
+            ], 'اتصال به در گاه بانکی...');
         }
 
         return $this->error('خطا در اتصال به درگاه بانکی', 400);
