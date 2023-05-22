@@ -20,6 +20,7 @@
         "livewire/livewire": "^2.10",
         "nicolaslopezj/searchable": "1.*",
         "pishran/laravel-persian-string": "^1.5",
+        "realrashid/sweet-alert": "^7.0",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {

@@ -12,7 +12,7 @@ module.exports = {
                 3: 3
             },
             fontFamily: {
-                'iran': ['IRANSansX'],
+                'iran': ['IRANSans'],
             },
             colors: {
                 ...colors,
