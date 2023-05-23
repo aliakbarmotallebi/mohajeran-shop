@@ -301,16 +301,16 @@ class OrderController extends Controller
                 //$this->dispatch( new NotifyTelegramOrderCreated($order) );
 
 
-                $massage = 'مشتری گرامی سفارش شماره ';
-                $massage .= "$order->id";
-                $massage .= " با مبلغ ";
-                $massage .= number_format($order->getTotal());
-                $massage .= " تومان ";
-                $massage .= "در فروشگاه با موفقیت ثبت شد ";
-                $sender = (new SMSTools())
+                $msg = 'مشتری گرامی سفارش شماره ';
+                $msg .= "$order->id";
+                $msg .= " با مبلغ ";
+                $msg .= number_format($order->getTotal());
+                $msg .= " تومان ";
+                $msg .= "در فروشگاه با موفقیت ثبت شد ";
+                $SMS = (new SMSTools())
                     ->to($order->user->mobile)
-                    ->text($massage)
-                    ->send();
+                    ->text($msg);
+                 $SMS->send();
 
                 return $this->success(
                     new OrderResource($order)

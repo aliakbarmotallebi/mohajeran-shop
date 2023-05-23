@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Jobs\SendNewUserDataToHoloo;
 use App\Jobs\UpdateUserInfoDataToHoloo;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use App\Uilits\SMSTools;
 
 class UserObserver
 {
@@ -32,7 +31,6 @@ class UserObserver
     public function created(User $user)
     {
         $this->dispatch( (new SendNewUserDataToHoloo($user)));
-        (new SMSTools())->insertNumberInNumberGroup($user->mobile, ($user->name ?? $user->mobile));
     }
 
     /**
