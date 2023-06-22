@@ -54,7 +54,7 @@ class Wallet extends Model implements PaymentableInterface
 
     public function order()
     {
-        return $this->hasOne(Payment::class);
+        return $this->hasOne(order::class);
     }
 
     public function calculatorBalance()

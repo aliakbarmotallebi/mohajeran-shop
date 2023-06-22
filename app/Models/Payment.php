@@ -12,15 +12,15 @@ class Payment extends Model
     protected $fillable=[
         "resnumber",
         "user_id",
-        "back_name",
+        "bank_name",
         "amount",
         "result",
         "type",
         "status"
     ];
 
-    const STATUS_PAID   = 'STATUS_PAID';
-    const STATUS_NONPAID    = 'STATUS_NONPAID';
+    const STATUS_PAID   = 'PAID';
+    const STATUS_NONPAID    = 'NONPAID';
 
     protected const STATUS_LABEL = [
         self::STATUS_PAID => 'پرداخت شده',
@@ -36,6 +36,11 @@ class Payment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    
+    public function wallet()
+    {
+        return $this->belongsTo(Wallet::class);
     }
 
     public function isPaid(): bool

@@ -37,7 +37,7 @@ class CategoryController extends Controller
      */
     public function indexForApp()
     {
-        return CategoryResource::collection(MainGroup::all());
+        return CategoryResource::collection(MainGroup::where('is_vendor', 0)->get());
     }
 
 }

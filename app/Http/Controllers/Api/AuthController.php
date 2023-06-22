@@ -54,7 +54,7 @@ class AuthController extends Controller
 
             if (  ! $user->canResendCode() ) {
                 return $this->error(
-                    'Wait 2 minutes before the code is sent',
+                    'بعداز دو دقیقه مجددا تلاش کنید',
                     401);
             }
 
@@ -62,11 +62,11 @@ class AuthController extends Controller
 
             return $this->success(
                 null,
-                'The code was sent to your phone number');
+                'کد احراز به شماره شما ارسال شد');
         }
 
         return $this->error(
-            'Invalid login credentials',
+            'خطا در ورود شما به سیستم با مدیریت تماس بگیرید',
             401);
     }
 
@@ -106,13 +106,13 @@ class AuthController extends Controller
 
         if ($user->verification_code != $request->code) {
             return $this->error(
-                'Invalid the code verify',
+                'کد شما معتبر نمی باشد',
                 401);
         }
 
         if ( $user->isExpired() ) {
             return $this->error(
-                'the code is expired',
+                'کد منقضی شد مجددا وارد شوید',
                 401);
         }
 
@@ -122,12 +122,12 @@ class AuthController extends Controller
         try {
             if (!$token =  JWTAuth::attempt($data)) {
                 return $this->error(
-                    'Invalid login credentials',
+            'خطا در ورود شما به سیستم با مدیریت تماس بگیرید',
                     401);
             }
         } catch (JWTException $e) {
             return $this->error(
-                'error JWTException',
+            'خطا در ورود شما به سیستم با مدیریت تماس بگیرید',
                 500);
         }
 
@@ -179,7 +179,7 @@ class AuthController extends Controller
 
         return $this->success(
             null,
-            'User successfully signed out');
+            'باموفقیت از سیستم خارج شده اید');
     }
 
     protected function createNewToken($token){
@@ -213,16 +213,6 @@ class AuthController extends Controller
      *                     property="tel",
      *                     description="tel",
      *                     type="string",
-     *                 ),
-     *                  @OA\Property(
-     *                     property="zip_code",
-     *                     description="zip_code",
-     *                     type="string",
-     *                 ),
-     *                  @OA\Property(
-     *                     property="address",
-     *                     description="address",
-     *                     type="string",
      *                 )
      *              )
      *          )
@@ -238,10 +228,10 @@ class AuthController extends Controller
         if( $user ){
             return $this->success(
                 auth()->user(),
-                'User successfully updated');
+                'اطلاعات پروفایل شما بروز رسانی شد');
         }
         return $this->error(
-            'User Error updated',
+            'خطا در ورود شما به سیستم با مدیریت تماس بگیرید',
             502);
     }
 

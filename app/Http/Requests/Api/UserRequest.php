@@ -41,9 +41,7 @@ class UserRequest extends FormRequest
         }
         if($routeName === 'api/auth/profile/edit') {
             return [
-                'tel'      => 'sometimes',
-				'zip_code' => 'sometimes|digits:10|numeric',
-				'address'  => 'sometimes',
+                'tel'      => 'nullable',
 				'name'     => 'required|string',            
             ];
         }

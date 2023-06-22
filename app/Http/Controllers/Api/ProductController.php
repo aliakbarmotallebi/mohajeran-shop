@@ -79,7 +79,18 @@ class ProductController extends ApiController
     {
         $product = Product::withCount([
             'order_items'
-        ])->filter($request);
+        ])->filter($request)->where('fewtak', '!=', '0')
+                ->orderBy('fewtak', 'DESC')
+            ->orderBy('image', 'DESC')
+            ->orderBy('available', 'DESC')
+            ->whereNotIn('erp_code', [
+                'bBALNA1mckd7Zh4O',
+                'bBALNA1mckh7QB4O',
+                'bBAHNA1mckd5dh4O',
+                'bBAHNA1mckd4dh4O',
+                'bBAHNA1mckd7QB4O',
+                'bBALNA1mckd7Zh4O'
+            ]);
 
         // if($product->count() === 0){
         //     $this->dispatch( new NotifyTelegramSearchNullable($request->get('q')) );
@@ -87,6 +98,26 @@ class ProductController extends ApiController
         return ProductResource::collection($product->paginate($request->get('count') ?? 16)->withQueryString());
     }
 
+   public function search(Request $request)
+    {
+        $products = Product::query();
+
+        if($request->has("q")){
+            $products = $products->search($request->get('q'), 0)->orderBy('few', 'DESC')
+            ->orderBy('image', 'DESC')
+            ->orderBy('available', 'DESC')
+            ->whereNotIn('erp_code', [
+                'bBALNA1mckd7Zh4O',
+                'bBALNA1mckh7QB4O',
+                'bBAHNA1mckd5dh4O',
+                'bBAHNA1mckd4dh4O',
+                'bBAHNA1mckd7QB4O',
+                'bBALNA1mckd7Zh4O'
+            ]);
+        }
+        return ProductResource::collection($products->paginate(12));
+    }
+    
     /**
      * @OA\Get(
      *   tags={"Product"},

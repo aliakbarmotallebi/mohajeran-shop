@@ -18,10 +18,11 @@ class IsProfileComplete
      */
     public function handle(Request $request, Closure $next)
     {
-        if (\Auth::user()->isProfileComplete()) {
-            return $next($request);
-        }
+        // if (\Auth::user()->isProfileComplete()) {
+        //     return $next($request);
+        // }
 
-        return $this->error('Your profile is not complete', 402);
+        // return $this->error('Your profile is not complete', 402);
+         return $next($request);
     }
 }

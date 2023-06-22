@@ -7,6 +7,8 @@ use App\Models\Order;
 use App\Settings\SettingStorage;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Str;
+use App\Uilits\SMSTools;
+
 
 class OrderObserver
 {
@@ -27,7 +29,8 @@ class OrderObserver
      */
     public function created(Order $order)
     {
-    //
+        $text = "سفارش جدید با شماره {$order->id} از طرف حساب {$order->user->mobile} ایجاد شد";
+        (new SMSTools())->text($text)->to("09163777797,09163986608")->send();
     }
 
     /**

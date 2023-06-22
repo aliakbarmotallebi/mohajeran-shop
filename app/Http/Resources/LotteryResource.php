@@ -25,6 +25,7 @@ class LotteryResource extends JsonResource
             'ImageUrl' => $this->image_url,
             'StartAt' => verta($this->start_at)->format('Y-m-d'),
             'EndAt' => verta($this->end_at)->format('Y-m-d'),
+            'EndAtCurrent' => $this->end_at,
             'Past' => $this->isPast(),
             'Winners' => LotteryStockResource::collection($this->stocks),
             'Prizes' => LotteryPrizeResource::collection($this->prizes)

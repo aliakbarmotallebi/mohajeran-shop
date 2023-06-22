@@ -17,9 +17,7 @@ class ValidProductScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->orderBy('few', 'DESC')
-            ->orderBy('image', 'DESC')
-            ->orderBy('available', 'DESC')
+        $builder
             ->whereNotIn('erp_code', [
                 'bBALNA1mckd7Zh4O',
                 'bBALNA1mckh7QB4O',

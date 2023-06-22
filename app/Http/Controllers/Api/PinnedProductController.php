@@ -32,7 +32,9 @@ class PinnedProductController extends Controller
         $products = PinnedProduct::query()
             ->whereCondition(
                 $request->get('section')
-            )->orderByRaw("weight DESC");
+            )->whereHas('product', function ($query) {
+    return $query->where('few', '!=', 0);
+})->orderByRaw("weight DESC");
         return PinnedProductResource::collection($products->get());
     }
 }

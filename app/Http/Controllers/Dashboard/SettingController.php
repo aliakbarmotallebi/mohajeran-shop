@@ -52,14 +52,13 @@ class SettingController extends Controller
             'message'=>'required|min:6',
             'checkbox' =>'accepted'
         ]);
-
+        
         $massge  = " درود مشتری گرامی. [نام و نام خانوادگی] ";
         $massge .= $request->get('message');
         (new SMSTools())
             ->text($massge)
             ->sendNumberGroup();
-
-        toast('پیام شما به تمامی کاربران ارسال شد','success');
+ 
         return redirect()->route('dashboard.settings.send-message');
     }
 

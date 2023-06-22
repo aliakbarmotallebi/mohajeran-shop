@@ -28,32 +28,6 @@ class Lottery extends Model
 
     public function getImageUrlAttribute($value)
     {
-        return asset($value);
+        return url($value);
     }
-
-    public function isAcceptedStatus(): string
-    {
-        return 'PUBLISH';
-    }
-
-    public function isRejectedStatus(): string
-    {
-        return 'UN_PUBLISH';
-    }
-
-    /**
-     * @return void
-     */
-    public function press(): void {
-        
-        $status = $this->isAcceptedStatus();
-
-        if ($this->status == $this->isAcceptedStatus()) {
-
-            $status = $this->isRejectedStatus();
-        }
-        $this->status = $status;
-        $this->save();
-    }
-
 }

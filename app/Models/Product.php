@@ -82,10 +82,10 @@ class Product extends Model
         return (new ProductFilter($request))->apply($builder);
     }
 
-    protected static function booted()
-    {
-        static::addGlobalScope(new ValidProductScope);
-    }
+    // protected static function booted()
+    // {
+    //     static::addGlobalScope(new ValidProductScope);
+    // }
 
     public function getImage()
     {
@@ -159,8 +159,7 @@ class Product extends Model
     public function isAuthorityLimitCountOrderOfProduct($count) 
     {
         // replace $this->limit_order
-        // return (bool)($this->fewtak < $count);
-        return false;
+        return false;//(bool)($this->fewtak < $count);
     }
 
     public function getDiscountPriceAttribute($value)
@@ -237,7 +236,9 @@ class Product extends Model
     
         public function isVendor(): bool
     {
-        return (bool)($this->category->isVendor() ?? 0);        
+        if($this->category()->exists())
+            return (bool)($this->category->isVendor() ?? 0);     
+        return 0;
     }
 
 

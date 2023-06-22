@@ -437,14 +437,6 @@
                                     "tel": {
                                         "description": "tel",
                                         "type": "string"
-                                    },
-                                    "zip_code": {
-                                        "description": "zip_code",
-                                        "type": "string"
-                                    },
-                                    "address": {
-                                        "description": "address",
-                                        "type": "string"
                                     }
                                 },
                                 "type": "object"
@@ -652,6 +644,48 @@
                     },
                     "422": {
                         "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/message/store": {
+            "post": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "store message user",
+                "operationId": "1deee0016f412142267bdb6a971cd26e",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "the mobile",
+                                        "type": "string"
+                                    },
+                                    "fullname": {
+                                        "description": "the fullname",
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "description": "message",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -1062,6 +1096,25 @@
                         "bearerAuth": []
                     }
                 ]
+            }
+        },
+        "/payments/callback": {
+            "get": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "payments callback",
+                "operationId": "086bca665fe9b19816b8bf068e412b47",
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
             }
         },
         "/pinneds/products": {

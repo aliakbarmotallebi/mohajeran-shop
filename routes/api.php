@@ -19,16 +19,21 @@ Route::group(['namespace' => 'Api'], function(){
             Route::post('/profile/edit', 'AuthController@userProfileEdit');
 
         });
-    });
+        
 
+    });
+    
+    Route::group(['middleware' => ['jwt.auth', 'check.erpcode'] ], function () {
+        Route::get('addresses', 'AddressController@index');
+        Route::patch('addresses', 'AddressController@update');
+    });
+        
     Route::group(['middleware' => ['jwt.auth', 'profile.complete', 'is.blocked', 'check.erpcode'] ], function () {
         Route::apiResource('orders', 'OrderController')
             ->only(['index', 'show', 'store']);
-        Route::get('addresses', 'AddressController@index');
         Route::get('payments/self', 'PaymentController@index');
         Route::get('wallets/self', 'WalletController@index');
         Route::get('wallets/{amount}', 'WalletController@incrementalBalance');
-        Route::patch('addresses', 'AddressController@update');
         Route::get('orders/{order}/cancelled', 'OrderController@cancelled');
         Route::get('orders/details/{order}', 'OrderController@details');
         Route::get('orders/pay/{order}', 'OrderController@paymentTheOrder');
@@ -37,12 +42,13 @@ Route::group(['namespace' => 'Api'], function(){
     Route::get('orders/courier/cost', 'OrderController@courierCost');
 
     Route::get('banners', 'BannerController@index');
-
+    Route::get('payments/callback', 'PaymentController@callback');
     Route::get('/pinneds/products', 'PinnedProductController@index');
     Route::post('orders/save', 'OrderController@save');
 
 
     Route::get('products', 'ProductController@index');
+    Route::get('products/search', 'ProductController@search');
     Route::get('products/available/{product:erp_code}', 'ProductController@available');
     Route::get('products/{product:erp_code}', 'ProductController@show');
     Route::get('products/subcategory/{side_group:erp_code}', 'ProductController@getProductsBySubCategory');
@@ -73,7 +79,7 @@ Route::group(['namespace' => 'Api'], function(){
     // Route::any('carts', 'CartController');
     
     Route::post('carts/check', 'CartController@check');
-
+    Route::post('/message/store', 'MessageController@store');
     Route::post('cart/total-price', 'CartController@totalPrice');
 
     Route::get('lottery/current', 'LotteryController@current');

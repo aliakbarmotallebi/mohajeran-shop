@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Services\InvoiceInfoResource;
-use App\Models\Order;
+use App\Models\Payment;
 use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\Temp;
@@ -71,12 +71,21 @@ class HomeController extends Controller
         }
     
     public function privacy() {
-        $SMS = (new SMSTools())
-        ->to('09306193414')
-        ->text('TEST WEBSERVICE');
-dd($SMS->send());
 
-dd(env('JWT_BLACKLIST_ENABLED'));
-        return view('privacy');
+                
+            $checkPayment = Payment::whereResnumber('7fa65843-88e0-4f0f-8bac-a78c1d95382c');
+
+            if($checkPayment->exists()){
+
+                $checkPayment->update([
+                    'status' => 'PAID'
+                ]);
+                
+                // $checkPayment->wallet->update([
+                //     'status' => 'STATUS_COMPLETED'
+                // ]);
+                
+                dd($checkPayment->wallet);
+            }
     }
 }

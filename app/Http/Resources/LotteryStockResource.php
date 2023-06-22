@@ -18,6 +18,8 @@ class LotteryStockResource extends JsonResource
             'LotteryName' => $this->lottery_name,
             'PrizeName' => $this->prize_name,
             'FuLLNameWinner' => $this->user->name,
+            'Score' => $this->user->id,
+            'PhoneNumber' => $this->user->stringToSecret($this->user->mobile)
         ];
     }
 }

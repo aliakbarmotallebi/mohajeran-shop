@@ -11,7 +11,7 @@ class LotteryStock extends Model
 
     public function getImageUrlAttribute($value)
     {
-        return asset($value);
+        return url($value);
     }
 
     public function user()

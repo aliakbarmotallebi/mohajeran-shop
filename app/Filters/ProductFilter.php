@@ -16,8 +16,7 @@ class ProductFilter extends Filter
     public function q(string $search = null){
         
         // return $this->builder->where('name', 'like',  $search . '%')
-        return $this->builder->search($search, null, true)
-                ->where('few', '!=', '0');
+        return $this->builder->where('name', 'like',   '%'. $search . '%');
                 // ->orderBy('name', 'ASC');
                 // ->where('fewtak', '!=', 0);
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Order extends Model
 {
@@ -83,6 +84,11 @@ class Order extends Model
     public function getStatusPaid() 
     {   
         return $this->status_paid;
+    }
+    
+        public function isPastCreated() 
+    {   
+        return (bool)Carbon::parse($this->created_at)->isSameDay(Carbon::now());
     }
 
     /**

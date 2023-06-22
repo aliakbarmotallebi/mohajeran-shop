@@ -223,6 +223,8 @@ class OrderController extends Controller
      */
     public function save(Request $request)
     {
+        
+         
 
         $this->validate($request, [
             'products' => 'required',
@@ -231,32 +233,35 @@ class OrderController extends Controller
             'products.*.quantity' => 'required|min:0.01',
             'products.*.attr' => 'nullable',
             'suggest' => 'boolean|nullable',
-            'address' => 'required',
+            // 'address' => 'required',
             'shipping_method' => 'required|in:TAXI,NORMAL',
             'payment_method' => 'required|in:WALLET,HOME_DELIVERY',
         ]);
 
-        DB::beginTransaction();
+
 
         try {
 
             $order = $this->createOrder($request->user('api'));
+            
+           
 
             if(!$order instanceof Order){
                 throw new Exception("مشکل در ایجاد سفارش");
             }
 
-
             $cart = collect( $request->get('products') );
 
             $total = 0;
+            
+            
 
             $cart->map(function ($item) use($order, &$total) {
                 $product = Product::whereErpCode($item['erp_code'])->first();
 
-                if( ! $product->isPurchasableProduct() ){
-                    throw new Exception("امکان سفارش این محصول {$product->name} وجود ندارد");
-                }
+                // if( ! $product->isPurchasableProduct() ){
+                //     throw new Exception("امکان سفارش این محصول {$product->name} وجود ندارد");
+                // }
 
                 $orderItem = $order->items()->create([
                     'product_erp_code'   => $item['erp_code'],
@@ -277,6 +282,7 @@ class OrderController extends Controller
 
                 throw new Exception("error");
             });
+            
 
             $order->total_price = $total;
             $order->is_suggest = $request->get('suggest') ?? 0;
@@ -291,27 +297,23 @@ class OrderController extends Controller
 
             $order->status = "Pending";
 
-            $this->minOrderAmount($order);
-
             if($order->save()){
 
-                DB::commit();
+
 
                 $this->dispatch((new SendNewUserOrderToHoloo($order)));
                 //$this->dispatch( new NotifyTelegramOrderCreated($order) );
 
-
-                $massage = 'مشتری گرامی سفارش شماره ';
-                $massage .= "$order->id";
-                $massage .= " با مبلغ ";
-                $massage .= number_format($order->getTotal());
-                $massage .= " تومان ";
-                $massage .= "در فروشگاه با موفقیت ثبت شد ";
-                $sender = (new SMSTools())
-                    ->to($order->user->mobile)
-                    ->text($massage)
-                    ->send();
-
+                // $massage = 'مشتری گرامی سفارش شماره ';
+                // $massage .= "$order->id";
+                // $massage .= " با مبلغ ";
+                // $massage .= number_format($order->getTotal());
+                // $massage .= " تومان ";
+                // $massage .= "در فروشگاه با موفقیت ثبت شد ";
+                // $sender = (new SMSTools())
+                //     ->to($order->user->mobile)
+                //     ->text($massage)
+                //     ->send();
                 return $this->success(
                     new OrderResource($order)
                     ,'سفارش شما با موفقیت ثبت شد');
@@ -320,7 +322,7 @@ class OrderController extends Controller
             throw new Exception("خطا در ایجاد سفارش مجددا تلاش کنید");
 
         } catch (\Exception $e) {
-            DB::rollback();
+
             return $this->error($e->getMessage(), 400);
         }
 
@@ -435,6 +437,13 @@ class OrderController extends Controller
     public function paymentTheOrder(Request $request, Order $order)
     {
         if( $order->shouldPayWithPayment() ){
+            
+            if(!$order->isPastCreated()){
+                return $this->error(
+                    'مشتری گرامی بدلیل تغییرات احتمالی قیمت محصولات حداکثر 24 ساعت فرصت پرداخت آنلاین امکان پذیر می باشد',
+                    400
+                    );
+            }
 
             $user = $order->user;
 
@@ -447,21 +456,20 @@ class OrderController extends Controller
                 user: $user,
             );
 
-            $payment =  PaymentManager::setDeriver('AsanPardakhat')
-                ->setPaymentable($deposit)
-                ->createRequest();
+            $trans = $this->nx($order->id, $deposit->getAmountPay());
+            $trans = json_decode($trans, true);
             
-            if($payment->request()) {
-                // $deposit->payment()->create([
-                //     'resnumber' => $payment->getResnumber(),
-                //     'bank_name' => 'AsanPardakhat',
-                //     'amount' => $deposit->getAmountPay(),
-                //     'user_id' => $user->id,
-                // ]);
+            if(($trans['code'] ?? 0) == "-1") {
+                $deposit->payment()->create([
+                    'resnumber' => $trans['trans_id'],
+                    'bank_name' => 'NextPay',
+                    'amount' => $deposit->getAmountPay(),
+                    'user_id' => $user->id,
+                ]);
                           
                 return $this->success([
                     'section' => 'PAYMENT',
-                    'redirectToUrl' => $payment->redirect()
+                    'redirectToUrl' => "https://nextpay.org/nx/gateway/payment/".$trans['trans_id']
                 ], 'اتصال به در گاه بانکی...');
             }
 
@@ -532,12 +540,37 @@ class OrderController extends Controller
     {
         if( $order->shipping_method == 'TAXI'){
 
-            $order->items()->create([
-                'product_erp_code'   => settings('ERPCODE_COURIER_COST'),
-                'price'              => settings('PRICE_COURIER_COST'),
-                'unit_price'         => settings('PRICE_COURIER_COST') ."0",
-                'quantity'           => 1,
-            ]);
+            // $order->items()->create([
+            //     'product_erp_code'   => settings('ERPCODE_COURIER_COST'),
+            //     'price'              => settings('PRICE_COURIER_COST'),
+            //     'unit_price'         => settings('PRICE_COURIER_COST') ."0",
+            //     'quantity'           => 1,
+            // ]);
+        }
+    }
+    
+    private function nx($order, $amount){
+        try {
+        $curl = curl_init();
+        
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://nextpay.org/nx/gateway/token',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => "api_key=7b22cce6-19e3-40ff-8a61-1709d477bc2a&amount={$amount}&order_id={$order}&callback_uri=https://mohajeran.shop/index/callback",
+        ));
+        
+        $response = curl_exec($curl);
+        
+        curl_close($curl);
+        return $response;
+        } catch (Exception $e) {
+            return false;
         }
     }
 }

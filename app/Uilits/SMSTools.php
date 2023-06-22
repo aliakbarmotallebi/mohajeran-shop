@@ -59,7 +59,7 @@ class SMSTools {
         curl_close($ch);
         return $data;
     }
-
+    
     public function insertNumberInNumberGroup($PersonNumber, $PersonName='')
     {
 
@@ -108,6 +108,7 @@ class SMSTools {
         
     }
 
+
     public function send(): mixed
     {
 
@@ -122,7 +123,7 @@ class SMSTools {
                 "UserName" => $this->username,
                 "Password" => $this->passcode,
                 "To" => $this->to,
-                "Message" => urlencode($this->message),
+                "Message" => $this->message,
                 "From" => urlencode($this->from),
             ];
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Payment;
 
 // Webhook url get data form Holoo system:
 Route::get('logs/webhook', function () {
@@ -11,6 +11,8 @@ Route::get('logs/webhook', function () {
 
 // Webhook url get data form Holoo system:
 Route::post('/webhook', 'WebHookController');
+
+
 
 // Route::get('/', 'HomeController@index');
 Route::redirect('/', '/index');
@@ -44,7 +46,19 @@ Route::get('/uploadImage', 'UploadImageController@uploadeImage');
 // });
 
 Route::get('/run', function () {
-    // \Artisan::call('fetch:products');
+                $checkPayment = Payment::whereResnumber('2133da1d-3d84-4fdc-b34c-b990b1186e6e');
+            if($checkPayment->exists()){
+                $payment = $checkPayment->first();
+                $payment->update([
+                    'status' => 'PAID'
+                ]);
+                
+                $payment->wallet->update([
+                    'status' => 'STATUS_COMPLETED'
+                ]);
+                
+            }
+    // \Artisan::call('optimize');
     // echo "<pre>";
     // return \Artisan::output();
 });

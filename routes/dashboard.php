@@ -63,12 +63,6 @@ Route::group([
             Route::get('/orders', 'OrderController@index')
                 ->name('orders.index');
 
-            Route::get('/lotteries', 'LotteryController@index')
-                ->name('lotteries.index');
-
-            Route::get('/lotteries/{lottery}/edit', 'LotteryController@edit')
-                ->name('lotteries.edit');
-
             Route::get('/orders/{order}', 'OrderController@show')
                 ->name('orders.show');
 
