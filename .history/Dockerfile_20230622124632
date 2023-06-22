@@ -33,13 +33,13 @@ ENV PHP_MEMORY_LIMIT 512M
 ENV PHP_UPLOAD_MAX_FILESIZE 256M
 ENV PHP_MAX_EXECUTION_TIME 5800
 
-RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
+RUN usermod -u 1000 $USER && groupmod -g 1000 $USER 
 
 # Copy existing application directory contents
 COPY . .
 
 # Copy existing application directory permissions
-RUN chown -R www-data:www-data /var/www
+RUN chown -R $USER /var/www
 
 # Change current user to www-data
 
