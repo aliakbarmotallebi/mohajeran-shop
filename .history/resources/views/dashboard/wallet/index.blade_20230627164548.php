@@ -24,14 +24,14 @@
                         </select>
                     </div>
                 <div>
-                    <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900">
+                    <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         شماره همراه
                     </label>
                     <input type="text" id="mobile" name="mobile" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                     placeholder="09120102010">
                 </div>
                 <div>
-                    <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900">
+                    <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         نام و نام خانوادگی
                     </label>
                     <input type="text" id="fullname" name="fullname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 

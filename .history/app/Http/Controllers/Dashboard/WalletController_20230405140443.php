@@ -30,12 +30,12 @@ class WalletController extends Controller
 
         if($request->filled('fullname')){
             $wallets_query = $wallets_query->whereHas('user', function($q) use($request){
-                $q->where('name', 'like', '%'.$request->query('fullname').'%');
+                $q->where('fullname', 'like', '%'.$request->query('fullname').'%');
             });
         }
 
         $wallets = [];
-        $wallets['List'] = $wallets_query->latest()->paginate(15)->appends(request()->query());
+        $wallets['List'] = $wallets_query->latest()->paginate(15);
         $wallets['Deposit'] = $wallets['List']->where('status', 'STATUS_COMPLETED')->sum('amount');
         $wallets['Withdraw'] = $wallets['List']->where('status', 'STATUS_REJECTED')->sum('amount');
         $wallets['Valid'] = $wallets['List']->sum('amount'); 

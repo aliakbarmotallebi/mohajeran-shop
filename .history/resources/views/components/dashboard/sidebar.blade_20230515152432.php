@@ -15,11 +15,11 @@
             <h3 class="whitespace-nowrap overflow-hidden text-sm font-bold">
                 شهروند شاپ
             </h3>
-            <p class="text-xs mt-1 font-semibold whitespace-nowrap text-ellipsis overflow-hidden text-right pl-1">
+            <p class="text-xs mt-1 whitespace-nowrap text-ellipsis overflow-hidden text-right pl-1">
                 <span class="after:content-[':'] after:px-1">
                     نام کاربری
                 </span>
-                {{ auth()->user()->name }}
+                09306193414
             </p>
         </div>
         <i
@@ -156,7 +156,7 @@
             </li>
 
             <li class="my-px h-[50px]">
-                <a href="{{ route('dashboard.wallets.index') }}"
+                <a href="{{ route('dashboard.settings.index') }}"
                     class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
                     <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"

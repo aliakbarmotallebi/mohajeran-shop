@@ -35,7 +35,7 @@ class WalletController extends Controller
         }
 
         $wallets = [];
-        $wallets['List'] = $wallets_query->latest()->paginate(15)->appends(request()->query());
+        $wallets['List'] = $wallets_query->latest()->paginate(15);
         $wallets['Deposit'] = $wallets['List']->where('status', 'STATUS_COMPLETED')->sum('amount');
         $wallets['Withdraw'] = $wallets['List']->where('status', 'STATUS_REJECTED')->sum('amount');
         $wallets['Valid'] = $wallets['List']->sum('amount'); 
