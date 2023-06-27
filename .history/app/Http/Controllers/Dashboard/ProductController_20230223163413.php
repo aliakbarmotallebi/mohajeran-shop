@@ -72,7 +72,7 @@ class ProductController extends Controller
         ]);
         
         $product->update($request->all());
-        alert()->success('اطلاعات سیستم با موفقیت تغییر یافت');
+        
         return redirect()->route('dashboard.products.index');
         
         

@@ -34,7 +34,6 @@ class Product extends Model
         'available',
         'unit_erp_code',
         'is_special',
-        'limit_order',
         'attr',
         'other1',
         'other2',
