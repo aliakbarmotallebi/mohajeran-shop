@@ -10,6 +10,7 @@ class SliderController extends Controller
 {
     public function __invoke(Request $request)
     {
-        return view('dashboard.settings.sliders');
+        $sliders = Slider::latest()->take(3)->get();
+        return view('dashboard.settings.sliders', compact('sliders'));
     }
 }

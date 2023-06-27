@@ -8,7 +8,9 @@
     @include('dashboard.settings._tabs')
   </x-slot>
   <x-dashboard.card title=" مدیریت گالری تصاویر">
-    @livewire('upload-slider-image')
+    @foreach($sliders as $slider)
+            <livewire:upload-slider-image :slider="$slider" />
+    @endforeach
   </x-dashboard.card>
 </x-dashboard.main>
 @endsection

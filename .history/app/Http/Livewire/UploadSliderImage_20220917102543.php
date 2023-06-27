@@ -17,6 +17,8 @@ class UploadSliderImage extends Component
 
     public $photo;
 
+    public $size = 10;
+
     public $updateMode = false;
 
     protected $listeners = [
@@ -53,7 +55,26 @@ class UploadSliderImage extends Component
 
     public function updateSliders()
     {
-        $this->sliders = Slider::latest()->get() ?? collect();
+        $this->sliders = Slider::take(3)->get() ?? collect();
+
+        $this->sizeCol();
+    }
+
+    private function sizeCol(): void
+    {
+        $sizes = [
+            1 => 10,
+            2 => 5,
+            3 => 4
+        ];
+
+        $count = $this->sliders->count();
+
+        if( $count >= 3 ){
+            $this->size = 3;
+        }
+
+        $this->size = $sizes[$count] ?? 0;
     }
 
     public function remove(int $id)

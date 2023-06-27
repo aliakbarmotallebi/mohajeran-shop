@@ -17,6 +17,8 @@ class UploadSliderImage extends Component
 
     public $photo;
 
+    public $size = 10;
+
     public $updateMode = false;
 
     protected $listeners = [
