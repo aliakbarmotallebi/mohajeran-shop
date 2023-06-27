@@ -1225,6 +1225,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-1 {
   width: 0.25rem;
 } 
+.w-auto {
+  width: auto;
+} 
 .max-w-sm {
   max-width: 24rem;
 } 
