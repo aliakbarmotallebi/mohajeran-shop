@@ -1,42 +1,12 @@
 <x-partial.modal title="شماره سفارش({{ $order->id ?? null }})" wire:model="show" class="!p-0">
-
-    <table class="w-full text-sm text-left text-gray-500">
-        <tbody>
-            <tr class="border-b border-gray-200">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                    ادرس
-                </th>
-                <td class="px-6 py-4 text-right whitespace-nowrap">
-                    {{ $order->user->address ?? null }}
-                </td>
-            </tr>
-            <tr class="border-b border-gray-200">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  نحوه ارسال
-              </th>
-              <td class="px-6 py-4 text-right whitespace-nowrap">
-                  {{ $order->user->address ?? null }}
-              </td>
-          </tr>
-          <tr class="border-b border-gray-200">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                روش پرداخت
-            </th>
-            <td class="px-6 py-4 text-right whitespace-nowrap">
-                {{ $order->user->address ?? null }}
-            </td>
-        </tr>
-        <tr class="border-b border-gray-200">
-          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-              شماره تراکنش کیف پول
-          </th>
-          <td class="px-6 py-4 text-right whitespace-nowrap">
-              {{ $order->user->address ?? null }}
-          </td>
-      </tr>
-        </tbody>
-    </table>
-
+    <div class="py-5 px-3">
+        <span class="font-bold">
+            آدرس:
+        </span>
+        <span class="text-gray-500">
+            {{ $order->user->address ?? null }}
+        </span>
+    </div>
     <div class="overflow-hidden max-h-[518px]">
         <div class="overflow-x-auto overflow-y-auto  max-h-[446px]">
 

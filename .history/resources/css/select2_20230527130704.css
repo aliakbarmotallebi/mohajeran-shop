@@ -43,7 +43,7 @@
 }
 
 .select2-results {
-	@apply block text-black dark:text-gray-300;
+	@apply block text-black ;
 }
 
 .select2-results__options {
@@ -137,7 +137,7 @@
 	}
 	.select2-container--default .select2-selection--single .select2-selection__placeholder {
     	/* Selection bar - Color of the placeholder text before selection - If this property is enabled */
-    	@apply text-gray-600 dark:text-gray-300;
+    	@apply text-gray-600 ;
 	}
 	.select2-container--default .select2-selection--single .select2-selection__arrow {
 		/* Selection bar - DIV where the arrow pointing down is living*/

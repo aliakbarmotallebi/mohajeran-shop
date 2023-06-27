@@ -53,19 +53,19 @@
       <div class="px-4 whitespace-nowrap text-center">
           <div class="md:text-right text-center space-y-1">
               @if( $order->shipping_method == "2")
-              <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+              <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 ">
                 *
                 ارسال فوری
               </span>
               @endif
               @if( $order->is_cancelled )
-                <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 ">
                 *
                     انصراف از سفارش
               </span>
               @endif
               @if( $order->is_suggest )
-                <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 ">
               *
                     کالا مشابه فعال 
               </span>

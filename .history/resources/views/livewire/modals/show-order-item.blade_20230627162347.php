@@ -1,42 +1,20 @@
 <x-partial.modal title="شماره سفارش({{ $order->id ?? null }})" wire:model="show" class="!p-0">
+    
+        <table class="w-full text-sm text-left text-gray-500">
+            <tbody>
+                <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                        ادرس
+                    </th>
+                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                      {{ $order->user->address ?? null }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-    <table class="w-full text-sm text-left text-gray-500">
-        <tbody>
-            <tr class="border-b border-gray-200">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                    ادرس
-                </th>
-                <td class="px-6 py-4 text-right whitespace-nowrap">
-                    {{ $order->user->address ?? null }}
-                </td>
-            </tr>
-            <tr class="border-b border-gray-200">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  نحوه ارسال
-              </th>
-              <td class="px-6 py-4 text-right whitespace-nowrap">
-                  {{ $order->user->address ?? null }}
-              </td>
-          </tr>
-          <tr class="border-b border-gray-200">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                روش پرداخت
-            </th>
-            <td class="px-6 py-4 text-right whitespace-nowrap">
-                {{ $order->user->address ?? null }}
-            </td>
-        </tr>
-        <tr class="border-b border-gray-200">
-          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-              شماره تراکنش کیف پول
-          </th>
-          <td class="px-6 py-4 text-right whitespace-nowrap">
-              {{ $order->user->address ?? null }}
-          </td>
-      </tr>
-        </tbody>
-    </table>
-
+    <div class="py-5 px-3">
     <div class="overflow-hidden max-h-[518px]">
         <div class="overflow-x-auto overflow-y-auto  max-h-[446px]">
 
@@ -105,14 +83,16 @@
                                             class="p-2 mr-2 text-sm font-bold text-red-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                             <svg wire:loading wire:target="remove({{ $item->id }})"
                                                 class="animate-spin w-4 h-4 m-auto inset-0"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                <circle class="opacity-25" cx="12" cy="12" r="10"
-                                                    stroke="currentColor" stroke-width="4"></circle>
+                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12"
+                                                    r="10" stroke="currentColor" stroke-width="4"></circle>
                                                 <path class="opacity-75" fill="currentColor"
                                                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
                                                 </path>
                                             </svg>
-                                            <svg wire:loading.class="hidden" wire:target="remove({{ $item->id }})"
+                                            <svg wire:loading.class="hidden"
+                                                wire:target="remove({{ $item->id }})"
                                                 xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 m-auto inset-0"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -132,5 +112,6 @@
             </table>
         </div>
     </div>
+  </div>
     <x-slot name="footer"></x-slot>
 </x-partial.modal>

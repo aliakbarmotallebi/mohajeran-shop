@@ -1,5 +1,42 @@
 <div>
 <x-dashboard.card title="لیست سفارشات">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-4 gap-y-4 m:gap-y-0 px-6 py-5 border-b">   
+        <div>
+            <label for="order_number" class="block mb-2 text-sm font-medium text-gray-900">
+                شماره سفارش
+            </label>
+            <input type="text" wire:model="order_number" name="order_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+            placeholder="4100">
+        </div>
+        <div>
+            <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900">
+                نام و نام خانوادگی
+            </label>
+            <input type="text" wire:model="fullname" name="fullname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+            placeholder="بهنام اکبری">
+        </div>
+        <div>
+            <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900">
+                شماره همراه
+            </label>
+            <input type="text" wire:model="mobile" name="mobile" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+            placeholder="09121234567">
+        </div>
+        <div>
+            <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900">
+                وضعیت ارسال به سرور
+            </label>
+            <select wire:model="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option selected>انتخاب کنید</option>
+                <option value="0">
+                    ارسال شده
+                </option>
+                <option value="1">
+                    ارسال نشده
+                </option>
+            </select>
+        </div>
+    </div>
   @foreach($orders as $order)
     <div class="flex flex-col md:flex-row gap-y-4 m:gap-y-0 px-6 py-6 justify-between text-grey-100 items-center border-b">
       <div class="px-4 whitespace-nowrap text-center">
@@ -72,6 +109,20 @@
               @endif
           </div>
       </div>
+      <div class="px-4 whitespace-nowrap text-center">
+        <div class="md:text-right text-center space-y-1">
+            @if($order->payment_method == "WALLET" && $order->status_paid == "STATUS_PAID")
+            <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded  ">
+             پرداخت شده
+            </span>
+            @endif
+            @if($order->payment_method == "WALLET" && $order->status_paid == "STATUS_NONPAID")
+            <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded  ">
+             پرداخت شده
+            </span>
+            @endif
+        </div>
+    </div>
       <div class="flex text-center mr-auto ml-3 justify-self-end">
           @if ( $order->isPending() && !$order->items->isEmpty() )
           <button 

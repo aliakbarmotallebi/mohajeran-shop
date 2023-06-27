@@ -15,7 +15,7 @@ class OrderList extends Component
 
     protected $orders;
 
-    public $order_number;
+    public $id;
 
     public $mobile;
 
@@ -24,7 +24,7 @@ class OrderList extends Component
     public $status;
 
     protected $queryString = [
-        'order_number' => ['except' => 1],
+        'id' => ['except' => 1],
         'mobile' => ['except' => 1],
         'fullname' => ['except' => 1],
         'status' => ['except' => 1],
@@ -44,24 +44,16 @@ class OrderList extends Component
     {
         $this->orders = Order::query();
 
-        if ($this->order_number) {
-            $this->orders = $this->orders->whereId($this->order_number);
-        }
-
         if ($this->mobile) {
-            $this->orders = $this->orders->whereHas('user', function($q){
-                $q->whereMobile($this->mobile);
-            });
+            $this->orders = $this->users->whereMobile($this->mobile);
         }
 
         if ($this->fullname) {
-            $this->orders = $this->orders->whereHas('user', function($q){
-                $q->where('name', 'like', '%'.$this->fullname.'%');
-            });
+            $this->orders = $this->users->where('name', 'like', '%'.$this->fullname.'%');
         }
 
         if ($this->status == 1) {
-            $this->orders = $this->orders->whereNull('erp_code');
+            $this->orders = $this->users->whereNull('erp_code');
         }
 
         $this->orders = $this->orders->latest()->paginate(20);

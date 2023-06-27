@@ -2,7 +2,7 @@
 
     <table class="w-full text-sm text-left text-gray-500">
         <tbody>
-            <tr class="border-b border-gray-200">
+            <tr class="border-b border-gray-200 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                     ادرس
                 </th>
@@ -10,7 +10,7 @@
                     {{ $order->user->address ?? null }}
                 </td>
             </tr>
-            <tr class="border-b border-gray-200">
+            <tr class="border-b border-gray-200 dark:border-gray-700">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   نحوه ارسال
               </th>
@@ -18,7 +18,7 @@
                   {{ $order->user->address ?? null }}
               </td>
           </tr>
-          <tr class="border-b border-gray-200">
+          <tr class="border-b border-gray-200 dark:border-gray-700">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                 روش پرداخت
             </th>
@@ -26,14 +26,6 @@
                 {{ $order->user->address ?? null }}
             </td>
         </tr>
-        <tr class="border-b border-gray-200">
-          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-              شماره تراکنش کیف پول
-          </th>
-          <td class="px-6 py-4 text-right whitespace-nowrap">
-              {{ $order->user->address ?? null }}
-          </td>
-      </tr>
         </tbody>
     </table>
 

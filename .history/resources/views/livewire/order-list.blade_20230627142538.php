@@ -72,6 +72,15 @@
               @endif
           </div>
       </div>
+      <div class="px-4 whitespace-nowrap text-center">
+        <div class="md:text-right text-center space-y-1">
+            @if($order->payment_method == "STATUS_PAID" && $order->status_paid == "STATUS_PAID")
+            <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded  ">
+             پرداخت شده
+            </span>
+            @endif
+        </div>
+    </div>
       <div class="flex text-center mr-auto ml-3 justify-self-end">
           @if ( $order->isPending() && !$order->items->isEmpty() )
           <button 
