@@ -1093,6 +1093,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-ml-px {
   margin-left: -1px;
 } 
+.mt-7 {
+  margin-top: 1.75rem;
+} 
 .block {
   display: block;
 } 
@@ -2810,8 +2813,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 11rem;
   }
 
+  .sm\:w-auto {
+    width: auto;
+  }
+
   .sm\:flex-1 {
     flex: 1 1 0%;
+  }
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sm\:flex-row {
@@ -2988,6 +2999,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .xl\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .xl\:gap-y-0 {

@@ -4,8 +4,6 @@
 @section('content')
     <x-dashboard.main title="پرداختی درگاه بانکی">
         <x-slot name="header">
-        </x-slot>
-        <x-dashboard.card title="لیست رهگیری پرداخت آنلاین" class="!p-0">
             <div class="p-5 w-full">
                 <form class="grid grid-cols-1  sm:grid-cols-2 xl:grid-cols-4 gap-5" method="GET">
                     <div>
@@ -17,16 +15,16 @@
                             <option value="" selected>
                                 انتخاب کنید
                             </option>
-                            <option value="PAID">
+                            <option value="STATUS_PAID">
                                 موفق
                             </option>
-                            <option value="NONPAID">
+                            <option value="STATUS_NONPAID">
                                 ناموفق
                             </option>
                         </select>
                     </div>
                     <div>
-                        <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900">
+                        <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             شماره همراه
                         </label>
                         <input type="text" id="mobile" name="mobile"
@@ -34,7 +32,7 @@
                             placeholder="09120102010">
                     </div>
                     <div>
-                        <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900">
+                        <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             نام و نام خانوادگی
                         </label>
                         <input type="text" id="fullname" name="fullname"
@@ -53,6 +51,8 @@
                     </div>
                 </form>
             </div>
+        </x-slot>
+        <x-dashboard.card title="لیست رهگیری پرداخت آنلاین" class="!p-0">
             <x-dashboard.table>
                 <x-slot name="header">
                     <tr>
@@ -67,6 +67,9 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             کاربر پرداخت کننده
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            پاسخ درگاه
                         </th>
                         <th scope="col" class="px-6 py-3">
                             وضعیت پرداخت
@@ -87,6 +90,9 @@
                             </td>
                             <td scope="row" class="px-6 py-4 text-center">
                                 {{ $payment->user->name }}
+                            </td>
+                            <td scope="row" class="px-6 py-4 text-center">
+                                {{ $payment->result }}
                             </td>
                             <td class="px-6 py-4 text-center">
 
@@ -110,8 +116,5 @@
                 </x-slot>
             </x-dashboard.table>
         </x-dashboard.card>
-        <div class="flex justify-between items-center p-5">
-            {!! $payments->links('pagination::tailwind') !!}
-        </div> 
     </x-dashboard.main>
 @endsection

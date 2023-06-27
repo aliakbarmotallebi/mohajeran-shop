@@ -17,10 +17,10 @@
                             <option value="" selected>
                                 انتخاب کنید
                             </option>
-                            <option value="PAID">
+                            <option value="STATUS_PAID">
                                 موفق
                             </option>
-                            <option value="NONPAID">
+                            <option value="STATUS_NONPAID">
                                 ناموفق
                             </option>
                         </select>
@@ -69,6 +69,9 @@
                             کاربر پرداخت کننده
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            پاسخ درگاه
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             وضعیت پرداخت
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -87,6 +90,9 @@
                             </td>
                             <td scope="row" class="px-6 py-4 text-center">
                                 {{ $payment->user->name }}
+                            </td>
+                            <td scope="row" class="px-6 py-4 text-center">
+                                {{ $payment->result }}
                             </td>
                             <td class="px-6 py-4 text-center">
 

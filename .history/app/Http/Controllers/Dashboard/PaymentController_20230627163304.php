@@ -28,7 +28,7 @@ class PaymentController extends Controller
             });
         }
 
-        $payments = $payments_query->latest()->paginate()->appends(request()->query());
+        $payments = $payments_query->latest()->paginate($request->get('page'))->withQueryString());
         return view('dashboard.pages.payments', compact('payments'));
     }
 }
