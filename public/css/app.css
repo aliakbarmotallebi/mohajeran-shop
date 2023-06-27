@@ -967,6 +967,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-span-8 {
   grid-column: span 8 / span 8;
 } 
+.col-span-3 {
+  grid-column: span 3 / span 3;
+} 
 .m-auto {
   margin: auto;
 } 

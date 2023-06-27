@@ -40,30 +40,6 @@ class SettingController extends Controller
 
         return redirect()->back();
     }
-
-    public function transportation(Request $request)
-    {
-        return view('dashboard.settings.transportation');
-    }
-
-    public function transportationStore(Request $request)
-    {
-        settings()->set('TRANSPORTATION_COST_1', $request->get('TRANSPORTATION_COST_1'));
-        settings()->set('TRANSPORTATION_COST_2', $request->get('TRANSPORTATION_COST_2'));
-        settings()->set('TRANSPORTATION_COST_3', $request->get('TRANSPORTATION_COST_3'));
-        settings()->set('TRANSPORTATION_COST_4', $request->get('TRANSPORTATION_COST_4'));
-        settings()->set('TRANSPORTATION_COST_5', $request->get('TRANSPORTATION_COST_5'));
-        settings()->set('TRANSPORTATION_COST_6', $request->get('TRANSPORTATION_COST_6'));
-        settings()->set('TRANSPORTATION_COST_7', $request->get('TRANSPORTATION_COST_7'));
-        settings()->set('TRANSPORTATION_COST_8', $request->get('TRANSPORTATION_COST_8'));
-        settings()->set('TRANSPORTATION_COST_9', $request->get('TRANSPORTATION_COST_9'));
-        settings()->set('TAXI_FARE', $request->get('TAXI_FARE'));
-
-        alert()->success('اطلاعات سیستم با موفقیت تغییر یافت');
-
-        return redirect()->back();
-    }
-    
     
     public function groupSendMessageQueue(Request $request)
     {

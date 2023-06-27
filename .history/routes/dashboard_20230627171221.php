@@ -24,7 +24,7 @@ Route::group([
             Route::get('/settings/transportation', 'SettingController@transportation')
                 ->name('settings.transportation');
 
-            Route::post('/settings/transportation-store', 'SettingController@transportationStore')
+            Route::get('/settings/transportation-store', 'SettingController@transportationStore')
                 ->name('settings.transportationStore');
 
             Route::post('/settings', 'SettingController@store')

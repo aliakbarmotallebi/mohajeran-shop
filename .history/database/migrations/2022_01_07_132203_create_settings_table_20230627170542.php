@@ -57,7 +57,7 @@ class CreateSettingsTable extends Migration
         settings(['SLIDER_IMAGE'  => NULL ]);
         settings(['SLIDER_TITLE'  => NULL ]);
         settings(['TOKEN_SERVICE'  => NULL ]);
-        settings(['TAXI_FARE'  => NULL ]);
+        settings(['TOKEN_SERVICE'  => NULL ]);
         settings(['TRANSPORTATION_COST_1'  => NULL ]);
         settings(['TRANSPORTATION_COST_2'  => NULL ]);
         settings(['TRANSPORTATION_COST_3'  => NULL ]);

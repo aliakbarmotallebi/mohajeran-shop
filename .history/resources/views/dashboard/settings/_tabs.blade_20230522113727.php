@@ -38,10 +38,9 @@
             </a>
         </li>
         <li>
-            <a href="{{ route(
-                'dashboard.settings.transportation') }}" @class([
+            <a href="" @class([
                 'bg-neutral-100 text-sky-600 font-semibold border-b-2 border-sky-600' => _is_link_active(
-                    'dashboard.settings.transportation'),
+                    'dashboard.content.groups'),
                 'inline-flex items-center p-4 border-b-2 hover:bg-gray-50',
             ])>
                 <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-6 h-6 stroke-current" fill="none"

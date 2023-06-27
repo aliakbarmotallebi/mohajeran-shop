@@ -38,8 +38,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route(
-                'dashboard.settings.transportation') }}" @class([
+            <a href="" @class([
                 'bg-neutral-100 text-sky-600 font-semibold border-b-2 border-sky-600' => _is_link_active(
                     'dashboard.settings.transportation'),
                 'inline-flex items-center p-4 border-b-2 hover:bg-gray-50',

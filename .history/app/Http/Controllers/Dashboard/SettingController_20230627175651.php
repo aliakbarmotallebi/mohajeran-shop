@@ -48,6 +48,7 @@ class SettingController extends Controller
 
     public function transportationStore(Request $request)
     {
+        dd($request->all());
         settings()->set('TRANSPORTATION_COST_1', $request->get('TRANSPORTATION_COST_1'));
         settings()->set('TRANSPORTATION_COST_2', $request->get('TRANSPORTATION_COST_2'));
         settings()->set('TRANSPORTATION_COST_3', $request->get('TRANSPORTATION_COST_3'));
