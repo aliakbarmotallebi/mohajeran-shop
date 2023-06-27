@@ -17,12 +17,9 @@ class UserList extends Component
 
     public $fullname;
 
-    public $status;
-
     protected $queryString = [
         'mobile' => ['except' => 1],
         'fullname' => ['except' => 1],
-        'status' => ['except' => 1],
         'page'    => ['except' => 1]
     ];
 
@@ -38,7 +35,7 @@ class UserList extends Component
             $this->users = $this->users->where('name', 'like', '%'.$this->fullname.'%');
         }
 
-        if ($this->status == 1) {
+        if ($this->status) {
             $this->users = $this->users->whereNull('erp_code');
         }
 

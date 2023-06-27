@@ -84,8 +84,6 @@
                     </div>
                 </button>
                 <button
-                    x-data="{}"
-                    x-on:click="window.livewire.emitTo('modals.wallet-balance-dashboard', 'show', {{ $user->id }})"
                     class="flex items-center text-gray-700 bg-white rounded-lg border group border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 focus:outline-none">
                     <div class=" px-2 h-full border-l ml-1 bg-slate-100 ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="fill-current h-full" viewBox="0 0 24 24"
@@ -95,8 +93,7 @@
                                 d="M18 7h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h15v4zM4 9v10h16V9H4zm0-4v2h12V5H4zm11 8h3v2h-3v-2z" />
                         </svg>
                     </div>
-                    <div
-                         class="font-medium text-xs whitespace-nowrap px-2 w-full">
+                    <div class="font-medium text-xs whitespace-nowrap px-2">
                         {{ number_format($user->balance()) }}
                         <span class="text-gray-400 group-hover:text-blue-700 ">
                             (تومان)

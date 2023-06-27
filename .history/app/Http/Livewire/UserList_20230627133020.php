@@ -17,13 +17,11 @@ class UserList extends Component
 
     public $fullname;
 
-    public $status;
-
     protected $queryString = [
-        'mobile' => ['except' => 1],
-        'fullname' => ['except' => 1],
-        'status' => ['except' => 1],
-        'page'    => ['except' => 1]
+        'mobile',
+        'fullname',
+        'page'    => ['except' => 1],
+        'perPage' => ['except' => ''],
     ];
 
     public function getUser()
@@ -31,18 +29,14 @@ class UserList extends Component
         $this->users = User::query();
 
         if ($this->mobile) {
-            $this->users = $this->users->whereMobile($this->mobile);
+            return collect();
         }
 
         if ($this->fullname) {
-            $this->users = $this->users->where('name', 'like', '%'.$this->fullname.'%');
+            return collect();
         }
 
-        if ($this->status == 1) {
-            $this->users = $this->users->whereNull('erp_code');
-        }
-
-        $this->users = $this->users->latest()->paginate(20);
+        $this->users = User::latest()->paginate(20);
     }
 
     public function exec(User $user)
