@@ -19,8 +19,13 @@ class PinnedProductController extends Controller
     {
         $products = PinnedProduct::query()
             ->groupBy('condition')
-            ->select('*', DB::raw('count(*) as total'), )
-            ->get();
+            ->select('condition', DB::raw('count(*) as total'));
+        // if($request->has('condition')){
+        //     $products = $products->whereCondition($request->get('condition'));
+        // }
+
+        $products = $products->get();
+        dd($products);
         return view('dashboard.pinneds.index', compact('products'));
     }
 
@@ -64,14 +69,9 @@ class PinnedProductController extends Controller
      * @param  \App\Models\PinnedProduct  $pinnedProduct
      * @return \Illuminate\Http\Response
      */
-    public function showProducts(Request $request, $condition)
+    public function show(PinnedProduct $pinnedProduct)
     {
-        $products = PinnedProduct::whereCondition($condition)->orderBy('weight', 'ASC')->get();
-        if(!empty($products)){
-            return view('dashboard.pinneds.show', compact('products')); 
-        }
-
-        return redirect()->route('dashboard.pinned_products.index');
+        //
     }
 
     /**

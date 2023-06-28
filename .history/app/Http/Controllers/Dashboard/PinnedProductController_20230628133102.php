@@ -64,14 +64,9 @@ class PinnedProductController extends Controller
      * @param  \App\Models\PinnedProduct  $pinnedProduct
      * @return \Illuminate\Http\Response
      */
-    public function showProducts(Request $request, $condition)
+    public function showProducts(Request $request)
     {
-        $products = PinnedProduct::whereCondition($condition)->orderBy('weight', 'ASC')->get();
-        if(!empty($products)){
-            return view('dashboard.pinneds.show', compact('products')); 
-        }
-
-        return redirect()->route('dashboard.pinned_products.index');
+        //
     }
 
     /**

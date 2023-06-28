@@ -9,14 +9,14 @@
         <x-slot name="append"></x-slot>
         <x-dashboard.card title="گالری محصولات">
             <div class="relative overflow-x-auto p-5">
-                <div class="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-3">
+                <div class="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-4">
                 @foreach ($products as $product)
-                    <a href="{{ route('dashboard.pinned_products.showProducts', $product->condition) }}" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 group relative">
-                        <h5 class="flex items-center mb-2 text-sm font-light tracking-tight text-neutral-500">
+                    <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 group relative">
+                        <h5 class="flex items-center mb-2 text-sm font-light tracking-tight text-sky-500">
                             <div class="text-sm after:content-[':'] after:px-1 font-medium">
                                 نام گالری درسیستم
                             </div>
-                            <div class="mr-auto font-bold text-sky-500">
+                            <div class="mr-auto">
                             ({{ $product->condition }})
                             </div>
                         </h5>
@@ -25,7 +25,7 @@
                                 <div class="text-gray-500 text-sm after:content-[':'] after:px-1 font-medium">
                                 تعداد محصولات ثبت شده
                                 </div>
-                                <span class="font-bold text-sky-500 mr-auto">
+                                <span class="font-bold text-neutral-800 mr-auto">
                                     {{ $product->total }}
                                 </span>
                             </div>
@@ -38,9 +38,7 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="bg-gray-300 absolute bottom-4 left-4 rounded-md opacity-0 group-hover:opacity-50 transition-all duration-200 p-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-sky-900" viewBox="0 0 24 24"><path d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"></path></svg>
-                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-4 left-4 w-4 h-4" viewBox="0 0 24 24"><path d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"></path></svg>
                     </a>
                 @endforeach
                 </div>

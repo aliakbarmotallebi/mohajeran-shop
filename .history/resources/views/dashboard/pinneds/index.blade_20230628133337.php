@@ -11,7 +11,7 @@
             <div class="relative overflow-x-auto p-5">
                 <div class="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-3">
                 @foreach ($products as $product)
-                    <a href="{{ route('dashboard.pinned_products.showProducts', $product->condition) }}" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 group relative">
+                    <a href="{{ route('') }}" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 group relative">
                         <h5 class="flex items-center mb-2 text-sm font-light tracking-tight text-neutral-500">
                             <div class="text-sm after:content-[':'] after:px-1 font-medium">
                                 نام گالری درسیستم

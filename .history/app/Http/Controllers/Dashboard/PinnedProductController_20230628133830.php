@@ -66,12 +66,7 @@ class PinnedProductController extends Controller
      */
     public function showProducts(Request $request, $condition)
     {
-        $products = PinnedProduct::whereCondition($condition)->orderBy('weight', 'ASC')->get();
-        if(!empty($products)){
-            return view('dashboard.pinneds.show', compact('products')); 
-        }
-
-        return redirect()->route('dashboard.pinned_products.index');
+        dd($condition);
     }
 
     /**

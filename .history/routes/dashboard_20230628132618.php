@@ -77,10 +77,7 @@ Route::group([
 
             Route::resource('banners', 'BannerController');
 
-            Route::resource('pinned_products', 'PinnedProductController')->except(['show']);
-
-            Route::get('pinned_products/{condition}', 'PinnedProductController@showProducts')->name('pinned_products.showProducts');
-
+            Route::resource('pinned_products', 'PinnedProductController');
 
             Route::get('wallets', 'WalletController')->name('wallets.index');
         });
