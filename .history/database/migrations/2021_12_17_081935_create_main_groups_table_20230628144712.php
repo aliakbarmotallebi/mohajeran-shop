@@ -23,9 +23,6 @@ class CreateMainGroupsTable extends Migration
             $table->boolean('is_vendor')
                 ->default(false);
 
-            $table->boolean('is_disabled')
-                ->default(false);
-
             $table->longText('image')
                 ->nullable();
 

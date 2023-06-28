@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Contracts\StatusInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MainGroup extends Model implements StatusInterface
+class MainGroup extends Model
 {
     use HasFactory;
 
@@ -14,38 +13,43 @@ class MainGroup extends Model implements StatusInterface
         'name',
         'erp_code',
         'is_vendor',
-        'image',
-        'is_disabled',
-        'owner_id'
+        'image'
     ];
 
-    public function isAcceptedStatus(): string
-    {
-        return 0;
+        /**
+     * @return mixed
+     */
+    public function getStatuses(): ?array {
+        return [
+            'STATUS_UNCONFIRMED',
+            'STATUS_CONFIRMED',
+            'STATUS_NEW',
+            'STATUS_PENDING'
+        ];
+
     }
 
-    public function isRejectedStatus(): string
+    public function isAcceptedStatus(): string
     {
         return 1;
     }
 
-    public function press(): void 
+    public function isRejectedStatus(): string
     {
+        return 0;
+    }
+
+    public function press(): void {
         
         $status = $this->isAcceptedStatus();
 
-        if ($this->is_disabled == $this->isAcceptedStatus()) {
+        if ($this->status == $this->isAcceptedStatus()) {
 
             $status = $this->isRejectedStatus();
         }
-        $this->is_disabled = $status;
+        $this->status = $status;
         $this->save();
       
-    }
-
-    public function getStatusAttribute($value)
-    {
-        return $this->is_disabled;
     }
 
 

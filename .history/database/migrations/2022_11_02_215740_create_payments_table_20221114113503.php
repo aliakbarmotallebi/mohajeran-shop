@@ -17,12 +17,8 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->text('resnumber')
                 ->nullable();
-            $table->unsignedBigInteger('wallet_id');
-            $table->foreign('wallet_id')
-                ->references('id')
-                ->on('wallets')
-                ->onDelete('cascade');
-            $table->string('bank_name')
+            $table->morphs("paymentable");
+            $table->string('back_name')
                 ->nullable();
             $table->text('amount')
                 ->default(0);

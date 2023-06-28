@@ -23,16 +23,13 @@ class CreateMainGroupsTable extends Migration
             $table->boolean('is_vendor')
                 ->default(false);
 
-            $table->boolean('is_disabled')
-                ->default(false);
-
             $table->longText('image')
                 ->nullable();
 
             $table->string('time')
                 ->nullable();
 
-            $table->unsignedBigInteger('owner_id')->nullable();
+            $table->bigInteger('owner_id')->nullable();
 
             $table->string('erp_code')->collate('utf8mb4_bin')
                 ->index();

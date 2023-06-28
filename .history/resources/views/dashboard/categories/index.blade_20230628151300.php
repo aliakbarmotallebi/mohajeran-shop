@@ -47,7 +47,7 @@
                         {{ $category->time }}
                     </td>
                     <td class="px-6 py-4">
-                        <div class="flex items-center justify-end gap-3">
+                        <div class="flex items-center justify-end gap-5">
                             @livewire('handle-status', [
                                 'entity' => $category
                             ])

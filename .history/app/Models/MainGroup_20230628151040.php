@@ -29,8 +29,7 @@ class MainGroup extends Model implements StatusInterface
         return 1;
     }
 
-    public function press(): void 
-    {
+    public function press(): void {
         
         $status = $this->isAcceptedStatus();
 
@@ -41,11 +40,6 @@ class MainGroup extends Model implements StatusInterface
         $this->is_disabled = $status;
         $this->save();
       
-    }
-
-    public function getStatusAttribute($value)
-    {
-        return $this->is_disabled;
     }
 
 
