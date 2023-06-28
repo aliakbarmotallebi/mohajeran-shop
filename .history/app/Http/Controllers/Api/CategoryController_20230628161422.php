@@ -4,24 +4,24 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\VendorResource;
+use App\Http\Resources\CategoryResource;
 use App\Models\MainGroup;
 
 
-class VendorController extends Controller
+class CategoryController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/vendors",
-     *     tags={"Vendor"},
-     *     summary="List all vendors",
+     *     path="/category",
+     *     tags={"Category"},
+     *     summary="List all Categories",
      *     @OA\Response(response="200", description="", @OA\JsonContent()),
      *     @OA\Response(response=400, description="Bad request", @OA\JsonContent()),
      * )
      */
     public function index()
     {
-        return VendorResource::collection(MainGroup::whereIsVendor(1)->where('is_disabled', 0)->latest('id')->get());
+
+        return CategoryResource::collection(MainGroup::where('is_vendor', 0)->with('subcategories')->latest('id')->get());
     }
-    
 }

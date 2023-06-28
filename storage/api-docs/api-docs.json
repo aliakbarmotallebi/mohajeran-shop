@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "url": "http://192.168.1.7:8180/api"
+            "url": "http://localhost:8180/api"
         },
         {
             "url": "http://localhost:8000/api",
@@ -552,33 +552,6 @@
                 ],
                 "summary": "List all Categories",
                 "operationId": "91fc23f78e8b18b8cd5d4650eddea6ae",
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/categories": {
-            "get": {
-                "tags": [
-                    "Category"
-                ],
-                "summary": "List all Categories With Vendors Temporary",
-                "operationId": "6b59a2f6df6ba9ed707f4b71a6412fb7",
                 "responses": {
                     "200": {
                         "description": "",

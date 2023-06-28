@@ -87,6 +87,8 @@ Route::group(['namespace' => 'Api'], function(){
     Route::get('lotteries', 'LotteryController@index');
 
 	Route::get('category', 'CategoryController@index');
+    Route::get('categories', 'CategoryController@indexForApp'); // temporary
+
 
     Route::get('subcategories', 'SubCategoryController@index');
     Route::get('subcategories/category/{main_group:erp_code}', 'SubCategoryController@getSubCategoriesByCategoryErpCode');

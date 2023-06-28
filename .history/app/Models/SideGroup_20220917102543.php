@@ -16,9 +16,8 @@ class SideGroup extends Model
         'main_group_name'
     ];
 
-    public function category()
-    {
-        return $this->hasOne(MainGroup::class, 'erp_code', 'main_erp_code');
-    }
-
+//    public function products2()
+//    {
+//        return $this->hasMany(Product::class, 'SideGroupCode');
+//    }
 }

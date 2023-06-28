@@ -111,6 +111,7 @@ class ProductController extends ApiController
      */
     public function available(Product $product)
     {
+        dd($product);
         if($product->isPurchasableProduct())
             return $this->success(null, 'The product is available');
 

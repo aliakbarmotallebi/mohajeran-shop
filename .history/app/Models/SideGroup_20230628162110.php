@@ -15,10 +15,10 @@ class SideGroup extends Model
         'main_erp_code',
         'main_group_name'
     ];
-
+    
     public function category()
     {
-        return $this->hasOne(MainGroup::class, 'erp_code', 'main_erp_code');
+        return $this->hasOne(MainGroup::class, 'erp_code', 'main_group_code');
     }
 
 }

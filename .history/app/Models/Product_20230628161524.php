@@ -195,7 +195,7 @@ class Product extends Model
 
     public function scopePure($query)
     {
-        return $query
+        return $query->where('active', 1)
             ->where('fewtak', '!=', '0')
             ->orderBy('fewtak', 'DESC')
             ->orderBy('image', 'DESC')

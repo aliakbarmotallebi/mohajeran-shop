@@ -21,9 +21,7 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        return SubCategoryResource::collection(SideGroup::latest()->whereHas('category', function($q){
-            $q->where('is_disabled', 0);
-        })->get());
+        return SubCategoryResource::collection(SideGroup::latest()->get());
     }
 
 
@@ -47,9 +45,7 @@ class SubCategoryController extends Controller
     public function getSubCategoriesByCategoryErpCode(Request $request, MainGroup $mainGroup)
     {
         $subcategories = SideGroup::whereMainErpCode(
-                $mainGroup->erp_code)->whereHas('category', function($q){
-                    $q->where('is_disabled', 0);
-                });
+                $mainGroup->erp_code);
         return SubCategoryResource::collection($subcategories->get());
     }
 }

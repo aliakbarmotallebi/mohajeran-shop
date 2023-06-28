@@ -195,11 +195,10 @@ class Product extends Model
 
     public function scopePure($query)
     {
-        return $query
+        return $query->where('active', 1)
             ->where('fewtak', '!=', '0')
             ->orderBy('fewtak', 'DESC')
             ->orderBy('image', 'DESC')
-            ->orderByRaw("name DESC")
             ->orderBy('available', 'DESC')
             ->whereNotIn('erp_code', [
                 'bBALNA1mckd7Zh4O',
@@ -208,7 +207,7 @@ class Product extends Model
                 'bBAHNA1mckd4dh4O',
                 'bBAHNA1mckd7QB4O',
                 'bBALNA1mckd7Zh4O'
-            ])->whereHas('category', function($q){
+            ])->whereHas('main_groups', function($q){
                 $q->where('is_disabled', 0);
             });
     }

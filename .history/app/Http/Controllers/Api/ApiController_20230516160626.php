@@ -25,7 +25,7 @@ use Illuminate\Http\Request;
  *      bearerFormat="JWT",
  *   )
  * ),
- * @OA\Server(url="http://localhost:8180/api"),
+ * @OA\Server(url="http://192.168.1.7:8180/api"),
  * @OA\Server(url="http://localhost:8000/api", description="localhost")
  * @OA\Server(url="https://shopjozi.ir/api"),
  */

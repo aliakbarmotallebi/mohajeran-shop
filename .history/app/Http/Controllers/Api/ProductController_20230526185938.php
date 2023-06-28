@@ -71,11 +71,30 @@ class ProductController extends ApiController
      *     @OA\Response(response=400, description="Bad request", @OA\JsonContent()),
 	 * )
 	 */
+
+    // 1 => 'getVisitCount',
+    // 2 => 'getBestSeller',
+    // 3 => 'getSpecial'
     public function index(ProductRequest $request)
     {
         $product = Product::withCount([
             'order_items'
-        ])->filter($request)->pure();
+        ])->filter($request)->where('fewtak', '!=', '0')
+                ->orderBy('fewtak', 'DESC')
+            ->orderBy('image', 'DESC')
+            ->orderBy('available', 'DESC')
+            ->whereNotIn('erp_code', [
+                'bBALNA1mckd7Zh4O',
+                'bBALNA1mckh7QB4O',
+                'bBAHNA1mckd5dh4O',
+                'bBAHNA1mckd4dh4O',
+                'bBAHNA1mckd7QB4O',
+                'bBALNA1mckd7Zh4O'
+            ]);
+
+        // if($product->count() === 0){
+        //     $this->dispatch( new NotifyTelegramSearchNullable($request->get('q')) );
+        // }
         return ProductResource::collection($product->paginate($request->get('count') ?? 16)->withQueryString());
     }
 
@@ -84,7 +103,17 @@ class ProductController extends ApiController
         $products = Product::query();
 
         if($request->has("q")){
-            $products = $products->search($request->get('q'), 0)->pure();
+            $products = $products->search($request->get('q'), 0)->orderBy('few', 'DESC')
+            ->orderBy('image', 'DESC')
+            ->orderBy('available', 'DESC')
+            ->whereNotIn('erp_code', [
+                'bBALNA1mckd7Zh4O',
+                'bBALNA1mckh7QB4O',
+                'bBAHNA1mckd5dh4O',
+                'bBAHNA1mckd4dh4O',
+                'bBAHNA1mckd7QB4O',
+                'bBALNA1mckd7Zh4O'
+            ]);
         }
         return ProductResource::collection($products->paginate(12));
     }
@@ -111,6 +140,7 @@ class ProductController extends ApiController
      */
     public function available(Product $product)
     {
+        dd($product);
         if($product->isPurchasableProduct())
             return $this->success(null, 'The product is available');
 
@@ -184,7 +214,7 @@ class ProductController extends ApiController
         $products = Product::query()
             ->whereMainGroupCode(
                 $mainGroup->erp_code
-            )->pure()->filter($request);
+            )->where('few', '!=', '0')->orderByRaw("name DESC")->filter($request);
         return ProductResource::collection($products->paginate($request->get('count') ?? 16)->withQueryString());
     }
 
@@ -226,7 +256,7 @@ class ProductController extends ApiController
         $products = Product::query()
             ->whereSideGroupCode(
                 $sideGroup->erp_code
-            )->pure()->filter($request);
+            )->where('few', '!=', '0')->orderByRaw("name DESC")->filter($request);
         return ProductResource::collection($products->paginate($request->get('count') ?? 16)->withQueryString());
     }
 
@@ -253,7 +283,7 @@ class ProductController extends ApiController
         $products = Product::query()
             ->whereMainGroupCode(
                 $mainGroup->erp_code
-            )->pure()->filter($request);
+            )->where('few', '!=', '0')->orderByRaw("name DESC")->filter($request);
         return ProductResource::collection($products->paginate($request->get('count') ?? 16)->withQueryString());
     }
 

@@ -21,7 +21,7 @@ class VendorController extends Controller
      */
     public function index()
     {
-        return VendorResource::collection(MainGroup::whereIsVendor(1)->where('is_disabled', 0)->latest('id')->get());
+        return VendorResource::collection(MainGroup::whereIsVendor(1)->latest('id')->get());
     }
     
 }
