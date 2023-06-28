@@ -39,8 +39,7 @@ class CreateUsersTable extends Migration
 
             $table->enum('role', [
                 'Customer',
-                'Admin',
-                'Vendor'
+                'Admin'
             ])
             ->default('Customer');
 

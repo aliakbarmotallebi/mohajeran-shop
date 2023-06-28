@@ -43,7 +43,7 @@
                             </span>
                         @endif
                     </td>
-                    <td class="px-6 py-4 text-center  whitespace-nowrap">
+                                            <td class="px-6 py-4 text-center">
                         {{ $category->time }}
                     </td>
                     <td class="px-6 py-4">

@@ -12,7 +12,7 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = MainGroup::orderBy('is_vendor', 'DESC')->get();
+        $categories = MainGroup::latest()->get();
         return view('dashboard.categories.index', compact('categories'));
     }
 
@@ -26,7 +26,7 @@ class CategoryController extends Controller
     public function update(Request $request, MainGroup $mainGroup)
     {
         $mainGroup->is_vendor = $request->get('vendor');
-        $mainGroup->time = $request->get('time');
+$mainGroup->time = $request->get('time');
          if($request->has('image')) {
              $file = $this->upload($request->file('image'));
              $mainGroup->image = $file;

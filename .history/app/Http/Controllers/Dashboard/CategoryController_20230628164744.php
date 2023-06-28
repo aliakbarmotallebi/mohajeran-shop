@@ -12,7 +12,7 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = MainGroup::orderBy('is_vendor', 'DESC')->get();
+        $categories = MainGroup::orderBy('is_vendor', 'ASC')->get();
         return view('dashboard.categories.index', compact('categories'));
     }
 
