@@ -4,7 +4,6 @@ namespace App\View\Components\Dashboard;
 
 use App\Models\Order;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\View\Component;
 
 class Sidebar extends Component
@@ -21,7 +20,7 @@ class Sidebar extends Component
     public function __construct()
     {
         $this->user = User::whereNull('erp_code')->count();
-        $this->order = Order::whereDate('created_at', Carbon::today())->count();
+        $this->order = Order::whereNull('erp_code')->count();
     }
 
     /**
