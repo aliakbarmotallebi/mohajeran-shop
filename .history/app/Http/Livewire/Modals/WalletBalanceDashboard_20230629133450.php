@@ -73,8 +73,8 @@ class WalletBalanceDashboard extends Modal
         $this->amount = '';
         $this->message = '';
         $this->type = '';
-        $this->emit('getUsersList');
         $this->show();
+
     }
 
     private function getSummeryTransactionStatus()

@@ -20,7 +20,7 @@ class WalletBalanceDashboard extends Modal
     public $user_id; 
 
     protected $listeners = [
-        'show' => 'showModal',
+        'show' => 'showModal'
     ];
 
     public function showModal($user_id)
@@ -73,8 +73,8 @@ class WalletBalanceDashboard extends Modal
         $this->amount = '';
         $this->message = '';
         $this->type = '';
-        $this->emit('getUsersList');
         $this->show();
+
     }
 
     private function getSummeryTransactionStatus()
