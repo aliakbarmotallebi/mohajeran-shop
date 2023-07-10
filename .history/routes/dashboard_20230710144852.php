@@ -79,9 +79,6 @@ Route::group([
 
             Route::get('/messages', 'MessageController@index')
                 ->name('messages.index');
-            
-            Route::delete('/messages/{message}', 'MessageController@destroy')
-                ->name('messages.destroy');
 
             Route::resource('pinned_products', 'PinnedProductController')->except(['show']);
 

@@ -4,7 +4,7 @@
     x-transition:leave="transition duration-100 transform ease-in"
     x-transition:leave-end="opacity-0 -transition-x-0"
     x-show="isOpen()"
-    class="fixed xl:static inset-0 flex bg-white bg-opacity-90 z-40 flex-col max-w-sm w-full h-auto">
+    class="fixed xl:static inset-0 flex bg-white bg-opacity-90 z-40 h-screen flex-col max-w-xs w-full h-auto">
     <div x-show="!isOpen()" class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-50"></div>
     <div
         class="sidebar-header flex items-center bg-white p-5 bg-opacity-100 justify-center sticky top-0 h-[88px] px-[25px] space-x-3 space-x-reverse border-b border-gray-200">
@@ -15,7 +15,7 @@
             <h3 class="whitespace-nowrap overflow-hidden text-sm font-bold">
                 شهروند شاپ
             </h3>
-            <p class="text-xs mt-1 font-medium whitespace-nowrap text-ellipsis overflow-hidden text-right pl-1">
+            <p class="text-xs mt-1 font-semibold whitespace-nowrap text-ellipsis overflow-hidden text-right pl-1">
                 <span class="after:content-[':'] after:px-1">
                     نام کاربری
                 </span>
@@ -35,11 +35,8 @@
         <ul class="flex flex-col w-full">
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="group-hover:fill-blue-600 h-6 w-6">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -54,11 +51,8 @@
             </li>
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.products.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.products.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="group-hover:fill-blue-600"
                             width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -74,11 +68,8 @@
             @if(auth()->user()->isAdmin())
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.users.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.users.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="group-hover:fill-blue-600  w-6 h-6">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -90,18 +81,15 @@
                         لیست مشتریان
                     </span>
                     <span
-                    class="flex items-center justify-center text-xs text-red-500 font-medium bg-red-100 h-6 px-2 rounded-full mr-auto">
+                    class="flex items-center justify-center text-xs text-red-500 font-semibold bg-red-100 h-6 px-2 rounded-full mr-auto">
                 {{ $user }}
                 </span>
                 </a>
             </li>
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.orders.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.orders.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="group-hover:fill-blue-600  h-6 w-6">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -113,18 +101,15 @@
                         سفارشات
                     </span>
                     <span
-                        class="flex items-center justify-center text-xs text-red-500 font-medium bg-red-100 h-6 px-2 rounded-full mr-auto">
+                        class="flex items-center justify-center text-xs text-red-500 font-semibold bg-red-100 h-6 px-2 rounded-full mr-auto">
                         {{ $order }}
                     </span>
                 </a>
             </li>
             <li class="my-px h-[50px]">
                 <a href="#"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.messages')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="group-hover:fill-blue-600  h-6 w-6">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -140,11 +125,8 @@
 
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.categories.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.categories.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="group-hover:fill-blue-600 "
                             width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -159,11 +141,8 @@
             </li>
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.pinned_products.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.pinned_products.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="group-hover:fill-blue-600 "
                             width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -179,11 +158,8 @@
 
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.wallets.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.wallets.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="group-hover:fill-blue-600 " width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -199,11 +175,8 @@
 
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.payments.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.payments.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="group-hover:fill-blue-600 " width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -219,11 +192,8 @@
 
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.settings.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.settings.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="group-hover:fill-blue-600 " width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -238,11 +208,8 @@
             </li>
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.banners.index') }}"
-                    @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
-                        'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.banners.index')
-                    ])>
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="group-hover:fill-blue-600 " width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -258,18 +225,15 @@
             <li class="my-px h-[50px]">
                 <a href="{{ route('dashboard.messages.index') }}"
                     @class([
-                        'flex flex-row items-center h-[50px] font-medium whitespace-nowrap px-3 py-4 rounded-lg text-gray-800 hover:bg-gray-100 hover:text-blue-600 group',
+                        'flex flex-row items-center h-[50px] whitespace-nowrap px-3 py-4 rounded-lg text-[#32325D] hover:bg-gray-100 hover:text-blue-600 group',
                         'bg-neutral-100 text-neutral-600' => _is_link_active('dashboard.messages.index')
                     ])
-                    <span class="flex items-center justify-center text-gray-800 group-hover:text-blue-600">
+                    class="">
+                    <span class="flex items-center justify-center text-[#32325D] group-hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg"  class="group-hover:fill-blue-600 " width="24" height="24" viewBox="0 0 24 24"><path d="M14 22.5L11.2 19H6C5.44772 19 5 18.5523 5 18V7.10256C5 6.55028 5.44772 6.10256 6 6.10256H22C22.5523 6.10256 23 6.55028 23 7.10256V18C23 18.5523 22.5523 19 22 19H16.8L14 22.5ZM15.8387 17H21V8.10256H7V17H11.2H12.1613L14 19.2984L15.8387 17ZM2 2H19V4H3V15H1V3C1 2.44772 1.44772 2 2 2Z"></path></svg>
                     </span>
                     <span class="mr-3">
                         پیام های ارسالی کاربران
-                    </span>
-                    <span
-                    class="flex items-center justify-center text-xs text-red-500 font-medium bg-red-100 h-6 px-2 rounded-full mr-auto">
-                    {{ $message }}
                     </span>
                 </a>
             </li>

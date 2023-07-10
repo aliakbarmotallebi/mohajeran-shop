@@ -136,7 +136,7 @@
                 </div>
                 <div class="inline-flex rounded-md" role="group">
                     <button type="button" wire:click="setRoleCustomer({{ $user->id }})"
-                        class="px-2 py-1.5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 {{ !$user->isVendor() ? 'ring-2 ring-blue-700 text-blue-700 z-10 bg-blue-50' : '' }}">
+                        class="px-2 py-1.5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 {{ !$user->isVendor() ? 'ring-2 ring-blue-700 text-blue-700 z-10 ' : '' }}">
                         @if (!$user->isVendor())
                             <svg wire:target="setRoleCustomer({{ $user->id }})" wire:loading aria-hidden="true"
                                 class="inline ml-2 w-6 h-6 text-gray-500 animate-spin  fill-gray-900"
@@ -158,7 +158,7 @@
                         کاربرعادی
                     </button>
                     <button type="button" wire:click="setRoleVendor({{ $user->id }})"
-                        class="px-2 py-1.5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 {{ $user->isVendor() ? 'ring-2 ring-blue-700 text-blue-700 z-10 bg-blue-50' : '' }}">
+                        class="px-2 py-1.5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 {{ $user->isVendor() ? 'ring-2 ring-blue-700 text-blue-700 ' : '' }}">
                         @if ($user->isVendor())
                             <svg wire:target="setRoleVendor({{ $user->id }})"  wire:loading aria-hidden="true"
                                 class="inline ml-2 w-6 h-6 text-gray-500 animate-spin  fill-gray-900"

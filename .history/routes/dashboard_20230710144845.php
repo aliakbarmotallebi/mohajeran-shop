@@ -77,11 +77,9 @@ Route::group([
 
             Route::resource('banners', 'BannerController');
 
+
             Route::get('/messages', 'MessageController@index')
-                ->name('messages.index');
-            
-            Route::delete('/messages/{message}', 'MessageController@destroy')
-                ->name('messages.destroy');
+            ->name('messages.index');
 
             Route::resource('pinned_products', 'PinnedProductController')->except(['show']);
 

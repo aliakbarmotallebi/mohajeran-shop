@@ -4,7 +4,7 @@
     x-transition:leave="transition duration-100 transform ease-in"
     x-transition:leave-end="opacity-0 -transition-x-0"
     x-show="isOpen()"
-    class="fixed xl:static inset-0 flex bg-white bg-opacity-90 z-40 flex-col max-w-sm w-full h-auto">
+    class="fixed xl:static inset-0 flex bg-white bg-opacity-90 z-40 flex-col min-w-[20rem] w-full h-auto">
     <div x-show="!isOpen()" class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-50"></div>
     <div
         class="sidebar-header flex items-center bg-white p-5 bg-opacity-100 justify-center sticky top-0 h-[88px] px-[25px] space-x-3 space-x-reverse border-b border-gray-200">

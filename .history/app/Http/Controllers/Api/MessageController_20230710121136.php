@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponser;
 
@@ -52,8 +51,6 @@ class MessageController extends Controller
             'mobile' => 'required|string',
             'message' => 'required|string',
         ]);
-
-        (new Message())->create($request->all());
 
         return $this->success(NULL, 'باموفقیت ثبت شد');
     }

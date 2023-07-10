@@ -14,8 +14,6 @@ class Sidebar extends Component
 
     public $order;
 
-    public $message;
-
     /**
      * Create a new component instance.
      *
