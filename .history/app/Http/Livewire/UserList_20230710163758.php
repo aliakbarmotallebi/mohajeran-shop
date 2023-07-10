@@ -25,7 +25,7 @@ class UserList extends Component
         'mobile' => ['except' => 1],
         'fullname' => ['except' => 1],
         'status' => ['except' => 1],
-        'page'    => ['except' => 1],
+        'page'    => ['except' => 1]
         'sort'    => ['except' => 1]
     ];
 

@@ -1,5 +1,5 @@
 <x-dashboard.card title="لیست مشتریان">
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-4 gap-y-4 m:gap-y-0 px-6 py-5 border-b">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 gap-y-4 m:gap-y-0 px-6 py-5 border-b">
         <div>
             <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900">
                 نام و نام خانوادگی

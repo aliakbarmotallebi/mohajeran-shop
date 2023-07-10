@@ -1,5 +1,5 @@
 <x-dashboard.card title="لیست مشتریان">
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-4 gap-y-4 m:gap-y-0 px-6 py-5 border-b">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 gap-y-4 m:gap-y-0 px-6 py-5 border-b">
         <div>
             <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900">
                 نام و نام خانوادگی
@@ -38,7 +38,7 @@
             <select wire:model="sort"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                 <option selected>انتخاب کنید</option>
-                <option value="balance">
+                <option value="0">
                     بیشتر مبلغ کیف پول
                 </option>
             </select>

@@ -19,14 +19,11 @@ class UserList extends Component
 
     public $status;
 
-    public $sort;
-
     protected $queryString = [
         'mobile' => ['except' => 1],
         'fullname' => ['except' => 1],
         'status' => ['except' => 1],
-        'page'    => ['except' => 1],
-        'sort'    => ['except' => 1]
+        'page'    => ['except' => 1]
     ];
 
     protected $listeners = [
@@ -46,10 +43,6 @@ class UserList extends Component
         }
 
         if ($this->status == 1) {
-            $this->users = $this->users->whereNull('erp_code');
-        }
-
-        if ($this->sort == 'balance') {
             $this->users = $this->users->whereHas('wallets', function($q){
                 $q->orderBy('balance', 'DESC');
             });
